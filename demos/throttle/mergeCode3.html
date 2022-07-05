@@ -31,7 +31,7 @@
       }
       console.log(getUserAction());
       const setThrottle = throttle(getUserAction, 1000, {
-        leading: true,
+        leading: false,
         trailing: false,
       });
 
@@ -41,8 +41,14 @@
         let context, timeout, result;
         let previous = 0;
 
-        let leading = !!options.leading || false; // 默认去除立即执行部分
-        let trailing = "trailing" in options ? !!options.trailing : true; // 默认保留尾部
+        let leading = false;
+        let trailing = true;
+
+        // 如果同时设置无头无尾，则直接使用默认设置
+        if (!(options.leading === false && options.trailing === false)) {
+          leading = !!options.leading; // 默认去除立即执行部分
+          trailing = "trailing" in options ? !!options.trailing : true; // 默认保留尾部
+        }
 
         // 返回原函数的return
         const showResult = function (e1, e2) {
