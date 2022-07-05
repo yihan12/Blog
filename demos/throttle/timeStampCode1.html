@@ -29,17 +29,20 @@
         return 123;
       }
       console.log(getUserAction());
-      const setThrottle = throttle(getUserAction, 10000, true);
+      const setThrottle = throttle(getUserAction, 1000, true);
 
       container.onmousemove = setThrottle;
-
+      // 由于一开始now - 0 > wait，则这个写法，时间会立即执行，没过一秒会执行一次，停止触发，则不会再执行事件
       function throttle(func, wait = 500) {
-        let context;
+        let context, now;
         let previous = 0; // 设置过去的执行时间初始值为0
         return function (...args) {
           context = this;
-          
-
+          now = +(Date.now() || new Date().getTime());
+          if (now - previous > wait) {
+            func.apply(context, args);
+            previous = now;
+          }
         };
       }
     </script>
