@@ -30,13 +30,19 @@
         return 123;
       }
       console.log(getUserAction());
-      const setThrottle = throttle(getUserAction, 10000);
+      const setThrottle = throttle(getUserAction, 1000);
 
       container.onmousemove = setThrottle;
 
       function throttle(func, wait = 500) {
         let context, timeout, result;
         let previous = 0;
+
+        const showResult = function (e1, e2) {
+          result = func.apply(e1, e2);
+          return result;
+        };
+
         const throttled = function (...args) {
           context = this;
           const now = +(Date.now() || new Date().getTime()); // 当前时间
@@ -50,13 +56,13 @@
               timeout = null;
             }
             previous = now;
-            func.apply(context, args);
+            showResult(context, args);
           } else if (!timeout) {
             // 剩余的情况就是remaining<=wait的情况，这里使用setTimeout就可以最后也会执行一次
             timeout = setTimeout(function () {
               timeout = null;
               previous = +(Date.now() || new Date().getTime()); // 这里是将previous重新赋值当前时间
-              func.apply(context, args);
+              showResult(context, args);
             }, remaining);
           }
         };
