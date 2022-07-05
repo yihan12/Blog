@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>debounce</title>
+    <style>
+      #container {
+        width: 100%;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        color: #fff;
+        background-color: #444;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      let count = 1;
+      const container = document.getElementById("container");
+
+      function getUserAction(e) {
+        console.log(e, this);
+        container.innerHTML = count++;
+        return 123;
+      }
+      console.log(getUserAction());
+
+      const setDebounce = debounce(getUserAction, 1000, true);
+
+      container.onmousemove = setDebounce;
+
+      function debounce(func, wait = 500, immediate = false) {
+        let timeout, context, result, callNow;
+
+        function showResult(e1, e2) {
+          result = func.apply(e1, e2); // 绑定e1,e2的同时，输出result
+          return result;
+        }
+
+        return function (...args) {
+          context = this;
+          if (timeout) clearTimeout(timeout);
+
+          if (immediate) {
+            callNow = !timeout;
+            timeout = setTimeout(function () {
+              timeout = null;
+            }, wait);
+            if (callNow) showResult(context, args);
+          } else {
+            timeout = setTimeout(function () {
+              showResult(context, args);
+              clearTimeout(timeout);
+              timeout = undefined;
+            }, wait);
+          }
+        };
+      }
+    </script>
+  </body>
+</html>
