@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>throttle</title>
+    <style>
+      #container {
+        width: 100%;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        color: #fff;
+        background-color: #444;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      let count = 1;
+      const container = document.getElementById("container");
+
+      function getUserAction(e) {
+        console.log(e, this);
+        container.innerHTML = count++;
+        return 123;
+      }
+      console.log(getUserAction());
+      const setThrottle = throttle(getUserAction, 1000);
+
+      container.onmousemove = setThrottle;
+
+      function throttle(func, wait = 500) {
+        let context, timeout, result;
+        let previous = 0;
+        const throttled = function (...args) {
+          context = this;
+          const now = +(Date.now() || new Date().getTime()); // 当前时间
+          // 下次触发 func 剩余时间
+          const remaining = wait - (now - previous);
+
+          // 如果没有剩余时间或者改了系统时间,这时候不需要等待，直接立即执行，这样就会第一次就执行
+          if (remaining <= 0 || remaining > wait) {
+            if (timeout) {
+              clearTimeout(timeout);
+              timeout = null;
+            }
+            previous = now;
+            func.apply(context, args);
+          } else if (!timeout) {
+            // 剩余的情况就是remaining<=wait的情况，这里使用setTimeout就可以最后也会执行一次
+            timeout = setTimeout(function () {
+              timeout = null;
+              previous = +(Date.now() || new Date().getTime()); // 这里是将previous重新赋值当前时间
+              func.apply(context, args);
+            }, remaining);
+          }
+        };
+        return throttled;
+      }
+    </script>
+  </body>
+</html>
