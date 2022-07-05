@@ -56,7 +56,7 @@
             timeout = setTimeout(function () {
               showResult(context, args);
               clearTimeout(timeout);
-              timeout = undefined;
+              timeout = null;
             }, wait);
           }
         };
