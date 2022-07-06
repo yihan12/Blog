@@ -43,8 +43,7 @@
         let timerId, // setTimeout 生成的定时器句柄
           lastThis, // 保存上一次 this
           lastArgs, // 保存上一次执行 debounced 的 arguments
-          result, // 函数 func 执行后的返回值，多次触发但未满足执行 func 条件时，返回 result
-          lastCallTime; // 上一次调用 debounce 的时间
+          result; // 函数 func 执行后的返回值，多次触发但未满足执行 func 条件时，返回 result
 
         wait = +wait || 0; // 等待时间
 
@@ -59,7 +58,7 @@
           if (timerId !== undefined) {
             cancelTimer(timerId);
           }
-          lastArgs = lastThis = timerId = result = lastCallTime = undefined;
+          lastArgs = lastThis = timerId = result = undefined;
         }
 
         // 开启定时器
@@ -103,7 +102,7 @@
 
           lastArgs = args;
           lastThis = this;
-          lastCallTime = time; // 上一次调用 debounce 的时间
+
           if (timerId) {
             cancelTimer(timerId);
           }
