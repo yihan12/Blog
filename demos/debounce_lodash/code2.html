@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>debounce</title>
+    <style>
+      #container {
+        width: 100%;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        color: #fff;
+        background-color: #444;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <button id="button">取消debounce</button>
+    <script>
+      let count = 1;
+      const container = document.getElementById("container");
+
+      function isObject(value) {
+        const type = typeof value;
+        return value != null && (type === "object" || type === "function");
+      }
+
+      function getUserAction(e) {
+        console.log(e, this);
+        container.innerHTML = count++;
+        return 123;
+      }
+      console.log(getUserAction());
+      const setdebounce = debounce(getUserAction, 1000, { leading: true });
+
+      container.onmousemove = setdebounce;
+
+      function debounce(func, wait, options) {
+        let timerId, // setTimeout 生成的定时器句柄
+          lastThis, // 保存上一次 this
+          lastArgs, // 保存上一次执行 debounced 的 arguments
+          result, // 函数 func 执行后的返回值，多次触发但未满足执行 func 条件时，返回 result
+          lastCallTime; // 上一次调用 debounce 的时间
+
+        let leading = false; // 判断是否立即执行，默认false
+
+        wait = +wait || 0;
+
+        // 从options中获取是否立即执行
+        if (isObject(options)) {
+          leading = !!options.leading;
+        }
+        // 没传 wait 时调用 window.requestAnimationFrame()
+        const useRAF =
+          !wait &&
+          wait !== 0 &&
+          typeof window.requestAnimationFrame === "function";
+
+        // 取消debounce
+        function cancel() {
+          if (timerId !== undefined) {
+            cancelTimer(timerId);
+          }
+          lastArgs = lastThis = timerId = result = lastCallTime = undefined;
+        }
+
+        // 开启定时器
+        function startTimer(pendingFunc, wait) {
+          if (useRAF) {
+            window.cancelAnimationFrame(timerId);
+            return window.requestAnimationFrame(pendingFunc);
+          }
+          return setTimeout(pendingFunc, wait);
+        }
+
+        // 定时器回调函数，表示定时结束后的操作
+        function timerExpired(wait) {
+          const time = Date.now();
+          // 1、是否需要执行
+          // 执行事件结束后的那次回调，否则重启定时器
+          if (shouldInvoke(time)) {
+            return trailingEdge(time);
+          }
+          // 2、否则 计算剩余等待时间，重启定时器，保证下一次时延的末尾触发
+          timerId = startTimer(timerExpired, wait);
+        }
+
+        // 这里时触发后仍调用函数
+        function trailingEdge(time) {
+          timerId = undefined;
+
+          // 只有当我们有 `lastArgs` 时才调用，这意味着`func'已经被调用过一次。
+          if (lastArgs) {
+            return invokeFunc(time);
+          }
+          lastArgs = lastThis = undefined;
+          return result;
+        }
+
+        // 取消定时器
+        function cancelTimer(id) {
+          if (useRAF) {
+            return window.cancelAnimationFrame(id);
+          }
+          clearTimeout(id);
+        }
+
+        function invokeFunc(time) {
+          const args = lastArgs;
+          const thisArg = lastThis;
+
+          lastArgs = lastThis = undefined; // 清空当前函数指向的this,argumnents
+          result = func.apply(thisArg, args); // 绑定当前函数指向的this,argumnents
+          return result;
+        }
+        // 判断此时是否立即执行 func 函数
+        // lastCallTime === undefined 第一次调用时
+        // timeSinceLastCall >= wait 超过超时时间 wait，处理事件结束后的那次回调
+        // timeSinceLastCall < 0 当前时间 - 上次调用时间小于 0，即更改了系统时间
+        function shouldInvoke(time) {
+          const timeSinceLastCall = time - lastCallTime;
+          return (
+            lastCallTime === undefined ||
+            timeSinceLastCall >= wait ||
+            timeSinceLastCall < 0
+          );
+        }
+
+        // 立即执行函数
+        function leadingEdge(time) {
+          // 1、开启定时器，为了事件结束后的那次回调
+          timerId = startTimer(timerExpired, wait);
+          // 1、如果配置了 leading 执行传入函数 func
+          // leading 来源自 !!options.leading
+          return leading ? invokeFunc(time) : result;
+        }
+
+        const debounced = function (...args) {
+          const time = Date.now(); // 获取当前时间
+          const isInvoking = shouldInvoke(time); // 判断此时是否立即执行 func 函数
+
+          lastArgs = args;
+          lastThis = this;
+          lastCallTime = time;
+
+          if (isInvoking) {
+            // 判断是否立即执行
+            if (timerId === undefined) {
+              return leadingEdge(lastCallTime);
+            }
+          }
+          if (timerId === undefined) {
+            timerId = startTimer(timerExpired, wait);
+          }
+          return result;
+        };
+
+        debounced.cancel = cancel;
+        return debounced;
+      }
+
+      document.getElementById("button").addEventListener("click", function () {
+        setdebounce.cancel();
+      });
+    </script>
+  </body>
+</html>
