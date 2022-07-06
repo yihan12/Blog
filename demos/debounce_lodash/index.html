@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>debounce</title>
+    <style>
+      #container {
+        width: 100%;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        color: #fff;
+        background-color: #444;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <button id="button">取消debounce</button>
+    <script>
+      let count = 1;
+      const container = document.getElementById("container");
 
+      function isObject(value) {
+        const type = typeof value;
+        return value != null && (type === "object" || type === "function");
+      }
+
+      function getUserAction(e) {
+        console.log(e, this);
+        container.innerHTML = count++;
+        return 123;
+      }
+      console.log(getUserAction());
+      const setdebounce = debounce(getUserAction, 1000);
+
+      container.onmousemove = setdebounce;
+
+      function debounce(func, wait) {
+        let timerId, // setTimeout 生成的定时器句柄
+          lastThis, // 保存上一次 this
+          lastArgs, // 保存上一次执行 debounced 的 arguments
+          result, // 函数 func 执行后的返回值，多次触发但未满足执行 func 条件时，返回 result
+          lastCallTime; // 上一次调用 debounce 的时间
+
+        wait = +wait || 0; // 等待时间
+
+        // 没传 wait 时调用 window.requestAnimationFrame()
+        const useRAF =
+          !wait &&
+          wait !== 0 &&
+          typeof window.requestAnimationFrame === "function";
+
+        // 取消debounce
+        function cancel() {
+          if (timerId !== undefined) {
+            cancelTimer(timerId);
+          }
+          lastArgs = lastThis = timerId = result = lastCallTime = undefined;
+        }
+
+        // 开启定时器
+        // 1.未传wait时使用requestAnimationFrame
+        // 2.直接使用定时器
+        function startTimer(pendingFunc, wait) {
+          if (useRAF) {
+            window.cancelAnimationFrame(timerId);
+            return window.requestAnimationFrame(pendingFunc);
+          }
+          return setTimeout(pendingFunc, wait);
+        }
+
+        // 定时器回调函数，表示定时结束后的操作
+        function timerExpired(wait) {
+          const time = Date.now();
+          timerId = startTimer(invokeFunc, wait);
+        }
+
+        // 取消定时器
+        function cancelTimer(id) {
+          if (useRAF) {
+            return window.cancelAnimationFrame(id);
+          }
+          clearTimeout(id);
+          timerId = undefined;
+        }
+
+        // 执行函数,并将原函数的返回值result输出
+        function invokeFunc() {
+          const args = lastArgs;
+          const thisArg = lastThis;
+
+          lastArgs = lastThis = undefined; // 清空当前函数指向的this,argumnents
+          result = func.apply(thisArg, args); // 绑定当前函数指向的this,argumnents
+          return result;
+        }
+
+        const debounced = function (...args) {
+          const time = Date.now(); // 获取当前时间
+
+          lastArgs = args;
+          lastThis = this;
+          lastCallTime = time; // 上一次调用 debounce 的时间
+          if (timerId) {
+            cancelTimer(timerId);
+          }
+          if (timerId === undefined) {
+            timerId = startTimer(timerExpired, wait);
+          }
+          return result;
+        };
+
+        debounced.cancel = cancel;
+        return debounced;
+      }
+
+      document.getElementById("button").addEventListener("click", function () {
+        setdebounce.cancel();
+      });
+    </script>
+  </body>
+</html>
