@@ -1,5 +1,7 @@
 # Blog
-易函123博客，跟着大佬学习JavaScript,清空收藏夹
+易函123博客  
+总结、归纳、跟着学、  
+
 
 # 【跟着大佬学JavaScript】
 * [【跟着大佬学JavaScript】之防抖](https://github.com/yihan12/Blog/issues/1)   
