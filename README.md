@@ -11,7 +11,7 @@
 * [【跟着大佬学JavaScript】之underscore数组去重](https://github.com/yihan12/Blog/issues/5)
 
 # 【echarts使用】
-* [【echarts使用】之xy轴刻度、文字、轴线样式、分隔线]()
+* [【echarts使用】之xy轴刻度、文字、轴线样式、分隔线](https://github.com/yihan12/Blog/issues/8)
 
 # 【兼容性】
 * [【兼容性】之ios时间Date兼容性问题](https://github.com/yihan12/Blog/issues/4)  
