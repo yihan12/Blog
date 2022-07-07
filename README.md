@@ -8,7 +8,7 @@
 * [【跟着大佬学JavaScript】之防抖](https://github.com/yihan12/Blog/issues/1)   
 * [【跟着大佬学JavaScript】之节流](https://github.com/yihan12/Blog/issues/2)    
 * [【跟着大佬学JavaScript】之lodash防抖节流合并](https://github.com/yihan12/Blog/issues/3)  
-* [【跟着大佬学JavaScript】之lodash数组去重]()
+* [【跟着大佬学JavaScript】之underscore数组去重]()
 
 # 【echarts业务使用】
 * echarts--x轴时间戳展示0-24小时
