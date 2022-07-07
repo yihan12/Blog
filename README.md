@@ -15,7 +15,7 @@
 
 # 【兼容性】
 * [【兼容性】之ios时间Date兼容性问题](https://github.com/yihan12/Blog/issues/4)  
-* [【兼容性】之iPhoneX安全区域(Safe Area)底部小黑条在微信小程序和H5的屏幕适配]()
+* [【兼容性】之iPhoneX安全区域(Safe Area)底部小黑条在微信小程序和H5的屏幕适配](https://github.com/yihan12/Blog/issues/7)
 
 # 最后
 后续会一直更新，希望各位看官不要吝啬手中的赞。
