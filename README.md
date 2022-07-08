@@ -38,4 +38,4 @@
 
 ❤️ **喜欢或者有所启发，欢迎 star！！！**
 
-<img src="images/1.png" width="30" height="30" />
+<img src="https://github.com/yihan12/Blog/blob/main/images/1.jpeg" width="100%" height="atuto" />
