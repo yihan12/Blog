@@ -38,4 +38,7 @@
 
 ❤️ **喜欢或者有所启发，欢迎 star！！！**
 
-<img src="https://github.com/yihan12/Blog/blob/main/images/1.jpeg" width="100%" height="atuto" />
+❤️ **关注公众号「前端小白易函123」，让我们一起共同进步**
+
+## 公众号
+<img src="https://mp.weixin.qq.com/misc/getqrcode?fakeid=3949201456&token=2032346437" width="43" height="43"/>
