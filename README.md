@@ -28,6 +28,7 @@
 | --------------------------------------- | ------------------------------------------------------------ |
 | [网站性能优化实战——从12.67s到1.06s的故事](https://juejin.cn/post/6844903613790175240)              | [前端性能优化之白屏时间](https://cloud.tencent.com/developer/article/1508941)                                   |
 | [网站性能优化实战（二）](https://imweb.io/topic/5b4d417eee0c3b0779df96d9) | [网页性能管理详解](http://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html) |
+| [掌握浏览器重绘(repaint)重排(reflow))-前端进阶](https://segmentfault.com/a/1190000017491520) | |
 
 # 最后
 后续会一直更新，希望各位看官不要吝啬手中的赞。
