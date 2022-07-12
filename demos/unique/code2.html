@@ -45,34 +45,25 @@
         [],
       ]
 
-      // 暴力解法一
-
+      // ES6步骤少的代码 方法一
       function unique(array) {
         if (!Array.isArray(array)) {
           console.log('type error!')
           return
         }
-        const res = [array[0]]
-        let arrLen = array.length
-        let resLen = res.length
+        return Array.from(new Set(array))
+      }
 
-        for (let i = 0; i < arrLen; i++) {
-          let flag = true
-          for (let j = 0; j < resLen; j++) {
-            if (array[i] === res[j]) {
-              flag = false
-              break
-            }
-          }
-          if (flag) {
-            res.push(array[i])
-            resLen = res.length
-          }
+      function unique1(array) {
+        if (!Array.isArray(array)) {
+          console.log('type error!')
+          return
         }
-        return res
+        return [...new Set(arr)]
       }
 
       console.log(arr, unique(arr))
+      console.log(arr, unique1(arr))
     </script>
   </body>
 </html>
