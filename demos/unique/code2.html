@@ -45,7 +45,7 @@
         [],
       ]
 
-      // ES6步骤少的代码 方法一
+      // ES6 Array.from + Set 方法一
       function unique(array) {
         if (!Array.isArray(array)) {
           console.log('type error!')
@@ -54,6 +54,7 @@
         return Array.from(new Set(array))
       }
 
+      // ES6 点运算 + Set 方法二
       function unique1(array) {
         if (!Array.isArray(array)) {
           console.log('type error!')
@@ -62,8 +63,29 @@
         return [...new Set(arr)]
       }
 
+      // ES6 箭头函数 + 点运算 + Set 方法三
+      const unique2 = (array) => {
+        if (!Array.isArray(array)) {
+          console.log('type error!')
+          return
+        }
+        return [...new Set(arr)]
+      }
+
+      // ES6 Map + ES5 filter  方法四
+      function unique3(array) {
+        if (!Array.isArray(array)) {
+          console.log('type error!')
+          return
+        }
+        const seen = new Map()
+        return array.filter((a) => !seen.has(a) && seen.set(a, 1))
+      }
+
       console.log(arr, unique(arr))
       console.log(arr, unique1(arr))
+      console.log(arr, unique2(arr))
+      console.log(arr, unique3(arr))
     </script>
   </body>
 </html>
