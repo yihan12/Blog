@@ -47,6 +47,10 @@
 
       // indexOf + forEach 利用indexOf检测元素在新数组是否存在
       // function unique(array) {
+      //   if (!Array.isArray(array)) {
+      //     console.log("type error!");
+      //     return;
+      //   }
       //   const newArr = [];
       //   array.forEach((el) => {
       //     if (newArr.indexOf(el) === -1) {
@@ -56,8 +60,12 @@
       //   return newArr;
       // }
 
-      // indexOf + filter 利用indexOf检测元素在数组中第一次出现的位置是否和元素现在的位置相等
+      // // indexOf + filter 利用indexOf检测元素在数组中第一次出现的位置是否和元素现在的位置相等
       function unique1(array) {
+        if (!Array.isArray(array)) {
+          console.log("type error!");
+          return;
+        }
         return array.filter((item, index) => {
           return array.indexOf(item) === index;
         });
