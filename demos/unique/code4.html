@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>unique</title>
+  </head>
+  <body>
+    <script>
+      const arr = [
+        1,
+        1,
+        "1",
+        "1",
+        0,
+        0,
+        "0",
+        "0",
+        true,
+        false,
+        "true",
+        "false",
+        "a",
+        "A",
+        undefined,
+        undefined,
+        "undefined",
+        null,
+        null,
+        "null",
+        NaN,
+        NaN,
+        +0,
+        -0,
+        new String("1"),
+        new String("1"),
+        Symbol(1),
+        Symbol(1),
+        {},
+        {},
+        /a/,
+        /a/,
+        [],
+        [],
+      ];
+
+      // indexOf + forEach 利用indexOf检测元素在新数组是否存在
+      // function unique(array) {
+      //   const newArr = [];
+      //   array.forEach((el) => {
+      //     if (newArr.indexOf(el) === -1) {
+      //       newArr.push(el);
+      //     }
+      //   });
+      //   return newArr;
+      // }
+
+      // indexOf + filter 利用indexOf检测元素在数组中第一次出现的位置是否和元素现在的位置相等
+      function unique1(array) {
+        return array.filter((item, index) => {
+          return array.indexOf(item) === index;
+        });
+      }
+
+      console.log([NaN].indexOf(NaN)); // -1
+      // console.log(arr, unique(arr));
+      console.log(arr, unique1(arr));
+    </script>
+  </body>
+</html>
