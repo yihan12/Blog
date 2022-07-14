@@ -43,9 +43,12 @@
 
       console.log(new String("1") == new String("1")); // false
       console.log(new String("1") === new String("1")); // false
+      Object.prototype.toString.call(new String('1')) // '[object String]'
+
 
       console.log(/a/ == /a/); // false
       console.log(/a/ === /a/); // false
+      Object.prototype.toString.call(/a/); //'[object RegExp]'
 
       console.log(Symbol(1) == Symbol(1)); // false
       console.log(Symbol(1) === Symbol(1)); // false
