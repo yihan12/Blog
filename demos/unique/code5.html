@@ -52,9 +52,7 @@
           console.log("type error!");
           return;
         }
-        const sortArr = array.sort(function (a, b) {
-          return a - b;
-        });
+        const sortArr = array.sort();
         const newArr = [];
         sortArr.forEach((el, i) => {
           if (sortArr[i] !== sortArr[i - 1]) {
