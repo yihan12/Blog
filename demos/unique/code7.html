@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>unique</title>
+  </head>
+  <body>
+    <script>
+      const arr = [
+        1,
+        1,
+        "1",
+        "1",
+        0,
+        0,
+        "0",
+        "0",
+        true,
+        false,
+        "true",
+        "false",
+        "a",
+        "A",
+        undefined,
+        undefined,
+        "undefined",
+        null,
+        null,
+        "null",
+        NaN,
+        NaN,
+        +0,
+        -0,
+        new String("1"),
+        new String("1"),
+        Symbol(1),
+        Symbol(1),
+        {},
+        {},
+        /a/,
+        /a/,
+        [],
+        [],
+      ];
+
+      // 利用includes()方法检查新数组是否包含原数组的每一项
+      function unique(array) {
+        if (!Array.isArray(array)) {
+          console.log("type error!");
+          return;
+        }
+
+        return array.reduce((pre, cur) => {
+          !pre.includes(cur) && pre.push(cur);
+          return pre;
+        }, []);
+      }
+
+      console.log(arr, unique(arr));
+    </script>
+  </body>
+</html>
