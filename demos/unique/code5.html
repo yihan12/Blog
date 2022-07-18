@@ -45,9 +45,8 @@
         [],
       ];
 
-      // sort 利用indexOf检测元素在新数组是否存在
-
       // sort()方法主要是用于对数组进行排序，默认情况下该方法是将数组元素转换成字符串，然后按照ASC码进行排序
+      // sort()方法不支持Symbol，Symbol不支持转换成字符串
       function unique(array) {
         if (!Array.isArray(array)) {
           console.log("type error!");
