@@ -13,7 +13,7 @@
 ### 数据去重
 * [【跟着大佬学JavaScript】之数组去重(结果对比)](https://github.com/yihan12/Blog/issues/5)  
 * 【跟着大佬学JavaScript】之数组去重(速度对比)  
-* 【跟着大佬学JavaScript】之类型判断
+* 【跟着大佬学JavaScript】之underscore数组去重
 
 # 【echarts使用】
 * [【echarts使用】之xy轴刻度、文字、轴线样式、分隔线](https://github.com/yihan12/Blog/issues/8)  
