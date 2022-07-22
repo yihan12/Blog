@@ -20,7 +20,7 @@
 * [【echarts使用】之折线图拐点圆的样式（内圆外圆）](https://github.com/yihan12/Blog/issues/9)
 * [【echarts使用】之基准线markLine](https://github.com/yihan12/Blog/issues/10)  
 * [【echarts使用】之无数据时连线与否](https://github.com/yihan12/Blog/issues/11)  
-* [【echarts使用】之设置柱子多个颜色（渐进色）]()
+* [【echarts使用】之设置柱子多个颜色（渐进色）](https://github.com/yihan12/Blog/issues/13)
 
 # 【兼容性】
 * [【兼容性】之ios时间Date兼容性问题](https://github.com/yihan12/Blog/issues/4)  
