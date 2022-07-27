@@ -23,7 +23,7 @@
 * [【echarts使用】之设置柱子多个颜色（渐进色）](https://github.com/yihan12/Blog/issues/13)  
 * [【echarts使用】之无拐点，折线样式](https://github.com/yihan12/Blog/issues/14)  
 * [【echarts使用】之设置柱子的borderRadius](https://github.com/yihan12/Blog/issues/15)  
-* [【echarts使用】之选中状态(默认不显示置灰)]()
+* [【echarts使用】之选中状态(默认不显示置灰)](https://github.com/yihan12/Blog/issues/16)  
 
 # 【兼容性】
 * [【兼容性】之ios时间Date兼容性问题](https://github.com/yihan12/Blog/issues/4)  
