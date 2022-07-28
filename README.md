@@ -7,30 +7,30 @@
 
 # 【跟着大佬学JavaScript】
 ### 防抖节流
-* - [x] [【跟着大佬学JavaScript】之防抖](https://github.com/yihan12/Blog/issues/1)   
-* [【跟着大佬学JavaScript】之节流](https://github.com/yihan12/Blog/issues/2)    
-* [【跟着大佬学JavaScript】之lodash防抖节流合并](https://github.com/yihan12/Blog/issues/3)  
+- [x]  [【跟着大佬学JavaScript】之防抖](https://github.com/yihan12/Blog/issues/1)   
+- [x]  [【跟着大佬学JavaScript】之节流](https://github.com/yihan12/Blog/issues/2)    
+- [x]  [【跟着大佬学JavaScript】之lodash防抖节流合并](https://github.com/yihan12/Blog/issues/3)  
 ### 数据去重
-* [【跟着大佬学JavaScript】之数组去重(结果对比)](https://github.com/yihan12/Blog/issues/5)  
-* [【跟着大佬学JavaScript】之underscore数组去重](https://github.com/yihan12/Blog/issues/12)
-* 【跟着大佬学JavaScript】之数组去重(速度对比)  
+- [x]  [【跟着大佬学JavaScript】之数组去重(结果对比)](https://github.com/yihan12/Blog/issues/5)  
+- [x]  [【跟着大佬学JavaScript】之underscore数组去重](https://github.com/yihan12/Blog/issues/12)
+- [x]  【跟着大佬学JavaScript】之数组去重(速度对比)  
 
 # 【echarts使用】
-* [【echarts使用】之xy轴刻度、文字、轴线样式、分隔线](https://github.com/yihan12/Blog/issues/8)  
-* [【echarts使用】之折线图拐点圆的样式（内圆外圆）](https://github.com/yihan12/Blog/issues/9)
-* [【echarts使用】之基准线markLine](https://github.com/yihan12/Blog/issues/10)  
-* [【echarts使用】之无数据时连线与否](https://github.com/yihan12/Blog/issues/11)  
-* [【echarts使用】之设置柱子多个颜色（渐进色）](https://github.com/yihan12/Blog/issues/13)  
-* [【echarts使用】之无拐点，折线样式](https://github.com/yihan12/Blog/issues/14)  
-* [【echarts使用】之设置柱子的borderRadius](https://github.com/yihan12/Blog/issues/15)  
-* [【echarts使用】之选中状态(默认不显示置灰)](https://github.com/yihan12/Blog/issues/16)  
+- [x]  [【echarts使用】之xy轴刻度、文字、轴线样式、分隔线](https://github.com/yihan12/Blog/issues/8)  
+- [x]  [【echarts使用】之折线图拐点圆的样式（内圆外圆）](https://github.com/yihan12/Blog/issues/9)
+- [x]  [【echarts使用】之基准线markLine](https://github.com/yihan12/Blog/issues/10)  
+- [x]  [【echarts使用】之无数据时连线与否](https://github.com/yihan12/Blog/issues/11)  
+- [x]  [【echarts使用】之设置柱子多个颜色（渐进色）](https://github.com/yihan12/Blog/issues/13)  
+- [x]  [【echarts使用】之无拐点，折线样式](https://github.com/yihan12/Blog/issues/14)  
+- [x]  [【echarts使用】之设置柱子的borderRadius](https://github.com/yihan12/Blog/issues/15)  
+- [x]  [【echarts使用】之选中状态(默认不显示置灰)](https://github.com/yihan12/Blog/issues/16)  
 
 # 【兼容性】
-* [【兼容性】之ios时间Date兼容性问题](https://github.com/yihan12/Blog/issues/4)  
-* [【兼容性】之iPhoneX安全区域(Safe Area)底部小黑条在微信小程序和H5的屏幕适配](https://github.com/yihan12/Blog/issues/7)
+- [x]  [【兼容性】之ios时间Date兼容性问题](https://github.com/yihan12/Blog/issues/4)  
+- [x]  [【兼容性】之iPhoneX安全区域(Safe Area)底部小黑条在微信小程序和H5的屏幕适配](https://github.com/yihan12/Blog/issues/7)
 
 # 【性能优化】
-* vite+vue3性能优化  
+- [x]  vite+vue3性能优化  
 
 **参考：**  
 
