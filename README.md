@@ -7,7 +7,7 @@
 
 # 【跟着大佬学JavaScript】
 ### 防抖节流
-* [【跟着大佬学JavaScript】之防抖](https://github.com/yihan12/Blog/issues/1)   
+* - [x] [【跟着大佬学JavaScript】之防抖](https://github.com/yihan12/Blog/issues/1)   
 * [【跟着大佬学JavaScript】之节流](https://github.com/yihan12/Blog/issues/2)    
 * [【跟着大佬学JavaScript】之lodash防抖节流合并](https://github.com/yihan12/Blog/issues/3)  
 ### 数据去重
