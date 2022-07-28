@@ -7,13 +7,14 @@
 
 # 【跟着大佬学JavaScript】
 ### 防抖节流
+
 - [x]  [【跟着大佬学JavaScript】之防抖](https://github.com/yihan12/Blog/issues/1)   
 - [x]  [【跟着大佬学JavaScript】之节流](https://github.com/yihan12/Blog/issues/2)    
 - [x]  [【跟着大佬学JavaScript】之lodash防抖节流合并](https://github.com/yihan12/Blog/issues/3)  
 ### 数据去重
 - [x]  [【跟着大佬学JavaScript】之数组去重(结果对比)](https://github.com/yihan12/Blog/issues/5)  
 - [x]  [【跟着大佬学JavaScript】之underscore数组去重](https://github.com/yihan12/Blog/issues/12)
-- [x]  【跟着大佬学JavaScript】之数组去重(速度对比)  
+- [ ]  【跟着大佬学JavaScript】之数组去重(速度对比)  
 
 # 【echarts使用】
 - [x]  [【echarts使用】之xy轴刻度、文字、轴线样式、分隔线](https://github.com/yihan12/Blog/issues/8)  
@@ -30,7 +31,7 @@
 - [x]  [【兼容性】之iPhoneX安全区域(Safe Area)底部小黑条在微信小程序和H5的屏幕适配](https://github.com/yihan12/Blog/issues/7)
 
 # 【性能优化】
-- [x]  vite+vue3性能优化  
+- [ ]  vite+vue3性能优化  
 
 **参考：**  
 
