@@ -26,6 +26,7 @@
 - [x]  [【echarts使用】之设置柱子的borderRadius](https://github.com/yihan12/Blog/issues/15)  
 - [x]  [【echarts使用】之选中状态(默认不显示置灰)](https://github.com/yihan12/Blog/issues/16)  
 - [x]  [【echarts使用】之上下左右的距离（grid）](https://github.com/yihan12/Blog/issues/17)  
+- [x]  [【echarts使用】之设置拐点hover样式](https://github.com/yihan12/Blog/issues/18)
 
 # 【兼容性】
 - [x]  [【兼容性】之ios时间Date兼容性问题](https://github.com/yihan12/Blog/issues/4)  
