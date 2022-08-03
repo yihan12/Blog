@@ -27,7 +27,7 @@
 - [x]  [【echarts使用】之选中状态(默认不显示置灰)](https://github.com/yihan12/Blog/issues/16)  
 - [x]  [【echarts使用】之上下左右的距离（grid）](https://github.com/yihan12/Blog/issues/17)  
 - [x]  [【echarts使用】之设置拐点hover样式](https://github.com/yihan12/Blog/issues/18)  
-- [x]  [【echarts使用】之设置从原点开始](https://github.com/yihan12/Blog/issues/19)
+- [x]  [【echarts使用】之设置x轴从原点开始](https://github.com/yihan12/Blog/issues/19)
 
 # 【兼容性】
 - [x]  [【兼容性】之ios时间Date兼容性问题](https://github.com/yihan12/Blog/issues/4)  
