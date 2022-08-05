@@ -28,7 +28,8 @@
 - [x]  [【echarts使用】之上下左右的距离（grid）](https://github.com/yihan12/Blog/issues/17)  
 - [x]  [【echarts使用】之设置拐点hover样式](https://github.com/yihan12/Blog/issues/18)  
 - [x]  [【echarts使用】之设置x轴从原点开始](https://github.com/yihan12/Blog/issues/19)  
-- [x]  [【echarts使用】之tooltip弹窗使用说明](https://github.com/yihan12/Blog/issues/20)
+- [x]  [【echarts使用】之tooltip弹窗使用说明](https://github.com/yihan12/Blog/issues/20)  
+- [x]  [【echarts使用】之x轴时间戳展示0-24小时]()
 
 # 【兼容性】
 - [x]  [【兼容性】之ios时间Date兼容性问题](https://github.com/yihan12/Blog/issues/4)  
