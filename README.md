@@ -37,6 +37,7 @@
 - [x]  [【兼容性】之iPhoneX安全区域(Safe Area)底部小黑条在微信小程序和H5的屏幕适配](https://github.com/yihan12/Blog/issues/7)
 
 # 【性能优化】
+- [ ]  【性能优化】之输入URL到页面加载完成的过程中发生了什么
 - [ ]  vite+vue3性能优化  
 
 **参考：**  
