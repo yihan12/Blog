@@ -41,6 +41,16 @@
 - [ ]  【性能优化】之DNS查询
 - [ ]  【性能优化】之vite+vue3性能优化  
 
+**参考：**  
+
+| Reference                                    | Reference                                                         |
+| --------------------------------------- | ------------------------------------------------------------ |
+| [网站性能优化实战——从12.67s到1.06s的故事](https://juejin.cn/post/6844903613790175240)              | [前端性能优化之白屏时间](https://cloud.tencent.com/developer/article/1508941)                                   |
+| [网站性能优化实战（二）](https://imweb.io/topic/5b4d417eee0c3b0779df96d9) | [网页性能管理详解](http://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html) |
+| [掌握浏览器重绘(repaint)重排(reflow))-前端进阶](https://segmentfault.com/a/1190000017491520) | [嗨，送你一张Web性能优化地图](https://github.com/berwin/Blog/issues/23) |
+| [页面性能优化办法有哪些](https://github.com/ljianshu/Blog/issues/9) | [浏览器工作原理：从输入URL到页面加载完成](https://github.com/amandakelake/blog/issues/55) |
+
+
 # 【webpack】
 - [ ]  【webpack】之编译提速  
 - [ ]  【webpack】之打包优化  
@@ -53,14 +63,6 @@
 # 【vite】
 - [ ]  【vite】之vite+vue3性能优化  
 
-**参考：**  
-
-| Reference                                    | Reference                                                         |
-| --------------------------------------- | ------------------------------------------------------------ |
-| [网站性能优化实战——从12.67s到1.06s的故事](https://juejin.cn/post/6844903613790175240)              | [前端性能优化之白屏时间](https://cloud.tencent.com/developer/article/1508941)                                   |
-| [网站性能优化实战（二）](https://imweb.io/topic/5b4d417eee0c3b0779df96d9) | [网页性能管理详解](http://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html) |
-| [掌握浏览器重绘(repaint)重排(reflow))-前端进阶](https://segmentfault.com/a/1190000017491520) | [嗨，送你一张Web性能优化地图](https://github.com/berwin/Blog/issues/23) |
-| [页面性能优化办法有哪些](https://github.com/ljianshu/Blog/issues/9) | [浏览器工作原理：从输入URL到页面加载完成](https://github.com/amandakelake/blog/issues/55) |
 
 # 最后
 后续会一直更新，希望各位看官不要吝啬手中的赞。
