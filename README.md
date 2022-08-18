@@ -32,6 +32,9 @@
 - [x]  [【echarts使用】之tooltip弹窗使用说明](https://github.com/yihan12/Blog/issues/20)  
 - [x]  [【echarts使用】之x轴时间戳展示0-24小时](https://github.com/yihan12/Blog/issues/21)
 
+# HTTP
+- [ ] 【HTTP】之get和post
+
 # 【兼容性】
 - [x]  [【兼容性】之ios时间Date兼容性问题](https://github.com/yihan12/Blog/issues/4)  
 - [x]  [【兼容性】之iPhoneX安全区域(Safe Area)底部小黑条在微信小程序和H5的屏幕适配](https://github.com/yihan12/Blog/issues/7)
