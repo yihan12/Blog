@@ -18,7 +18,7 @@
 - [ ]  【跟着大佬学JavaScript】之数组去重(速度对比)  
 
 ### 数据类型
-- [] 
+- [x]  [【跟着大佬学JavaScript】之数据类型基础]()
 
 # 【echarts使用】
 - [x]  [【echarts使用】之xy轴刻度、文字、轴线样式、分隔线](https://github.com/yihan12/Blog/issues/8)  
