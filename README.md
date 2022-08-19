@@ -71,7 +71,7 @@
 - [ ]  【vite】之vite+vue3性能优化  
 
 # 【Bug】
-- [x] [【Bug】之git 出现 fatal: unable to access 问题]()
+- [x] [【Bug】之git 出现 fatal: unable to access 问题](https://github.com/yihan12/Blog/issues/25)  
 
 
 # 最后
