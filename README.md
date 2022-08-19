@@ -70,6 +70,9 @@
 # 【vite】
 - [ ]  【vite】之vite+vue3性能优化  
 
+# 【Bug】
+- [x] [【Bug】之git 出现 fatal: unable to access 问题]()
+
 
 # 最后
 后续会一直更新，希望各位看官不要吝啬手中的赞。
