@@ -36,7 +36,7 @@
 - [x]  [【echarts使用】之tooltip弹窗使用说明](https://github.com/yihan12/Blog/issues/20)  
 - [x]  [【echarts使用】之x轴时间戳展示0-24小时](https://github.com/yihan12/Blog/issues/21)
 
-# HTTP
+# 【HTTP】
 - [ ] 【HTTP】之get和post
 
 # 【兼容性】
