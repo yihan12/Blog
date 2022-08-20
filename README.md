@@ -19,6 +19,7 @@
 
 ### 数据类型
 - [x]  [【跟着大佬学JavaScript】之数据类型基础](https://github.com/yihan12/Blog/issues/24)  
+- [x]  [【跟着大佬学JavaScript】之null和undefined的区别]()  
 - [ ]  【跟着大佬学JavaScript】之数据类型转换  
 
 # 【echarts使用】
