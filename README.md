@@ -26,10 +26,13 @@
 - [ ] TypeScript 是什么
 
 # 【ES6学习笔记】
+### 变量
+- [x] [var/let/const、块级作用域、TDZ、变量提升](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%8F%98%E9%87%8F.md)
+
+
 **参考：**  
 
 语法以及知识点记录。下面是ES6资料各个文集的积累：    
-
 
 | Reference                                    | Reference                                                         |
 | --------------------------------------- | ------------------------------------------------------------ |
@@ -39,9 +42,6 @@
 | [Learn ES2015](https://babeljs.io/docs/en/learn)  ) |  [JavaScript for impatient programmers (ES2021 edition)](https://exploringjs.com/impatient-js/ch_destructuring.html)  |
 |  [Destructuring and parameter handling in ECMAScript 6](https://2ality.com/2015/01/es6-destructuring.html)  |[ECMAScript 6 Tools](https://github.com/addyosmani/es6-tools)  |
 | [ECMAScript 6 Learning](https://github.com/ericdouglas/ES6-Learning)  | [JavaScript for impatient programmers](https://exploringjs.com/impatient-js/toc.html)  |
-
-### 变量
-- [x] [var/let/const、块级作用域、TDZ、变量提升](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%8F%98%E9%87%8F.md)
 
 
 # 【echarts使用】
