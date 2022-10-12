@@ -77,11 +77,13 @@
 - [ ] git fetch和git pull的区别
 - [ ] git简明指南
 
+# 【TypeScript学习笔记】
+### TypeScript简介
+
 # 【Vue学习笔记】
 
 # 【React学习笔记】
 
-# 【TypeScript学习笔记】
 
 
 # 最后
