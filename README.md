@@ -21,6 +21,10 @@
 - [x]  [【跟着大佬学JavaScript】之null和undefined的区别](https://github.com/yihan12/Blog/issues/26)   
 - [ ]  【跟着大佬学JavaScript】之数据类型转换  
 
+# 【TypeScript学习笔记】
+### TypeScript简介
+- [ ] TypeScript 是什么
+
 # 【echarts使用】
 - [x]  [【echarts使用】之xy轴刻度、文字、轴线样式、分隔线](https://github.com/yihan12/Blog/issues/8)  
 - [x]  [【echarts使用】之折线图拐点圆的样式（内圆外圆）](https://github.com/yihan12/Blog/issues/9)
@@ -76,10 +80,6 @@
 # 【Git】
 - [ ] git fetch和git pull的区别
 - [ ] git简明指南
-
-# 【TypeScript学习笔记】
-### TypeScript简介
-- [ ] TypeScript 是什么
 
 # 【Vue学习笔记】
 
