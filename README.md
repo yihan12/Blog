@@ -5,13 +5,6 @@
 
 > 吾生也有涯，而知也无涯  
 
-
-# 【Vue学习笔记】
-
-# 【React学习笔记】
-
-# 【TypeScript学习笔记】
-
 # 【跟着大佬学JavaScript】
 ### 防抖节流
 
@@ -81,6 +74,14 @@
 - [x] [【Bug】之git 出现 fatal: unable to access 问题](https://github.com/yihan12/Blog/issues/25)  
 
 # 【Git】
+- [ ] git fetch和git pull的区别
+- [ ] git简明指南
+
+# 【Vue学习笔记】
+
+# 【React学习笔记】
+
+# 【TypeScript学习笔记】
 
 
 # 最后
