@@ -26,6 +26,8 @@
 - [ ] TypeScript 是什么
 
 # 【ES6学习笔记】
+### 变量
+- [x] [var/let/const、块级作用域、TDZ、变量提升](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%8F%98%E9%87%8F.md)
 
 
 # 【echarts使用】
