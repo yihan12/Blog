@@ -25,7 +25,7 @@
 ### TypeScript简介
 - [ ] TypeScript 是什么
 
-# 【ES6】
+# 【ES6学习笔记】
 
 
 # 【echarts使用】
