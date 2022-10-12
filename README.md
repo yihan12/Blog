@@ -25,6 +25,9 @@
 ### TypeScript简介
 - [ ] TypeScript 是什么
 
+# 【ES6】
+
+
 # 【echarts使用】
 - [x]  [【echarts使用】之xy轴刻度、文字、轴线样式、分隔线](https://github.com/yihan12/Blog/issues/8)  
 - [x]  [【echarts使用】之折线图拐点圆的样式（内圆外圆）](https://github.com/yihan12/Blog/issues/9)
