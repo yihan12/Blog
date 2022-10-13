@@ -22,7 +22,7 @@
 - [ ]  【跟着大佬学JavaScript】之数据类型转换  
 
 # 【TypeScript学习笔记】
-### TypeScript简介
+### 简介
 - [ ] TypeScript 是什么
 
 # 【ES6学习笔记】
