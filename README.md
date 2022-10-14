@@ -27,14 +27,16 @@
 
 # 【ES6学习笔记】
 ### 变量
-- [x] [var/let/const、块级作用域、TDZ、变量提升](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%8F%98%E9%87%8F.md)
-- [x] [变量的解构赋值](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC.md)
+- [x] [【ES6学习笔记】之var/let/const、块级作用域、TDZ、变量提升](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%8F%98%E9%87%8F.md)
+- [x] [【ES6学习笔记】之变量的解构赋值](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC.md)
 
 ### 字符串
-- [x] [模板字符串、字符串新特性](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
+- [x] [【ES6学习笔记】之模板字符串、字符串新特性](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
 
 ### Set和Map数据结构
-- [x] [Set和Map数据结构](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Set%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
+- [x] [【ES6学习笔记】之Set和Map数据结构](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Set%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
+
+### 异步
 
 **参考：**  
 
