@@ -39,6 +39,9 @@
 ### 异步
 - [x] [【ES6学习笔记】之async/await函数](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/async%E5%87%BD%E6%95%B0.md)
 
+### Class
+- [x] [【ES6学习笔记】之Class](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0/Class.md)
+
 **参考：**  
 
 语法以及知识点记录。下面是ES6资料各个文集的积累：    
