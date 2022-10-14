@@ -37,6 +37,7 @@
 - [x] [【ES6学习笔记】之Set和Map数据结构](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Set%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
 
 ### 异步
+- [x] [【ES6学习笔记】之async/await函数](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/async%E5%87%BD%E6%95%B0.md)
 
 **参考：**  
 
