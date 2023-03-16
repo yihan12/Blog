@@ -112,6 +112,9 @@
 - [ ] git fetch和git pull的区别
 - [ ] git简明指南
 
+# 【Vue2.6源码相关】
+- [ x ] [【Vue2.6源码相关】new Vue 发生了什么?]()
+
 # 【Vue学习笔记】
 
 # 【React学习笔记】
