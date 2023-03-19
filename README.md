@@ -137,6 +137,7 @@
 > vue2.6
 
 - [x] [【源码剖析】new Vue 发生了什么?](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E3%80%91new%20Vue%20%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88.md)
+- [x] [【源码剖析】initState 初始化](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E3%80%91initState%20%E5%88%9D%E5%A7%8B%E5%8C%96.md)
 
 # 【Vue 学习笔记】
 
