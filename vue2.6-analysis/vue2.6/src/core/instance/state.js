@@ -112,42 +112,45 @@ function initProps (vm: Component, propsOptions: Object) {
 
 function initData (vm: Component) {
   let data = vm.$options.data
-  data = vm._data = typeof data === 'function'
-    ? getData(data, vm)
-    : data || {}
+  // 判断是否合法data,是否function
+  // vm._data,我们也可以通过这个方式访问我们.vue文件的data属性。但是不建议这样去获取。
+  data = vm._data = typeof data === 'function' ? getData(data, vm) : data || {}
+  // 判断如果不是对象
   if (!isPlainObject(data)) {
     data = {}
-    process.env.NODE_ENV !== 'production' && warn(
-      'data functions should return an object:\n' +
-      'https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function',
-      vm
-    )
+    process.env.NODE_ENV !== 'production' &&
+      warn(
+        'data functions should return an object:\n' +
+          'https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function',
+        vm
+      )
   }
   // proxy data on instance
   const keys = Object.keys(data)
   const props = vm.$options.props
   const methods = vm.$options.methods
   let i = keys.length
+  // 循环对比data与props、methods，确保它们不能重名
   while (i--) {
     const key = keys[i]
     if (process.env.NODE_ENV !== 'production') {
       if (methods && hasOwn(methods, key)) {
-        warn(
-          `Method "${key}" has already been defined as a data property.`,
-          vm
-        )
+        warn(`Method "${key}" has already been defined as a data property.`, vm)
       }
     }
     if (props && hasOwn(props, key)) {
-      process.env.NODE_ENV !== 'production' && warn(
-        `The data property "${key}" is already declared as a prop. ` +
-        `Use prop default value instead.`,
-        vm
-      )
+      process.env.NODE_ENV !== 'production' &&
+        warn(
+          `The data property "${key}" is already declared as a prop. ` +
+            `Use prop default value instead.`,
+          vm
+        )
     } else if (!isReserved(key)) {
+      // 判断key不是 _或者$ 开头的属性,则把该key挂到vm._data上。
       proxy(vm, `_data`, key)
     }
   }
+  // 处理完上述后，通过 observe 方法对数据进行响应式处理
   // observe data
   observe(data, true /* asRootData */)
 }
