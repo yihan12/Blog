@@ -13,7 +13,7 @@ if (vm.$options.el) {
 
 ### 代码剖析
 
->
+> /src/platforms/web/runtime/index.js
 
 ```javascript
 Vue.prototype.$mount = function (
@@ -24,6 +24,16 @@ Vue.prototype.$mount = function (
   return mountComponent(this, el, hydrating)
 }
 ```
+
+其实这一段很简单，
+
+1. 主要是确定了`Vue.prototype.$mount`传参的类型，el 可以传字符串，比如我们平时的"app"。或者直接传 DOM 对象。
+2. 然后则是将 el 通过`query(el)`将字符串形式的 el 返回成 DOM 对象。
+3. 最后就是最重要的`mountComponent(this, el, hydrating)`执行
+
+接下来先分析`query(el)`做了些什么
+
+> /src/platforms/web/util/index.js
 
 ```javascript
 export function query(el: string | Element): Element {
@@ -40,5 +50,100 @@ export function query(el: string | Element): Element {
     // 如果是Element对象（Dom对象），就直接返回
     return el
   }
+}
+```
+
+这段代码比较简单：
+
+1. 判断`el`是字符串，就从页面中找到该 DOM 对象。
+2. 如果未找到就报错。
+3. 如果`el`不是字符串就直接返回 el DOM 对象。
+
+最后我们来分析最重要的这部分代码
+
+> /src/core/instance/lifecycle.js
+
+```javascript
+export function mountComponent(
+  vm: Component,
+  el: ?Element,
+  hydrating?: boolean
+): Component {
+  vm.$el = el
+  if (!vm.$options.render) {
+    vm.$options.render = createEmptyVNode
+    if (process.env.NODE_ENV !== 'production') {
+      /* istanbul ignore if */
+      if (
+        (vm.$options.template && vm.$options.template.charAt(0) !== '#') ||
+        vm.$options.el ||
+        el
+      ) {
+        warn(
+          'You are using the runtime-only build of Vue where the template ' +
+            'compiler is not available. Either pre-compile the templates into ' +
+            'render functions, or use the compiler-included build.',
+          vm
+        )
+      } else {
+        warn(
+          'Failed to mount component: template or render function not defined.',
+          vm
+        )
+      }
+    }
+  }
+  callHook(vm, 'beforeMount')
+
+  let updateComponent
+  /* istanbul ignore if */
+  if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
+    updateComponent = () => {
+      const name = vm._name
+      const id = vm._uid
+      const startTag = `vue-perf-start:${id}`
+      const endTag = `vue-perf-end:${id}`
+
+      mark(startTag)
+      const vnode = vm._render()
+      mark(endTag)
+      measure(`vue ${name} render`, startTag, endTag)
+
+      mark(startTag)
+      vm._update(vnode, hydrating)
+      mark(endTag)
+      measure(`vue ${name} patch`, startTag, endTag)
+    }
+  } else {
+    updateComponent = () => {
+      vm._update(vm._render(), hydrating)
+    }
+  }
+
+  // we set this to vm._watcher inside the watcher's constructor
+  // since the watcher's initial patch may call $forceUpdate (e.g. inside child
+  // component's mounted hook), which relies on vm._watcher being already defined
+  new Watcher(
+    vm,
+    updateComponent,
+    noop,
+    {
+      before() {
+        if (vm._isMounted && !vm._isDestroyed) {
+          callHook(vm, 'beforeUpdate')
+        }
+      },
+    },
+    true /* isRenderWatcher */
+  )
+  hydrating = false
+
+  // manually mounted instance, call mounted on self
+  // mounted is called for render-created child components in its inserted hook
+  if (vm.$vnode == null) {
+    vm._isMounted = true
+    callHook(vm, 'mounted')
+  }
+  return vm
 }
 ```
