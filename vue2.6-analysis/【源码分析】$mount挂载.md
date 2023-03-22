@@ -29,7 +29,8 @@ Vue.prototype.$mount = function (
 
 1. 主要是确定了`Vue.prototype.$mount`传参的类型，el 可以传字符串，比如我们平时的"app"。或者直接传 DOM 对象。
 2. 然后则是将 el 通过`query(el)`将字符串形式的 el 返回成 DOM 对象。
-3. 最后就是最重要的`mountComponent(this, el, hydrating)`执行
+3. 其中的`inBrower`主要是判断是否浏览器环境，判断是否有`window`对象：`export const inBrowser = typeof window !== 'undefined'`
+4. 最后就是最重要的`mountComponent(this, el, hydrating)`执行
 
 接下来先分析`query(el)`做了些什么
 
@@ -69,9 +70,11 @@ export function mountComponent(
   el: ?Element,
   hydrating?: boolean
 ): Component {
-  vm.$el = el
+  vm.$el = el // 把el用vm.$el做缓存
   if (!vm.$options.render) {
+    // 判断是否有render函数，如果没有写render函数，并且template未转换成render函数。就创建一个空的VNode
     vm.$options.render = createEmptyVNode
+    // 下面这部分分是：如果你没有用template，又没写render函数，在开发环境就会报此警告
     if (process.env.NODE_ENV !== 'production') {
       /* istanbul ignore if */
       if (
@@ -93,9 +96,10 @@ export function mountComponent(
       }
     }
   }
-  callHook(vm, 'beforeMount')
+  callHook(vm, 'beforeMount') //beforeMount
 
   let updateComponent
+  //  和性能埋点相关的
   /* istanbul ignore if */
   if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
     updateComponent = () => {
@@ -116,6 +120,8 @@ export function mountComponent(
     }
   } else {
     updateComponent = () => {
+      // 主要是执行渲染Watcher
+      // vm._render()生成VNode，然后调_update,把它传入
       vm._update(vm._render(), hydrating)
     }
   }
@@ -123,10 +129,11 @@ export function mountComponent(
   // we set this to vm._watcher inside the watcher's constructor
   // since the watcher's initial patch may call $forceUpdate (e.g. inside child
   // component's mounted hook), which relies on vm._watcher being already defined
+  // 渲染Watcher
   new Watcher(
     vm,
     updateComponent,
-    noop,
+    noop, // 空function
     {
       before() {
         if (vm._isMounted && !vm._isDestroyed) {

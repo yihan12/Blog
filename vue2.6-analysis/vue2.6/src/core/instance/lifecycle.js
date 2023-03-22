@@ -138,22 +138,27 @@ export function lifecycleMixin (Vue: Class<Component>) {
   }
 }
 
-export function mountComponent (
+export function mountComponent(
   vm: Component,
   el: ?Element,
   hydrating?: boolean
 ): Component {
-  vm.$el = el
+  vm.$el = el // 把el用vm.$el做缓存
   if (!vm.$options.render) {
+    // 判断是否有render函数，如果没有写render函数，并且template未转换成render函数。就创建一个空的VNode
     vm.$options.render = createEmptyVNode
+    // 下面这部分分是：如果你没有用template，又没写render函数，在开发环境就会报此警告
     if (process.env.NODE_ENV !== 'production') {
       /* istanbul ignore if */
-      if ((vm.$options.template && vm.$options.template.charAt(0) !== '#') ||
-        vm.$options.el || el) {
+      if (
+        (vm.$options.template && vm.$options.template.charAt(0) !== '#') ||
+        vm.$options.el ||
+        el
+      ) {
         warn(
           'You are using the runtime-only build of Vue where the template ' +
-          'compiler is not available. Either pre-compile the templates into ' +
-          'render functions, or use the compiler-included build.',
+            'compiler is not available. Either pre-compile the templates into ' +
+            'render functions, or use the compiler-included build.',
           vm
         )
       } else {
@@ -164,9 +169,10 @@ export function mountComponent (
       }
     }
   }
-  callHook(vm, 'beforeMount')
+  callHook(vm, 'beforeMount') //beforeMount
 
   let updateComponent
+  //  和性能埋点相关的
   /* istanbul ignore if */
   if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
     updateComponent = () => {
@@ -187,20 +193,30 @@ export function mountComponent (
     }
   } else {
     updateComponent = () => {
+      // 主要是执行渲染Watcher
+      // vm._render()生成VNode，然后调_update,把它传入
       vm._update(vm._render(), hydrating)
     }
   }
+}
 
   // we set this to vm._watcher inside the watcher's constructor
   // since the watcher's initial patch may call $forceUpdate (e.g. inside child
   // component's mounted hook), which relies on vm._watcher being already defined
-  new Watcher(vm, updateComponent, noop, {
-    before () {
-      if (vm._isMounted && !vm._isDestroyed) {
-        callHook(vm, 'beforeUpdate')
-      }
-    }
-  }, true /* isRenderWatcher */)
+  // 渲染Watcher
+  new Watcher(
+    vm,
+    updateComponent,
+    noop, // 空function
+    {
+      before() {
+        if (vm._isMounted && !vm._isDestroyed) {
+          callHook(vm, 'beforeUpdate')
+        }
+      },
+    },
+    true /* isRenderWatcher */
+  )
   hydrating = false
 
   // manually mounted instance, call mounted on self
@@ -210,7 +226,6 @@ export function mountComponent (
     callHook(vm, 'mounted')
   }
   return vm
-}
 
 export function updateChildComponent (
   vm: Component,
