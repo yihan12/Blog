@@ -13,6 +13,95 @@ if (vm.$options.el) {
 
 ### 代码剖析
 
+看了很多相关文章，大部分文章并没有讲述为啥要先分析 compiler 版本代码`$mount`，再去分析 runtime-only 版本的代码上的`$mount`。所有一开始就会有点懵，为啥要这么去分析。
+
+> /src/platforms/web/entry-runtime-with-compiler.js
+
+```javascript
+// 最开始通过mount获取并缓存了Vue原型上的$mount方法，然后又重新定义了Vue.prototype.$mount
+// 执行到到最后，通过return mount.call(this, el, hydrating) 重新调用mount缓存下来的原型方法。
+const mount = Vue.prototype.$mount
+Vue.prototype.$mount = function (
+  el?: string | Element,
+  hydrating?: boolean
+): Component {
+  el = el && query(el)
+
+  /* istanbul ignore if */
+  if (el === document.body || el === document.documentElement) {
+    process.env.NODE_ENV !== 'production' &&
+      warn(
+        `Do not mount Vue to <html> or <body> - mount to normal elements instead.`
+      )
+    return this
+  }
+
+  const options = this.$options
+  // resolve template/el and convert to render function
+  if (!options.render) {
+    let template = options.template
+    if (template) {
+      if (typeof template === 'string') {
+        if (template.charAt(0) === '#') {
+          template = idToTemplate(template)
+          /* istanbul ignore if */
+          if (process.env.NODE_ENV !== 'production' && !template) {
+            warn(
+              `Template element not found or is empty: ${options.template}`,
+              this
+            )
+          }
+        }
+      } else if (template.nodeType) {
+        template = template.innerHTML
+      } else {
+        if (process.env.NODE_ENV !== 'production') {
+          warn('invalid template option:' + template, this)
+        }
+        return this
+      }
+    } else if (el) {
+      template = getOuterHTML(el)
+    }
+    if (template) {
+      /* istanbul ignore if */
+      if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
+        mark('compile')
+      }
+
+      const { render, staticRenderFns } = compileToFunctions(
+        template,
+        {
+          outputSourceRange: process.env.NODE_ENV !== 'production',
+          shouldDecodeNewlines,
+          shouldDecodeNewlinesForHref,
+          delimiters: options.delimiters,
+          comments: options.comments,
+        },
+        this
+      )
+      options.render = render
+      options.staticRenderFns = staticRenderFns
+
+      /* istanbul ignore if */
+      if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
+        mark('compile end')
+        measure(`vue ${this._name} compile`, 'compile', 'compile end')
+      }
+    }
+  }
+  return mount.call(this, el, hydrating)
+}
+```
+
+通过这部分代码可以看出：
+
+1. 一开始通过定义`mount`缓存了 Vue 原型上原始的`$mount`方法`const mount = Vue.prototype.$mount`；
+2. 然后又重新定义了`Vue.prototype.$mount`方法。
+3. 执行到最后，又重新调用缓存的原始`Vue.prototype.$mount`方法`return mount.call(this, el, hydrating)`,这时候就会执行到`runtime/index`的`$mount`方法。
+
+那么 entry-runtime-with-compiler.js 文件中的`$mount`到底干了些什么呢。
+
 > /src/platforms/web/runtime/index.js
 
 ```javascript
@@ -23,6 +112,16 @@ Vue.prototype.$mount = function (
   el = el && inBrowser ? query(el) : undefined // 这里el就已经是DOM对象（query(el)处理后）
   return mountComponent(this, el, hydrating)
 }
+```
+
+我们平时在 main.js 入口文件中，会这么去写
+
+```javascript
+import Vue from 'vue'
+import App from './App.vue'
+new Vue({
+  render: (h) => h(App),
+}).$mount('#app')
 ```
 
 其实这一段很简单，
