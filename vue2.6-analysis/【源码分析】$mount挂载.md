@@ -102,6 +102,34 @@ Vue.prototype.$mount = function (
 
 那么 entry-runtime-with-compiler.js 文件中的`$mount`到底干了些什么呢。
 
+先分析`query(el)`做了些什么
+
+> /src/platforms/web/util/index.js
+
+```javascript
+export function query(el: string | Element): Element {
+  if (typeof el === 'string') {
+    // 如果el是string形式，我们就去找document是否能找到el命名的元素，未找到就会报错提示，如果找到，返回的就是找到的DOM对象
+    const selected = document.querySelector(el)
+    if (!selected) {
+      process.env.NODE_ENV !== 'production' &&
+        warn('Cannot find element: ' + el)
+      return document.createElement('div')
+    }
+    return selected
+  } else {
+    // 如果是Element对象（Dom对象），就直接返回
+    return el
+  }
+}
+```
+
+这段代码比较简单：
+
+1. 判断`el`是字符串，就从页面中找到该 DOM 对象。
+2. 如果未找到就报错。
+3. 如果`el`不是字符串就直接返回 el DOM 对象。
+
 > /src/platforms/web/runtime/index.js
 
 ```javascript
