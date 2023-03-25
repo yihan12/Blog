@@ -29,6 +29,8 @@ Vue.prototype.$mount = function (
   el = el && query(el)
 
   /* istanbul ignore if */
+  // 判断el是否为body，或者document，如果是则返回，因为本身index.html已经含有html,body元素
+
   if (el === document.body || el === document.documentElement) {
     process.env.NODE_ENV !== 'production' &&
       warn(
@@ -39,7 +41,11 @@ Vue.prototype.$mount = function (
 
   const options = this.$options
   // resolve template/el and convert to render function
+  /*处理模板templete，编译成render函数，render不存在的时候才会编译template，否则优先使用render*/
+  // 判断options中是否有render方法，有则直接调用mount方法，
+  // 如果没有render，则需要调用compileToFunctions生成render再调用mount方法
   if (!options.render) {
+    /*template存在的时候取template，不存在的时候取el的outerHTML*/
     let template = options.template
     if (template) {
       if (typeof template === 'string') {
@@ -54,6 +60,7 @@ Vue.prototype.$mount = function (
           }
         }
       } else if (template.nodeType) {
+        /*当template为DOM节点的时候*/
         template = template.innerHTML
       } else {
         if (process.env.NODE_ENV !== 'production') {
@@ -91,6 +98,7 @@ Vue.prototype.$mount = function (
       }
     }
   }
+  // 执行runtime-only版本的$mounted
   return mount.call(this, el, hydrating)
 }
 ```
@@ -139,6 +147,18 @@ new Vue({
 }).$mount(document.querySelector('#app'))
 ```
 
+我们平时在 main.js 入口文件中，也会这么去写
+
+```javascript
+import Vue from 'vue'
+import App from './App.vue'
+new Vue({
+  render: (h) => h(App),
+}).$mount('#app')
+```
+
+`el = el&&query(el)`就是处理上述两种写法。
+
 `query`方法获取到 DOM 元素后，往下走，判断 el 元素如果是 body 或者 document,就报错 并且 return。
 因为 index.html 里已经有了 html 和 body。
 
@@ -152,6 +172,12 @@ if (el === document.body || el === document.documentElement) {
 }
 ```
 
+1. `el = el&&query(el)`,此操作是获取到我们定义的 DOM 节点，`'#app'`或`document.querySelector('#app')`;
+2. 判断`options`中是否含有 `render` 方法。如果我们直接手写`render`函数,就会直接执行`return mount.call(this, el, hydrating)`然后就回去执行之前缓存的原型方法。
+3. 如果没有`render`方法.会将`template`做为参数，运行时调用`compileToFunctions`方法，转化为`render`函数，再去调用`mount.call`方法。
+
+然后执行到 mount 变量缓存的 runtime-only 版本的`$mount`方法
+
 > /src/platforms/web/runtime/index.js
 
 ```javascript
@@ -162,16 +188,6 @@ Vue.prototype.$mount = function (
   el = el && inBrowser ? query(el) : undefined // 这里el就已经是DOM对象（query(el)处理后）
   return mountComponent(this, el, hydrating)
 }
-```
-
-我们平时在 main.js 入口文件中，会这么去写
-
-```javascript
-import Vue from 'vue'
-import App from './App.vue'
-new Vue({
-  render: (h) => h(App),
-}).$mount('#app')
 ```
 
 其实这一段很简单，
