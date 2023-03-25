@@ -14,24 +14,34 @@ const idToTemplate = cached(id => {
   return el && el.innerHTML
 })
 
+// 最开始通过mount获取并缓存了Vue原型上的$mount方法，然后又重新定义了Vue.prototype.$mount
+// 执行到到最后，通过return mount.call(this, el, hydrating) 重新调用mount缓存下来的原型方法。
 const mount = Vue.prototype.$mount
 Vue.prototype.$mount = function (
   el?: string | Element,
   hydrating?: boolean
 ): Component {
+  // 使用query来获取要挂载DOM元素节点
   el = el && query(el)
 
   /* istanbul ignore if */
+  // 判断el是否为body，或者document，如果是则返回，因为本身index.html已经含有html,body元素
+
   if (el === document.body || el === document.documentElement) {
-    process.env.NODE_ENV !== 'production' && warn(
-      `Do not mount Vue to <html> or <body> - mount to normal elements instead.`
-    )
+    process.env.NODE_ENV !== 'production' &&
+      warn(
+        `Do not mount Vue to <html> or <body> - mount to normal elements instead.`
+      )
     return this
   }
 
   const options = this.$options
   // resolve template/el and convert to render function
+  /*处理模板templete，编译成render函数，render不存在的时候才会编译template，否则优先使用render*/
+  // 判断options中是否有render方法，有则直接调用mount方法，
+  // 如果没有render，则需要调用compileToFunctions生成render再调用mount方法
   if (!options.render) {
+    /*template存在的时候取template，不存在的时候取el的outerHTML*/
     let template = options.template
     if (template) {
       if (typeof template === 'string') {
@@ -46,6 +56,7 @@ Vue.prototype.$mount = function (
           }
         }
       } else if (template.nodeType) {
+        /*当template为DOM节点的时候*/
         template = template.innerHTML
       } else {
         if (process.env.NODE_ENV !== 'production') {
@@ -62,13 +73,17 @@ Vue.prototype.$mount = function (
         mark('compile')
       }
 
-      const { render, staticRenderFns } = compileToFunctions(template, {
-        outputSourceRange: process.env.NODE_ENV !== 'production',
-        shouldDecodeNewlines,
-        shouldDecodeNewlinesForHref,
-        delimiters: options.delimiters,
-        comments: options.comments
-      }, this)
+      const { render, staticRenderFns } = compileToFunctions(
+        template,
+        {
+          outputSourceRange: process.env.NODE_ENV !== 'production',
+          shouldDecodeNewlines,
+          shouldDecodeNewlinesForHref,
+          delimiters: options.delimiters,
+          comments: options.comments,
+        },
+        this
+      )
       options.render = render
       options.staticRenderFns = staticRenderFns
 
@@ -79,6 +94,7 @@ Vue.prototype.$mount = function (
       }
     }
   }
+  // 执行runtime-only版本的$mounted
   return mount.call(this, el, hydrating)
 }
 

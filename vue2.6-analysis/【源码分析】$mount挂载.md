@@ -236,6 +236,8 @@ export function mountComponent(
   hydrating?: boolean
 ): Component {
   vm.$el = el // 把el用vm.$el做缓存
+
+  // 如果此时还是没有render方法，那就要抛出错误提示
   if (!vm.$options.render) {
     // 判断是否有render函数，如果没有写render函数，并且template未转换成render函数。就创建一个空的VNode
     vm.$options.render = createEmptyVNode
@@ -263,7 +265,7 @@ export function mountComponent(
   }
   callHook(vm, 'beforeMount') //beforeMount
 
-  let updateComponent
+  let updateComponent //构建updateComponent方法，更新组件需要用到
   //  和性能埋点相关的
   /* istanbul ignore if */
   if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
@@ -312,6 +314,7 @@ export function mountComponent(
 
   // manually mounted instance, call mounted on self
   // mounted is called for render-created child components in its inserted hook
+  // 手动挂载实例
   if (vm.$vnode == null) {
     vm._isMounted = true
     callHook(vm, 'mounted')
@@ -319,3 +322,8 @@ export function mountComponent(
   return vm
 }
 ```
+
+1. 首先判断`render`函数是否已经构建好，如果为构建好久报错;
+2. 如果为报错就构建`updateComponent`方法，这个方法每次更新组件的时候就会调这个方法；
+3. 然后 new Watch 是 Vue 响应式处理中的依赖收集过程，其原理采用了观察者模式
+4. 最后手动挂载实例。
