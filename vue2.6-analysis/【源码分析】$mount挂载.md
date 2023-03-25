@@ -25,6 +25,7 @@ Vue.prototype.$mount = function (
   el?: string | Element,
   hydrating?: boolean
 ): Component {
+  // 使用query来获取要挂载DOM元素节点
   el = el && query(el)
 
   /* istanbul ignore if */
@@ -128,7 +129,28 @@ export function query(el: string | Element): Element {
 
 1. 判断`el`是字符串，就从页面中找到该 DOM 对象。
 2. 如果未找到就报错。
-3. 如果`el`不是字符串就直接返回 el DOM 对象。
+3. 如果`el`不是字符串就直接返回 el DOM 对象，因为`$mount`可以直接接收一个 DOM 元素,可以像这么写：
+
+```javascript
+import Vue from 'vue'
+import App from './App.vue'
+new Vue({
+  render: (h) => h(App),
+}).$mount(document.querySelector('#app'))
+```
+
+`query`方法获取到 DOM 元素后，往下走，判断 el 元素如果是 body 或者 document,就报错 并且 return。
+因为 index.html 里已经有了 html 和 body。
+
+```javascript
+if (el === document.body || el === document.documentElement) {
+  process.env.NODE_ENV !== 'production' &&
+    warn(
+      `Do not mount Vue to <html> or <body> - mount to normal elements instead.`
+    )
+  return this
+}
+```
 
 > /src/platforms/web/runtime/index.js
 
