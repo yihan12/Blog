@@ -30,7 +30,7 @@ Vue.prototype.$mount = function (
 
   /* istanbul ignore if */
   // 判断el是否为body，或者document，如果是则返回，因为本身index.html已经含有html,body元素
-
+  // 如果el是body或者文档标签，会替换原本的html和body.
   if (el === document.body || el === document.documentElement) {
     process.env.NODE_ENV !== 'production' &&
       warn(
@@ -47,6 +47,7 @@ Vue.prototype.$mount = function (
   if (!options.render) {
     /*template存在的时候取template，不存在的时候取el的outerHTML*/
     let template = options.template
+    // 会判断有没有写template
     if (template) {
       if (typeof template === 'string') {
         if (template.charAt(0) === '#') {
@@ -69,6 +70,7 @@ Vue.prototype.$mount = function (
         return this
       }
     } else if (el) {
+      //
       template = getOuterHTML(el)
     }
     if (template) {
@@ -108,6 +110,7 @@ Vue.prototype.$mount = function (
 1. 一开始通过定义`mount`缓存了 Vue 原型上原始的`$mount`方法`const mount = Vue.prototype.$mount`；
 2. 然后又重新定义了`Vue.prototype.$mount`方法。
 3. 执行到最后，又重新调用缓存的原始`Vue.prototype.$mount`方法`return mount.call(this, el, hydrating)`,这时候就会执行到`runtime/index`的`$mount`方法。
+4. 其中有一部分是判断内部有无`render`函数，若无则通过`compileToFunctions`方法生成 render 再调用 mount 方法.若无则直接执行`return mount.call(this, el, hydrating)`
 
 那么 entry-runtime-with-compiler.js 文件中的`$mount`到底干了些什么呢。
 
