@@ -177,6 +177,19 @@ render(createElement){
 }
 ```
 
+接下来我们看看`vm.renderProxy`。这个也是在`new Vue` 的时候，`Vue.prototype._init`方法执行时，会执行
+`initProxy(vm)`，生产环境就直接执行`vm._renderProxy = vm`
+
+```javascript
+if (process.env.NODE_ENV !== 'production') {
+  initProxy(vm)
+} else {
+  vm._renderProxy = vm
+}
+```
+
+我们来看看`initProxy`到底操作了什么
+
 > /src/core/instance/proxy.js
 
 ```javascript
@@ -271,3 +284,5 @@ if (process.env.NODE_ENV !== 'production') {
   }
 }
 ```
+
+`hasProxy`只是判断当前浏览器支不支持 Proxy。如果支持`Proxy`的情况下就会执行`new Proxy(vm,handlers)`。
