@@ -286,3 +286,5 @@ if (process.env.NODE_ENV !== 'production') {
 ```
 
 `hasProxy`只是判断当前浏览器支不支持 Proxy。如果支持`Proxy`的情况下就会执行`new Proxy(vm,handlers)`。
+
+我们接下来分析下它的第二个参数，handlers.
