@@ -324,6 +324,6 @@ const handlers =
 
 ### 总结
 
-**下一章：**[【源码分析】 Virtual Dom](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91render%E7%9A%84%E5%AE%9E%E7%8E%B0.md)  
+**下一章：**[【源码分析】 Virtual Dom](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91%20Virtual%20Dom.md)  
 **本章：**[【源码剖析】render 的实现](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91render%E7%9A%84%E5%AE%9E%E7%8E%B0.md)  
 **上一章：** [【源码剖析】$mount 挂载](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91%24mount%E6%8C%82%E8%BD%BD.md)
