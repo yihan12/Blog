@@ -339,6 +339,6 @@ export function mountComponent(
 4. 然后 new Watch 是 Vue 响应式处理中的依赖收集过程，其原理采用了观察者模式
 5. 最后手动挂载实例。
 
-**下一章：**[【源码剖析】render 的实现](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91render%E7%9A%84%E5%AE%9E%E7%8E%B0.md)
+**下一章：**[【源码剖析】render 的实现](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91render%E7%9A%84%E5%AE%9E%E7%8E%B0.md)  
 **本章：** [【源码剖析】$mount 挂载](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91%24mount%E6%8C%82%E8%BD%BD.md)  
-**上一章章：** [【源码剖析】initState 初始化](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E3%80%91initState%20%E5%88%9D%E5%A7%8B%E5%8C%96.md)
+**上一章：** [【源码剖析】initState 初始化](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E3%80%91initState%20%E5%88%9D%E5%A7%8B%E5%8C%96.md)

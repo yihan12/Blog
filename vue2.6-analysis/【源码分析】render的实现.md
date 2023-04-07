@@ -321,3 +321,9 @@ const handlers =
 
 1. `getHandler`和`hasHandler`所做的事情几乎差不多，都是在渲染阶段对不合法的数据做判断和处理。
 2. `initProxy`是在渲染阶段对不合法的数据作出判断和处理。在我们日常经常遇到：未在`data`定义的参数，在`<template>`中却使用了。
+
+### 总结
+
+**下一章：**[【源码分析】 Virtual Dom](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91render%E7%9A%84%E5%AE%9E%E7%8E%B0.md)  
+**本章：**[【源码剖析】render 的实现](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91render%E7%9A%84%E5%AE%9E%E7%8E%B0.md)  
+**上一章：** [【源码剖析】$mount 挂载](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91%24mount%E6%8C%82%E8%BD%BD.md)
