@@ -318,3 +318,6 @@ const getHandler = {
 const handlers =
   options.render && options.render._withStripped ? getHandler : hasHandler
 ```
+
+1. `getHandler`和`hasHandler`所做的事情几乎差不多，都是在渲染阶段对不合法的数据做判断和处理。
+2. `initProxy`是在渲染阶段对不合法的数据作出判断和处理。在我们日常经常遇到：未在`data`定义的参数，在`<template>`中却使用了。
