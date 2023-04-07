@@ -140,6 +140,7 @@
 - [x] [【源码剖析】initState 初始化](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E3%80%91initState%20%E5%88%9D%E5%A7%8B%E5%8C%96.md)  
 - [x] [【源码剖析】$mount 挂载](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91%24mount%E6%8C%82%E8%BD%BD.md)   
 - [x] [【源码分析】render的实现](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91render%E7%9A%84%E5%AE%9E%E7%8E%B0.md)  
+- [x] [【源码分析】 Virtual Dom](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91%20Virtual%20Dom.md)   
 
 # 【Vue 学习笔记】
 
