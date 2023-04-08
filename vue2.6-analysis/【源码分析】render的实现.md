@@ -1,5 +1,7 @@
 ### 说明
 
+上一章节讲的是`$mount`的挂载
+
 ### 代码剖析
 
 > /src/core/instance/render.js
