@@ -1,6 +1,10 @@
 ### 说明
 
-上一章节讲的是`$mount`的挂载
+上一章节讲的是`$mount`的挂载，其中`mountComponent` 方法的逻辑也是非常清晰的，它会完成整个渲染工作，接下来我们要重点分析其中的细节，也就是最核心的 2 个方法：`vm._render` 和 `vm._update`。
+
+这一章节让我们来了解`vm._render`的实现。
+
+Vue 的 `_render` 方法是实例的一个私有方法，它用来把实例渲染成一个虚拟 Node。
 
 ### 代码剖析
 
@@ -325,6 +329,8 @@ const handlers =
 2. `initProxy`是在渲染阶段对不合法的数据作出判断和处理。在我们日常经常遇到：未在`data`定义的参数，在`<template>`中却使用了。
 
 ### 总结
+
+1.
 
 **下一章：**[【源码分析】 Virtual Dom](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91%20Virtual%20Dom.md)  
 **本章：**[【源码剖析】render 的实现](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91render%E7%9A%84%E5%AE%9E%E7%8E%B0.md)  
