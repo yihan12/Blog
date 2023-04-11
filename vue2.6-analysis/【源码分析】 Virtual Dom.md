@@ -96,7 +96,30 @@ export default class VNode {
 }
 ```
 
+1. `tag`表示为元素标签的类型，例如：p、div 或者 ul 等。
+2. `data`表示节点上的数据，包括 atts、style 和 class 等。
+3. `children`表示子节点列表，它是一个 VNode 实例数组。
+4. `context` 当前节点所处的编译作用域。
+
+`div` 元素节点可以用 `VNode` 表示：
+
+```javascript
+const vnode = {
+  tag: 'div',
+  data: {
+    attrs: {
+      id: 'app'
+    }
+    class: 'app-main'
+  },
+  children: [VNode],
+  context: vm
+}
+```
+
 ### 总结
+
+Virtual DOM 除了它的数据结构的定义，映射到真实的 DOM 实际上要经历 VNode 的 create、diff、patch 等过程。在 Vue.js 中，VNode 的 create 是通过之前提到的 createElement 方法创建的，我们接下来分析这部分的实现。
 
 **下一章：**[【源码分析】 createElement](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91createElement.md)  
 **本章：**[【源码分析】 Virtual Dom](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91%20Virtual%20Dom.md)  
