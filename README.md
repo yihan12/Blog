@@ -6,7 +6,9 @@
 
 > 吾生也有涯，而知也无涯
 
-[Bug归纳](https://github.com/yihan12/day-to-day)
+对一些常见的bug，做了相关归纳[《Bug归纳》](https://github.com/yihan12/day-to-day)。  
+算法自我练习使用，仅供参考。记录了自己学习算法的点滴[《LeetCode训练》](https://github.com/yihan12/LeetCode-exercise)。  
+
 
 # 【跟着大佬学 JavaScript】
 
