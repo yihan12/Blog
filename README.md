@@ -6,6 +6,8 @@
 
 > 吾生也有涯，而知也无涯
 
+[Bug归纳](https://github.com/yihan12/day-to-day)
+
 # 【跟着大佬学 JavaScript】
 
 ### 防抖节流
