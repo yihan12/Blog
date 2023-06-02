@@ -8,7 +8,7 @@
 
 对一些常见的bug，做了相关归纳[《Bug归纳》](https://github.com/yihan12/day-to-day)。  
 算法自我练习使用，仅供参考。记录了自己学习算法的点滴[《LeetCode训练》](https://github.com/yihan12/LeetCode-exercise)。  
-ES6的学习笔记[《ES6学习》](https://github.com/yihan12/build-up_ES6)
+ES6的学习笔记[《ES6 学习笔记》](https://github.com/yihan12/build-up_ES6)
 
 # 【跟着大佬学 JavaScript】
 
