@@ -12,6 +12,14 @@
 对于前端框架而已，不仅要知其用，还要了解整个框架的结果以及整体的逻辑《Vue2源码分析》。  
 对于前端而言，虽然不是人人都要拿NodeJS写一个服务器程序，但简单可至使用命令交互模式调试JS代码片段，复杂可至编写工具提升工作效率《Node.js学习笔记》
 
+# 个人笔记
+* [《Bug归纳》](https://github.com/yihan12/day-to-day)
+* [《LeetCode训练》](https://github.com/yihan12/LeetCode-exercise)
+* [《ES6 学习笔记》](https://github.com/yihan12/build-up_ES6)
+* 《Node.js学习笔记》
+* 《TypeScript学习笔记》
+* 《Vue2源码分析》
+
 # 【跟着大佬学 JavaScript】
 
 ### 防抖节流
