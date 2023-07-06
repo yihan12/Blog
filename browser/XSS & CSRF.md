@@ -25,7 +25,7 @@ GET类型的CSRF利用非常简单，只需要一个HTTP请求，一般会这样
 ```
  ![](https://awps-assets.meituan.net/mit-x/blog-images-bundle-2018b/ff0cdbee.example/withdraw?amount=10000&for=hacker)
 ```
-在受害者访问含有这个img的页面后，浏览器会自动向http://bank.example/withdraw?account=xiaoming&amount=10000&for=hacker发出一次HTTP请求。bank.example就会收到包含受害者登录信息的一次跨域请求。
+在受害者访问含有这个img的页面后，浏览器会自动向`http://bank.example/withdraw?account=xiaoming&amount=10000&for=hacker`发出一次HTTP请求。bank.example就会收到包含受害者登录信息的一次跨域请求。
 
 2. 自动发起 POST 请求
 这种类型的CSRF利用起来通常使用的是一个自动提交的表单，如：
