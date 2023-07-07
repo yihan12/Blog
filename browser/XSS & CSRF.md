@@ -73,7 +73,7 @@ CSRF攻击者不能获取到Cookie等信息，只是使用。
 * 提交时要求附加本域才能获取的信息
   * CSRF Token
   * 双重Cookie验证
-# 防范：
+### 防范：
 
 1. 使用 **CSRF Token** 验证用户身份
 原理：服务端生成 CSRF Token （通常存储在 Session 中），用户提交请求时携带上 Token，服务端验证 Token 是否有效。
@@ -89,3 +89,5 @@ None：关闭 SameSite 属性。
 **设置为 Lax 或者 Strict，禁止发送第三方 Cookie。**
 5. 设置白名单，仅允许安全域名请求
 6. 增加验证码验证
+
+### XSS
