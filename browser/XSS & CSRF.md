@@ -75,16 +75,17 @@ CSRF攻击者不能获取到Cookie等信息，只是使用。
   * 双重Cookie验证
 # 防范：
 
-1. 使用 CSRF Token 验证用户身份
+1. 使用 **CSRF Token** 验证用户身份
 原理：服务端生成 CSRF Token （通常存储在 Session 中），用户提交请求时携带上 Token，服务端验证 Token 是否有效。
 优点：能比较有效的防御 CSRF （前提是没有 XSS 漏洞泄露 Token）。
 缺点：大型网站中 Session 存储会增加服务器压力，且若使用分布式集群还需要一个公共存储空间存储 Token，否则可能用户请求到不同服务器上导致用户凭证失效；有一定的工作量。
-2. 双重 Cookie 验证
+2. **双重 Cookie 验证**
 原理：利用攻击者不能获取到 Cookie 的特点，在 URL 参数或者自定义请求头上带上 Cookie 数据，服务器再验证该数据是否与 Cookie 一致。
 优点：无需使用 Session，不会给服务器压力。
-3. 设置 Cookie 的 SameSite 属性可以用来限制第三方 Cookie 的使用，可选值有 Strict、Lax、None。
+3. 设置 Cookie 的 SameSite 属性可以用来限制第三方 Cookie 的使用，可选值有 Strict、Lax、None。(**SameSite Cookie**)
 Strict：完全禁止第三方 Cookie。
 Lax：只允许链接、预加载请求和 GET 表单的场景下发送第三方 Cookie。
 None：关闭 SameSite 属性。
-4. 设置白名单，仅允许安全域名请求
-5. 增加验证码验证
+**设置为 Lax 或者 Strict，禁止发送第三方 Cookie。**
+5. 设置白名单，仅允许安全域名请求
+6. 增加验证码验证
