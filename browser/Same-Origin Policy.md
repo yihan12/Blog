@@ -20,3 +20,6 @@ https://time.geekbang.org/?category=0
 * 第二个，数据层面。同源策略限制了不同源的站点读取当前站点的 Cookie、IndexDB、LocalStorage 等数据。由于同源策略，我们依然无法通过第二个页面的 opener 来访问第一个页面中的 Cookie、IndexDB 或者 LocalStorage 等内容。你可以自己试一下，这里我们就不做演示了。
 
 * 第三个，网络层面。同源策略限制了通过 XMLHttpRequest 等方式将站点的数据发送给不同源的站点。你还记得在《17 | WebAPI：XMLHttpRequest 是怎么实现的？》这篇文章的末尾分析的 XMLHttpRequest 在使用过程中所遇到的坑吗？其中第一个坑就是在默认情况下不能访问跨域的资源。
+
+浏览器默认两个相同的源之间是可以相互访问资源和操作 DOM 的。两个不同的源之间若想要相互访问资源或者操作 DOM，那么会有一套基础的安全策略的制约，我们把这称为**同源策略**。
+
