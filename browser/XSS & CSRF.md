@@ -58,9 +58,22 @@ DOM 型 XSS 跟前两种 XSS 的区别：DOM 型 XSS 攻击中，取出和执行
 基于 DOM 的 XSS： 不经过后端，纯粹发生在客户端的攻击，属于前端 JavaScript 自身的安全漏洞
 
 ### 防范 XSS  
-- 对于外部传入的内容进行充分转义。
+- 对于外部传入的内容进行充分转义。**过滤特殊字符，或对特定字符进行编译转码**  
 - 开启 CSP（Content Security Policy，内容安全策略），规定客户端哪些外部资源可以加载和执行，降低 XSS 风险。
-- 设置 Cookie httpOnly 属性，禁止 JavaScript 读取 Cookie 防止被窃取。
+- 设置 Cookie httpOnly 属性，禁止 JavaScript 读取 Cookie 防止被窃取。**对重要的 cookie 设置 httpOnly**
+  - HttpOnly 最早由微软提出，至今已经成为一个标准。
+  - 通过对重要的 Cookie 设置 httpOnly ，防止客户端通过 document.cookie 读取 cookie ，也就是说，JavaScript 读取不到此条 Cookie ，也就无法提交给恶意服务器了
+  - 注意：此 HTTP 头由服务端设置
+- **URLEncode 操作**
+  - 将不可信的值输出 URL参数之前，进行 URLEncode操作。对于从 URL 参数中获取值一定要进行格式检测（比如你需要的时URL，就判读是否满足URL格式）
+- Web 安全头支持
+浏览器自带的防御能力，一般是通过开启 Web 安全头生效的。具体有以下几个：
+
+  - **CSP** ：W3C 的 Content Security Policy，简称 CSP，主要是用来定义页面可以加载哪些资源，减少 XSS 的发生。要配置 CSP , 需要对 CSP 的 policy 策略有了解，具体细节可以参考 CSP 是什么。
+  - **X-Download-Options**: noopen ：默认开启，禁用 IE 下下载框 Open 按钮，防止 IE 下下载文件默认被打开 XSS。
+  - **X-Content-Type-Options: nosniff** ：禁用 IE8 自动嗅探 mime 功能例如 text/plain 却当成 text/html 渲染，特别当本站点 server 的内容未必可信的时候。
+  - **X-XSS-Protection** ：IE 提供的一些 XSS 检测与防范，默认开启
+
 
 # Cross-site request forgery(CSRF)
 
