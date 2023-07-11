@@ -135,7 +135,9 @@ proxy: {
 - 请求中没有使用 ReadableStream 对象。
 
 **需预检请求**  
-当一个请求不满足以上简单请求的条件时，浏览器会自动向服务端发送一个**OPTIONS 请求**，通过**服务端返回的 Access-Control-Allow-* 判定请求是否被允许**。
+> 当一个请求不满足以上简单请求的条件时，浏览器会自动向服务端发送一个**OPTIONS 请求**，通过**服务端返回的 Access-Control-Allow-* 判定请求是否被允许**。
+>
+> 与简单请求不同，“需预检的请求”要求**必须首先使用 OPTIONS 方法发起一个预检请求到服务器**，以获知服务器是否允许该实际请求。"预检请求“的使用，可以避免跨域请求对服务器的用户数据产生未预期的影响。
 
 CORS 引入了以下几个  Access-Control-Allow-* ：开头：
 - Access-Control-Allow-Origin 表示允许的来源（* 该资源可以被任意外源访问。）
@@ -144,6 +146,12 @@ CORS 引入了以下几个  Access-Control-Allow-* ：开头：
 - Access-Control-Allow-Credentials 表示允许携带认证信息
 
 当请求符合响应头的这些条件时，浏览器才会发送并响应正式的请求。
+
+**预检请求与重定向**
+并不是所有浏览器都支持预检请求的重定向。如果一个预检请求发生了重定向，一部分浏览器将报告错误：
+
+> The request was redirected to 'https://example.com/foo', which is disallowed for cross-origin requests that require preflight. Request requires preflight, which is disallowed to follow cross-origin redirects.
+
 
 
 
