@@ -88,12 +88,6 @@ jsonp({
 > CORS为什么支持跨域：**跨域时，浏览器会拦截Ajax请求，并在http头中加Origin**。跨域并不是请求发不出去，请求能发出去，服务端能收到请求并正常返回结果，只是结果被浏览器拦截了。**跨域是为了阻止用户读取到另一个域名下的内容，Ajax 可以获取响应，浏览器认为这不安全，所以拦截了响应。但是表单并不会获取新的内容，所以可以发起跨域请求。同时也说明了跨域并不能完全阻止 CSRF，因为请求毕竟是发出去了**。
 
 **跨域实际上是浏览器拦截了响应，实际的请求已经发送成功。**  
-CORS 引入了以下几个  
-- Access-Control-Allow-* ：开头：
-- Access-Control-Allow-Origin 表示允许的来源
-- Access-Control-Allow-Methods 表示允许的请求方法
-- Access-Control-Allow-Headers 表示允许的请求头
-- Access-Control-Allow-Credentials 表示允许携带认证信息当请求符合响应头的这些条件时，浏览器才会发送并响应正式的请求。
 
 浏览器会自动进行 CORS 通信，实现 CORS 通信的关键是后端。后端允许CORS跨域，前端设置代理链接和允许带上cookie。  
 > 后端header设置
@@ -130,6 +124,25 @@ proxy: {
 
 
 虽然设置 CORS 和前端没什么关系，但是通过这种方式解决跨域问题的话，会在发送请求时出现两种情况，分别为**简单请求和需预检请求（复杂请求）**。
+
+**简单请求**  
+不会触发预检请求的称为简单请求。当请求满足以下条件时就是一个简单请求：
+- 请求方法：GET、HEAD、POST。
+- 请求头：Accept、Accept-Language、Content-Language、Content-Type。
+- Content-Type 仅支持：application/x-www-form-urlencoded、multipart/form-data、text/plain。
+
+**需预检请求**  
+当一个请求不满足以上简单请求的条件时，浏览器会自动向服务端发送一个**OPTIONS 请求**，通过**服务端返回的 Access-Control-Allow-* 判定请求是否被允许**。
+
+CORS 引入了以下几个  
+- Access-Control-Allow-* ：开头：
+- Access-Control-Allow-Origin 表示允许的来源
+- Access-Control-Allow-Methods 表示允许的请求方法
+- Access-Control-Allow-Headers 表示允许的请求头
+- Access-Control-Allow-Credentials 表示允许携带认证信息
+
+当请求符合响应头的这些条件时，浏览器才会发送并响应正式的请求。
+
 
 
 ### 3. **nginx反向代理**
