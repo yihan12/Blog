@@ -153,10 +153,18 @@ CORS 引入了以下几个  Access-Control-Allow-* ：开头：
 > The request was redirected to 'https://example.com/foo', which is disallowed for cross-origin requests that require preflight. Request requires preflight, which is disallowed to follow cross-origin redirects.
 
 
+### 3. nginx反向代理
+> 原理： 同源策略是浏览器的安全策略，不是HTTP协议的一部分，服务器端调用HTTP接口只是使用HTTP协议，不会执行JS脚本，不需要同源策略，也就不存在跨越问题。  
+> 反向代理解决跨域问题的方案**依赖同源的服务端对请求做一个转发处理，将请求从跨域请求转换成同源请求**。  
+> 实现：通过nginx配置一个代理服务器（域名与domain1相同，端口不同）做跳板机，反向代理访问domain2接口，并且可以顺便修改cookie中domain信息，方便当前域cookie写入，实现跨域登录
+
+涉及到的端反向代理只需要服务端/后端支持，几乎不涉及前端改动，只用切换接口即可。具体实现方式反向代理的实现方式为在页面同域下配置一套反向代理服务，页面请求同域的服务端，服务端请求上游的实际的服务端，之后将结果返回给前端。
+
+### 4. nodejs中间件代理跨域
+> node中间件实现跨域代理，原理大致与nginx相同，都是通过启一个代理服务器，实现数据的转发，也可以通过设置cookieDomainRewrite参数修改响应头中cookie中域名，实现当前域的cookie写入，方便接口登录认证。
+
+### 5. postMessage
+
+### 6. WebSocket
 
 
-### 3. **nginx反向代理**
-
-5. **WebSocket**
-
-6. **postMessage**
