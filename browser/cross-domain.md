@@ -82,12 +82,12 @@ jsonp({
 })
 ```
    
-### 2. CORS（Cross-Origin Resource Sharing）
+### 2. CORS（Cross-Origin Resource Sharing）跨域资源共享
 > **CORS 需要浏览器和后端同时支持。IE 8 和 9 需要通过 XDomainRequest 来实现。**
 
-浏览器会自动进行 CORS 通信，实现 CORS 通信的关键是后端。只要后端实现了 CORS，就实现了跨域。
+浏览器会自动进行 CORS 通信，实现 CORS 通信的关键是后端。后端允许CORS跨域，前端设置代理链接和允许带上cookie
 
-**服务端设置 Access-Control-Allow-Origin 就可以开启 CORS**。 该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。
+**服务端设置 Access-Control-Allow-Origin 就可以开启 CORS**。 该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。只要服务器返回的相应中包含头部信息**Access-Control-Allow-Origin: domain-name，domain-name为允许跨域的域名，也可以设置成***，浏览器就会允许本次跨域请求
 
 虽然设置 CORS 和前端没什么关系，但是通过这种方式解决跨域问题的话，会在发送请求时出现两种情况，分别为简单请求和复杂请求。
 
