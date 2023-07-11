@@ -87,6 +87,14 @@ jsonp({
 >
 > CORS为什么支持跨域：**跨域时，浏览器会拦截Ajax请求，并在http头中加Origin**。跨域并不是请求发不出去，请求能发出去，服务端能收到请求并正常返回结果，只是结果被浏览器拦截了。**跨域是为了阻止用户读取到另一个域名下的内容，Ajax 可以获取响应，浏览器认为这不安全，所以拦截了响应。但是表单并不会获取新的内容，所以可以发起跨域请求。同时也说明了跨域并不能完全阻止 CSRF，因为请求毕竟是发出去了**。
 
+由上述不难看出，**跨域实际上是浏览器拦截了响应，实际的请求已经发送成功。**  
+CORS 引入了以下几个  
+- Access-Control-Allow-* ：开头：
+- Access-Control-Allow-Origin 表示允许的来源
+- Access-Control-Allow-Methods 表示允许的请求方法
+- Access-Control-Allow-Headers 表示允许的请求头
+- Access-Control-Allow-Credentials 表示允许携带认证信息当请求符合响应头的这些条件时，浏览器才会发送并响应正式的请求。
+
 浏览器会自动进行 CORS 通信，实现 CORS 通信的关键是后端。后端允许CORS跨域，前端设置代理链接和允许带上cookie。  
 > 后端header设置
 Access-Control-Allow-Origin不可以为 *，因为 *会和 Access-Control-Allow-Credentials:true 冲突，需配置指定的地址。如：
