@@ -85,7 +85,36 @@ jsonp({
 ### 2. CORS（Cross-Origin Resource Sharing）跨域资源共享
 > **CORS 需要浏览器和后端同时支持。IE 8 和 9 需要通过 XDomainRequest 来实现。**
 
-浏览器会自动进行 CORS 通信，实现 CORS 通信的关键是后端。后端允许CORS跨域，前端设置代理链接和允许带上cookie
+浏览器会自动进行 CORS 通信，实现 CORS 通信的关键是后端。后端允许CORS跨域，前端设置代理链接和允许带上cookie。  
+> 后端header设置
+Access-Control-Allow-Origin不可以为 *，因为 *会和 Access-Control-Allow-Credentials:true 冲突，需配置指定的地址。如：
+```javascript
+access-control-allow-credentials: true
+access-control-allow-origin: http://localhost:9123
+```
+> 前端设置，以vue+axios举个例子
+
+```javascript
+// 此处是允许带上cookie
+axios.defaults.withCredentials = true;
+```
+
+**我们在开发环境，不需要代理，是因为现在前后端分离的潮流，都是node服务器起的代理proxyTable**
+```javascript
+proxy: {
+  "/fd": {
+    target:
+      process.env.NODE_ENV === "production"
+        ? "http://m.domian1.com"
+        : "http://test.domain.com",
+    ws: true,
+    changeOrigin: true,
+    pathRewrite: {
+      "/fd": "/"
+    }
+  }
+},
+```
 
 **服务端设置 Access-Control-Allow-Origin 就可以开启 CORS**。 该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。只要服务器返回的相应中包含头部信息**Access-Control-Allow-Origin: domain-name，domain-name为允许跨域的域名，也可以设置成***，浏览器就会允许本次跨域请求
 
