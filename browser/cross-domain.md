@@ -6,6 +6,8 @@
 
 跨域问题的来源是浏览器为了请求安全而引入的基于**同源策略的安全特性**。当页面和请求的协议、主机名或端口不同时，浏览器判定两者不同源，即为跨域请求。需要注意的是跨域是浏览器的限制，服务端并不受此影响。
 
+出于安全性，浏览器限制脚本内发起的跨源 HTTP 请求。例如，XMLHttpRequest 和 Fetch API 遵循同源策略。这意味着使用这些 API 的 Web 应用程序只能从加载应用程序的同一个域请求 HTTP 资源，除非响应报文包含了正确 CORS 响应头。
+
 当产生跨域时，我们可以通过 JSONP、CORS、postMessage 等方式解决。
 
 # 同源策略有什么限制
@@ -122,14 +124,15 @@ proxy: {
 
 **服务端设置 Access-Control-Allow-Origin 就可以开启 CORS**。 该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。只要服务器返回的相应中包含头部信息**Access-Control-Allow-Origin: domain-name，domain-name为允许跨域的域名，也可以设置成***，浏览器就会允许本次跨域请求。
 
-
-虽然设置 CORS 和前端没什么关系，但是通过这种方式解决跨域问题的话，会在发送请求时出现两种情况，分别为**简单请求和需预检请求（复杂请求）**。
+跨源资源共享标准新增了一组 HTTP 标头字段，允许服务器声明哪些源站通过浏览器有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的 HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求），浏览器必须首先使用 **OPTIONS 方法发起一个预检请求（preflight request）**，从而获知服务端是否允许该跨源请求。服务器确认允许之后，才发起实际的 HTTP 请求。在预检请求的返回中，服务器端也可以通知客户端，是否需要携带身份凭证（例如 Cookie 和 HTTP 认证相关数据）。
 
 **简单请求**  
-不会触发预检请求的称为简单请求。当请求满足以下条件时就是一个简单请求：
+不会触发预检请求的称为简单请求（**某些请求不会触发 CORS 预检请求**）。当请求满足以下条件时就是一个简单请求：
 - 请求方法：GET、HEAD、POST。
-- 请求头：Accept、Accept-Language、Content-Language、Content-Type。
-- Content-Type 仅支持：application/x-www-form-urlencoded、multipart/form-data、text/plain。
+- 请求头：Accept、Accept-Language、Content-Language、Content-Type（需要注意额外的限制）、Range（只允许简单的范围标头值 如 bytes=256- 或 bytes=127-255）。
+- Content-Type 仅支持：application/x-www-form-urlencoded、multipart/form-data、text/plain
+- 如果请求是使用 XMLHttpRequest 对象发出的，在返回的 XMLHttpRequest.upload 对象属性上没有注册任何事件监听器；也就是说，给定一个 XMLHttpRequest 实例 xhr，没有调用 xhr.upload.addEventListener()，以监听该上传请求。
+- 请求中没有使用 ReadableStream 对象。
 
 **需预检请求**  
 当一个请求不满足以上简单请求的条件时，浏览器会自动向服务端发送一个**OPTIONS 请求**，通过**服务端返回的 Access-Control-Allow-* 判定请求是否被允许**。
