@@ -137,9 +137,8 @@ proxy: {
 **需预检请求**  
 当一个请求不满足以上简单请求的条件时，浏览器会自动向服务端发送一个**OPTIONS 请求**，通过**服务端返回的 Access-Control-Allow-* 判定请求是否被允许**。
 
-CORS 引入了以下几个  
-- Access-Control-Allow-* ：开头：
-- Access-Control-Allow-Origin 表示允许的来源
+CORS 引入了以下几个  Access-Control-Allow-* ：开头：
+- Access-Control-Allow-Origin 表示允许的来源（* 该资源可以被任意外源访问。）
 - Access-Control-Allow-Methods 表示允许的请求方法
 - Access-Control-Allow-Headers 表示允许的请求头
 - Access-Control-Allow-Credentials 表示允许携带认证信息
