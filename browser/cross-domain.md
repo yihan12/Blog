@@ -18,9 +18,9 @@
  
 但是有三个标签是允许跨域加载资源：
 
-* <img src=XXX>
-* <link href=XXX>
-* <script src=XXX>
+* `<img src=XXX>`
+* `<link href=XXX>`
+* `<script src=XXX>`
 
  特别说明两点：
 
