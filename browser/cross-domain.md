@@ -30,3 +30,5 @@
 3. **nginx反向代理**
 
 4. **WebSocket**
+
+5. **postMessage**
