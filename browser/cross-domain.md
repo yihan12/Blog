@@ -15,6 +15,13 @@
   * **Cookie、LocalStorage和IndexDB无法获取。**
   * **无法获取和操作DOM。**
   * **不能发送Ajax请求。我们要注意，Ajax只适合同源的通信。**
+ 
+但是有三个标签是允许跨域加载资源：
+
+* <img src=XXX>
+* <link href=XXX>
+* <script src=XXX>
+
 
 # 常见通信方式
 * **ajax:不支持跨域。**
