@@ -40,11 +40,14 @@
 # 常见的跨域方式
 
 1. **jsonp**
+   **利用 <script> 标签没有跨域限制的漏洞，网页可以得到从其他来源动态产生的 JSON 数据。JSONP请求一定需要对方的服务器做支持才可以。**
 
-2. **CORS（Cross-Origin Resource Sharing）**
+   优缺点： JSONP优点是**简单兼容性好**，可用于解决主流浏览器的跨域数据访问的问题。缺点是**仅支持get方法**具有局限性,不安全可能会遭受XSS攻击。
+   
+3. **CORS（Cross-Origin Resource Sharing）**
 
-3. **nginx反向代理**
+4. **nginx反向代理**
 
-4. **WebSocket**
+5. **WebSocket**
 
-5. **postMessage**
+6. **postMessage**
