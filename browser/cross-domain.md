@@ -22,3 +22,11 @@
 * **跨域资源共享(CORS):不受同源策略的限制，支持跨域。一种新的通信协议标准。可以理解成是：同时支持同源和跨域的Ajax。**
 
 # 常见的跨域方式
+
+1. **jsonp**
+
+2. **CORS（Cross-Origin Resource Sharing）**
+
+3. **nginx反向代理**
+
+4. **WebSocket**
