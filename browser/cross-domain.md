@@ -160,6 +160,49 @@ CORS 引入了以下几个  Access-Control-Allow-* ：开头：
 
 涉及到的端反向代理只需要服务端/后端支持，几乎不涉及前端改动，只用切换接口即可。具体实现方式反向代理的实现方式为在页面同域下配置一套反向代理服务，页面请求同域的服务端，服务端请求上游的实际的服务端，之后将结果返回给前端。
 
+#### 1、 nginx配置解决iconfont跨域
+浏览器跨域访问js、css、img等常规静态资源被同源策略许可，但iconfont字体文件(eot|otf|ttf|woff|svg)例外，此时可在nginx的静态资源服务器中加入以下配置。
+```
+location / {
+  add_header Access-Control-Allow-Origin *;
+}
+```
+#### 2、 nginx反向代理接口跨域
+原理： **同源策略是浏览器的安全策略**，不是HTTP协议的一部分，**服务器端调用HTTP接口只是使用HTTP协议**，不会执行JS脚本，不需要同源策略，也就不存在跨越问题。  
+
+实现：通过nginx配置一个代理服务器（域名与domain1相同，端口不同）做跳板机，反向代理访问domain2接口，并且可以顺便修改cookie中domain信息，方便当前域cookie写入，实现跨域登录  
+
+nginx配置：
+```
+#proxy服务器
+server {
+    listen       81;
+    server_name  www.domain1.com;
+
+    location / {
+        proxy_pass   http://www.domain2.com:8080;  #反向代理
+        proxy_cookie_domain www.domain2.com www.domain1.com; #修改cookie里域名
+        index  index.html index.htm;
+
+        # 当用webpack-dev-server等中间件代理接口访问nignx时，此时无浏览器参与，故没有同源限制，下面的跨域配置可不启用
+        add_header Access-Control-Allow-Origin http://www.domain1.com;  #当前端只跨域不带cookie时，可为*
+        add_header Access-Control-Allow-Credentials true;
+    }
+}
+```
+
+前端配置:`xhr.withCredentials = true`.  
+```javascript
+var xhr = new XMLHttpRequest();
+
+// 前端开关：浏览器是否读写cookie
+xhr.withCredentials = true;
+
+// 访问nginx中的代理服务器
+xhr.open('get', 'http://www.domain1.com:81/?user=admin', true);
+xhr.send();
+```
+
 ### 4. nodejs中间件代理跨域
 > node中间件实现跨域代理，原理大致与nginx相同，都是通过启一个代理服务器，实现数据的转发，也可以通过设置cookieDomainRewrite参数修改响应头中cookie中域名，实现当前域的cookie写入，方便接口登录认证。
 
