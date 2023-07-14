@@ -206,6 +206,8 @@ xhr.send();
 ### 4. nodejs中间件代理跨域
 > node中间件实现跨域代理，原理大致与nginx相同，都是通过启一个代理服务器，实现数据的转发，也可以通过设置cookieDomainRewrite参数修改响应头中cookie中域名，实现当前域的cookie写入，方便接口登录认证。
 
+vue和react框架开发环境，就是用的该方式。
+
 ### 5. postMessage
 
 ### 6. WebSocket
