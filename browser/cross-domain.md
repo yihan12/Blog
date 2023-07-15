@@ -215,6 +215,8 @@ window.postMessage() 方法可以安全地实现跨源通信。通常，对于�
 
 从广义上讲，一个窗口可以获得对另一个窗口的引用（比如 targetWindow = window.opener），然后在窗口上调用 targetWindow.postMessage() 方法分发一个 MessageEvent 消息。接收消息的窗口可以根据需要自由处理此事件 (en-US)。传递给 window.postMessage() 的参数（比如 message）将**通过消息事件对象暴露给接收消息的窗口**。
 
+任何窗口可以在任何其他窗口访问此方法，在任何时间，无论文档在窗口中的位置，向其发送消息。因此，用于接收消息的任何事件监听器必须首先使用 origin 和 source 属性来检查消息的发送者的身份。无法检查 origin 和 source 属性会导致跨站点脚本攻击。
+
 ### 6. WebSocket
 
 # 跨域时cookie处理
