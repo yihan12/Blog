@@ -209,6 +209,7 @@ xhr.send();
 vue和react框架开发环境，就是用的该方式。
 
 ### 5. postMessage
+> H5中新增的`postMessage()``方法，可以用来做跨域通信。既然是H5中新增的，那就一定要提到。
 
 ### 6. WebSocket
 
