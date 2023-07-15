@@ -225,3 +225,10 @@ nginx配置：
 - Access-Control-Allow-Credentials：可选字段。它的值是一个布尔值，表示是否允许发送Cookie。默认情况下，Cookie不包括在CORS请求之中。设为 true，即表示服务器明确许可，Cookie可以包含在请求中，一起发给服务器。这个值也只能设为 true，如果服务器不要浏览器发送 Cookie，删除该字段即可。
 - 对于附带身份凭证的请求，服务器不得设置 Access-Control-Allow-Origin 的值为 *。这是因为请求的首部中携带了Cookie信息，如果 Access-Control-Allow-Origin 的值为 *，请求将会失败。而将 Access-Control-Allow-Origin 的值设置为 a.b.com，则请求将成功执行。也就是说 Access-Control-Allow-Credentials 设置为 true 的情况下
 Access-Control-Allow-Origin 不能设置为 *。
+
+# 扩展
+### 1. LocalStorage / SessionStorage 
+跨域LocalStorage 和 SessionStorage 同样受到同源策略的限制。而跨域读写的方式也可以使用前文提到的 postMessage。
+
+### 2. 跨域与监控
+前端项目在统计前端报错监控时会遇到上报的内容只有 Script Error 的问题。这个问题也是由同源策略引起。在 <script> 标签上添加crossorigin="anonymous" 并且返回的 JS 文件响应头加上Access-Control-Allow-Origin: * 即可捕捉到完整的错误堆栈。
