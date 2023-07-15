@@ -219,6 +219,11 @@ window.postMessage() 方法可以安全地实现跨源通信。通常，对于�
 
 ### 6. WebSocket
 
+> WebSocket protocol是HTML5一种新的协议。它实现了浏览器与服务器全双工通信，同时允许跨域通讯，是server push技术的一种很好的实现。
+
+原生WebSocket API使用起来不太方便，我们使用Socket.io，它很好地封装了webSocket接口，提供了更简单、灵活的接口，也对不支持webSocket的浏览器提供了向下兼容。
+
+
 # 跨域时cookie处理
 
 ### 客户端处理
