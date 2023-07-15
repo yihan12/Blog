@@ -232,3 +232,6 @@ Access-Control-Allow-Origin 不能设置为 *。
 
 ### 2. 跨域与监控
 前端项目在统计前端报错监控时会遇到上报的内容只有 Script Error 的问题。这个问题也是由同源策略引起。在 <script> 标签上添加crossorigin="anonymous" 并且返回的 JS 文件响应头加上Access-Control-Allow-Origin: * 即可捕捉到完整的错误堆栈。
+
+### 3. 跨域与图片
+前端项目在图片处理时可能会遇到图片绘制到 Canvas 上之后却不能读取像素或导出 base64 的问题。这个问题也是由同源策略引起。解决方式和上文相同，给图片添加 crossorigin="anonymous" 并在返回的图片文件响应头加上Access-Control-Allow-Origin: * 即可解决。
