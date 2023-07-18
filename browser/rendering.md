@@ -63,3 +63,46 @@
 （5）、内容改变：文本改变或者图片大小改变而引起的计算值宽度和高度改变；
 
 （6）、查询布局信息，包括offestLeft/Top/Width/Height、scrollLeft/Top/Width/Height、clientLeft/Top/Width/Height、浏览为了返回最新值，会触发回流
+
+### 请问在浏览器中输入 URL后，浏览器会做哪些工作？
+从输入URL到渲染出整个页面包括三个部分：
+
+**（1）、DNS解析URL**
+
+DNS解析就是寻找哪个服务器上有请求的资源，因为ip地址不易记忆，一般会使用URL域名（如www.baidu.com）作为网址，DNS解析就是将域名“翻译”成IP地址
+
+具体过程：
+
+a、浏览器缓存：浏览器会按照一定的频率，缓存DNS记录
+
+b、操作系统缓存：如果浏览器缓存中找不到需要的DNS记录，就会取操作系统中找
+
+c、路由缓存：路由器也有DNS缓存
+
+d、ISP的DNS服务器：ISP有专门的DNS服务器应对DNS查询请求
+
+e、根服务器：ISP的DNS服务器找不到，就要向根服务器发出请求，进行递归查询
+
+**（2）、浏览器发送请求与服务器交互**
+
+a、浏览器利用tcp协议通过三次握手与服务器建立连接
+
+http请求包括header和body，header中包括请求的方式（get和post）、请求的协议 （http、https、ftp）、请求的地址ip、缓存cookie，body中有请求的内容
+
+b、浏览器根据解析到的IP地址和端口号发起http的get请求
+
+c、服务器接收到http请求之后，开始搜索html页面，并使用http返回响应报文
+
+d、若状态码为200显示响应成功，浏览器接收到返回的HTML页面后，开始渲染页面
+
+**（3）、浏览器对接收到的HTML页面进行渲染**
+
+a、浏览器根据深度遍历的方式把HTML节点遍历成DOM树
+
+b、将CSS解析成CSSOM树
+
+c、将DOM树和CSSOM树构造成Render树
+
+d、根据Render树计算所有节点在屏幕中的位置，进行布局（回流）
+
+e、遍历Render树并调用硬件API绘制所有节点（重绘）
