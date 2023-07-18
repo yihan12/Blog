@@ -104,7 +104,7 @@
   * - [x] [【浏览器】之XSS & CSRF](https://github.com/yihan12/Blog/blob/main/browser/XSS%20%26%20CSRF.md)
   * - [x] [【浏览器】之同源策略](https://github.com/yihan12/Blog/blob/main/browser/Same-Origin%20Policy.md)
   * - [x] [【浏览器】之跨域](https://github.com/yihan12/Blog/blob/main/browser/cross-domain.md)
-
+  * - [x] [【浏览器】之重绘和回流（重排）](https://github.com/yihan12/Blog/blob/main/browser/repaint & reflow.md)
 
 # 【HTTP】
 
