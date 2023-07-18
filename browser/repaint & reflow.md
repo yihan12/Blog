@@ -30,12 +30,12 @@
 
 主要包括以下属性或方法：
 
-offsetTop、offsetLeft、offsetWidth、offsetHeight
-scrollTop、scrollLeft、scrollWidth、scrollHeight
-clientTop、clientLeft、clientWidth、clientHeight
-width、height
-getComputedStyle()
-getBoundingClientRect()
+- offsetTop、offsetLeft、offsetWidth、offsetHeight
+- scrollTop、scrollLeft、scrollWidth、scrollHeight
+- clientTop、clientLeft、clientWidth、clientHeight
+- width、height
+- getComputedStyle()
+- getBoundingClientRect()
 所以，我们应该避免频繁的使用上述的属性，他们都会强制渲染刷新队列。
 
 ### 5. 减少重绘与回流
