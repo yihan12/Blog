@@ -201,6 +201,43 @@ CommonJS 通过同步的方式加载模块，首次加载会缓存结果，后�
 
 #### ES6模块化
 > 异步加载，有一个独立的模块依赖的解析阶段，实现相对简单，浏览器和服务器通用模块解决方案
+> ESM，即 ESModule、ECMAScript Module。
+> 官方模块化规范，现代浏览器原生支持，通过 import 加载模块，export 导出内容。
+
+##### 示例
+```
+// hzfe.js
+const hzfeMember = 17;
+export const getHZFEMember = () => {
+  return `HZFE Member: ${hzfeMember}`;
+};
+
+// index.js
+import * as hzfe from "./hzfe.js";
+console.log(hzfe.getHZFEMember()); // HZFE Member: 17
+```
+
+##### 使用场景
+
+ESM 在支持的浏览器环境下可以直接使用，在不支持的端需要编译/打包后使用。
+
+##### 加载方式
+
+ESM 加载模块的方式同样取决于所处的环境，Node.js 同步加载，浏览器端异步加载。
+
+##### 优缺点
+
+优点
+
+* 支持同步/异步加载
+* 语法简单
+* 支持模块静态分析
+* 支持循环引用
+
+缺点
+
+* 兼容性不佳
+
 
 **编译时就能确定模块的依赖关系、输入和输出变量**
 
