@@ -135,6 +135,11 @@ import 'lodash' //仅仅执行lodash模块，但是不输入任何值
 **主要由export和import两个命令构成，export用于规定模块的对外接口，import用于输入其他模块提供的功能**
 
 ### CommonJS、AMD、ESMoudle的区别
+* CommonJS: 主要是 Node.js 使用，通过 require 同步加载模块，exports 导出内容。
+* AMD: 主要是浏览器端使用，通过 define 定义模块和依赖，require 异步加载模块，推崇依赖前置。
+* CMD: 和 AMD 比较类似，主要是浏览器端使用，通过 require 异步加载模块，exports 导出内容，推崇依赖就近。
+* UMD: 通用模块规范，是 CommonJS、AMD 两个规范的大融合，是跨平台的解决方案。
+* ESM: 官方模块化规范，现代浏览器原生支持，通过 import 异步加载模块，export 导出内容。
 
 #### CommonJS
 > 主要用于服务端，同步加载模块，并不适合在浏览器环境  
