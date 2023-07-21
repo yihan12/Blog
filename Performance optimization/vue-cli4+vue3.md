@@ -1,18 +1,22 @@
-#前言
+# 前言
 无缓存时，项目初次打包体积较大，首屏加载接近10s才能打开...总体积约16M...。原始包中包含echarts、vant等全部包，未全部按需加载。导致打出的包体积比较大。总体积约16M，加上sit环境的带宽只有1M，导致首屏加载接近10s才能打开。严重影响用户体验。
 于是对项目进行了一系列打包优化：分环境处理包，拆分包，压缩代码，按需加载路由，按需加载组件,gzip压缩等方式进行包压缩。最后将生产包里最大的js文件压缩到160kb,其余js文件均在100kb一下，生产首屏加载速度500ms左右。
 下面对整个打包优化的详细过程,希望对以后的性能优化提供思路
-优化前后对比
-优化前
-优化后
-项目分析
-性能优化的最终目的是提升用户体验。
-也就是让用户觉得这个网站访问快。而快是有两种：一种是真的快，一种是觉得快。
-真的快：网页访问时间，交互响应时间，跳转页面时间。
-觉得快：用户主观感知性能，通过视觉手段，转移用户等待时间的关注。
-优化方案
-一、vue.config.js 部分的配置
+
+# 优化前后对比
+
+优化前  
+优化后  
+
+# 项目分析
+- 性能优化的最终目的是提升用户体验。
+- 也就是让用户觉得这个网站访问快。而快是有两种：一种是真的快，一种是觉得快。
+- 真的快：网页访问时间，交互响应时间，跳转页面时间。
+- 觉得快：用户主观感知性能，通过视觉手段，转移用户等待时间的关注。
+# 优化方案
+### 一、vue.config.js 部分的配置
 ⚡判断 是否生产环境
+```
 // 判断是否是生产环境
 const IS_PROD = ['production', 'prod'].includes(process.env.NODE_ENV)
 ⚡配置 alias 别名
@@ -80,13 +84,16 @@ module.exports = {
     }
   }
 }
+```
 由于项目还在初期上述方案并没有明显的体积变小的优化。但是对后续的项目扩展很有好处。
-二、整体项目插件框架路由按需加载
+
+### 二、整体项目插件框架路由按需加载
 由于方案第一步优化效果不理想，还需往后找更有效的方案。后续对整个项目检查是否有大插件、大框架有无完全按需加载。对echarts、vant检查后发现都以按需加载。并把按需加载的代码写在方案内，以便后续项目使用方便。路由未用懒加载也是代码QC时敬增发现的，之前已经做了更改，现在写在方案中。
 ⚡路由懒加载
 SPA中一个很重要的提速手段就是路由懒加载，当打开页面是才去加载对应文件。我们可以利用vue异步组件和webpack代码分割（import()）就可以轻松实现路由懒加载。
 但当路由过多时，请合理使用webpack的魔法注释对路由进行分组，太多的chunk会影响构建速度
 请只在生产时懒加载，否则路由多起来，开发构建速度感人
+```
 {
     path: '/sleepManage/history',
     name: 'history',
@@ -94,11 +101,15 @@ SPA中一个很重要的提速手段就是路由懒加载，当打开页面是�
         import(/* webpackChunkName:"sleep-manage" */ '@/views/sleepManage/history/index.vue'),
     meta: { title: () => i18n.t('router.sleepManage._history'), keepAlive: false, auth: false }
 }
+```
 ⚡vantui框架按需引入
 1. 安装插件
+```
 npm install babel-plugin-import --save-dev
+```
 1. 配置插件
 在.babelrc 或 babel.config.js 中添加配置：
+```
 {
   "plugins": [
     [
@@ -111,7 +122,9 @@ npm install babel-plugin-import --save-dev
     ]
   ]
 }
+```
 本地babel.config.js
+```
 // 获取 VUE_APP_ENV 非 NODE_ENV，测试环境依然 console
 const IS_PROD = ['production', 'prod'].includes(process.env.VUE_APP_ENV)
 
@@ -132,8 +145,10 @@ module.exports = {
   ],
   plugins
 }
+```
 1. 引入组件
 接着你可以在代码中直接引入 Vant(main.js) 组件，插件会自动将代码转化为按需引入的形式。
+```
 // 原始代码
 import { Button } from 'vant';
 
@@ -168,16 +183,20 @@ echarts.use([
   BarChart,
   CanvasRenderer,
 ]);
-三、资源文件Gzip压缩传输
+```
+### 三、资源文件Gzip压缩传输
 Gzip压缩是一种强力压缩手段，针对文本文件时通常能减少2/3的体积。
 http协议中用头部字段Accept-Encoding和Content-Encoding对[采取何种编码格式 传输文本]进行了协定，请求头的Accept-Encoding会列出客户端支持的编码格式。当响应头的 Content-Encoding指定了gzip时，浏览器则会进行对应解压
 这个方法是优化效果最好的，需要服务端的配合，对nginx进行gzip配置。
-成功将包的体积由15.9M缩小到400多kb。体验显著提升，但是在sit环境（1M带宽）中访问，还是需要4s左右才能访问。
+成功将包的体积由15.9M缩小到400多kb。体验显著提升，但是在sit环境（1M带宽）中访问，还是需要4s左右才能访问。  
 ⚡下载插件
+```
 npm install compression-webpack-plugin --save-dev
+```
 ⚡前端配置gzip压缩
 插件默认压缩等级是9，最高级的压缩
 图片文件不建议使用gzip压缩，效果较差
+```
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
 module.exports = {
@@ -200,20 +219,34 @@ module.exports = {
     config.plugins = [...config.plugins, ...plugins]
   },
 }
+```
 ⚡nginx配置
 #开启和关闭gzip模式
+```
 gzip on;
+```
 #gizp压缩起点，文件大于1k才进行压缩
+```
 gzip_min_length 1k;
+```
 # gzip 压缩级别，1-9，数字越大压缩的越好，也越占用CPU时间
+```
 gzip_comp_level 6;
+```
 # 进行压缩的文件类型。
+```
 gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript ;
+```
 # nginx对于静态文件的处理模块，开启后会寻找以.gz结尾的文件，直接返回，不会占用cpu进行压缩，如果找不到则不进行压缩
+```
 gzip_static on
+```
 # 是否在http header中添加Vary: Accept-Encoding，建议开启
+```
 gzip_vary on;
+```
 # 设置gzip压缩针对的HTTP协议版本
+```
 gzip_http_version 1.1;
 location ~ .*\.(js|json|css)$ {
     gzip on;
@@ -224,6 +257,7 @@ location ~ .*\.(js|json|css)$ {
     gzip_types  text/css application/javascript application/json;
     root /dist;
 }
+```
 四、配置 打包分析
 尽管gzip的优化已经的到了很大的提升，但是还是感觉速度不太快，可能是sit环境的带宽原因 ，但是对于新的项目，不应该体积这么大。
 于是上午找了相关资料。可以对代码打包进行可视化分析，对打包后的所有代码进行分析。
@@ -245,9 +279,10 @@ module.exports = {
 }
 之后我们对代码进行打包的时候就可以像这样输出分析图：
 通过上面的分析图能很快掌握哪些包体积还比较大，可以进行公共代码拆分以及cdn优化。
-五、通过打包图发现vconsole在生产未用到但是还是被打包到了生产
+### 五、通过打包图发现vconsole在生产未用到但是还是被打包到了生产
 通过打包图发现vconsole在生产未用到但是还是被打包到了生产，于是对生产和debug环境进行了区分，并且用cdn的模式引入，防止浪费带宽。
 vconsole使用cdn模式
+```
 // 本地环境是否需要使用cdn
 const devNeedCdn = false
 // cdn预加载使用
@@ -310,10 +345,12 @@ if (vue_vconsole === 'show') {
   const vConsole = new VConsole()
   console.log(vConsole.version);
 }
-六、公共代码抽离
+```
+### 六、公共代码抽离
 进行上述几种方法的优化后，发现chunk.vendor.js这个公共包还是有300多kb（sit环境首屏加载速度3秒内），对于一个初始项目不应该这么大。
 通过查资料以及这些优化博客的介绍，了解到：这个js是我们本身项目所有的包，包括vue这个全家桶，vant以及echarts等插件。于是按照博客的思路，对公共包进行拆分，大于50kb的包都拆成单个包，这样单个包的加载时间就会等到优化。
 果然对包进行拆分后，单个包的大小达到160kb，sit环境首屏加载速度也达到了2s以内。速度显著提升。后续我们将代码打包好放到生产环境（8M带宽）。首屏加载速度在500ms左右，接近于秒开。下面对这个方法进行描述
+```
 module.exports = {
   configureWebpack: config => {
     if(IS_PROD){
@@ -399,13 +436,14 @@ module.exports = {
     }
   },
 }
-总结
-业务方面
+```
+# 总结
+### 业务方面
 性能优化影响的，不仅是用户体验，还影响了转化率、搜索引擎排名，这些因素都会对最终的流量、销量等收入造成影响
 来自Google的数据表明，一个有10条数据0.4秒能加载完的页面，变成30条数据0.9秒加载完之后，流量和广告收入下降90%。
 性能优化影响的，不仅是用户体验，还影响了转化率、搜索引擎排名，这些因素都会对最终的流量、销量等收入造成影响
 亚马逊的数据表明：加载时间增加100毫秒，销量就下降1%。
-个人提升
+### 个人提升
 项目包体积由16M优化到最大包160kb，首屏加载的速度也有整体的提升，速度由当初的10s优化到500ms左右。
 刚开始项目单个js文件的体积是16M多，加载非常慢。后续后端通过对Nginx的压缩配置（gzip压缩），把文件压缩到了四百多kb。整体的页面加载速度提升了不少。后面通过查看文档，寻找多个解决方案，进行了前端文件过大可视化分析，图片压缩，文件打包压缩，CDN方式获取以及包拆分等方式让单个包在120kb，其余包都在100kb以下，极大提升了首屏加载速度。对自己的整体打包的理解，以及整个项目的运行更加透彻。
 性能优化算是老生常谈的话题了，但部分人在面对怎么做性能优化的问题时，仅仅只是罗列出各种常见优化手段，更有深度的答案应该是遇到什么性能问题，针对这个问题围绕某些性能指标采取了什么手段，手段是否带来了其他问题，怎么权衡，最终达到了什么样的效果。
