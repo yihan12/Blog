@@ -132,6 +132,8 @@ e、遍历Render树并调用硬件API绘制所有节点（重绘）
 > Layout 树和 DOM 树不一定是一一对应的，为了构建 Layout 树，浏览器主要完成了下列工作：从 DOM 树的根节点开始遍历每个可见节点。某些不可见节点（例如 script、head、meta 等），它们不会体现在渲染输出中，会被忽略。某些通过设置 display 为 none 隐藏的节点，在渲染树中也会被忽略。为伪元素创建 LayoutObject。为行内元素创建匿名包含块对应的 LayoutObject。对于每个可见节点，为其找到适配的 CSSOM 规则并应用它们。产出可见节点，包含其内容和计算的样式。
 
 - PAINT：绘制不同的盒子，为了避免不必要的重绘，将会分成多个层进行处理。
+> DOM 树的 Document 节点对应的 RenderView 节点。DOM 树中 Document 节点的子节点，也就是 HTML 节点对应的 RenderBlock 节点。显式指定 CSS 位置的节点（position 为 absolute 或者 fixed）。具有透明效果的节点。具有 CSS 3D 属性的节点。使用 Canvas 元素或者 Video 元素的节点。浏览器遍历 LayoutObject 树的时候，建立了 PaintLayer 树，LayoutObject 与PaintLayer 也不一定是一一对应的。每个 LayoutObject 要么与自己的PaintLayer 关联，要么与拥有 PaintLayer 的第一个祖先的 PaintLayer 关联。
+
 - COMPOSITE & RENDER：将上述不同的层合成为一张位图，发送给 GPU，渲染到屏幕上。为了提高浏览器的渲染性能，通常的手段是保证渲染流程不被阻塞，避免不必要的绘制计算和重排重绘，利用 GPU 硬件加速等技术来提高渲染性能。
 
 ### 次级资源加载
