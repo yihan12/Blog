@@ -1,6 +1,9 @@
 ![image](https://github.com/yihan12/Blog/assets/44987698/d8237b82-84fb-4fd1-a1a7-10aba53d29f3)
 
 
+![image](https://github.com/yihan12/Blog/assets/44987698/ba27247a-0d96-4bee-a200-c8ff09f0ed8b)
+
+
 ### 从输入一个URL到网页展示的过程
 
 从输入URL到渲染出整个页面包括三个部分：
