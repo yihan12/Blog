@@ -161,3 +161,8 @@ HTML 的过程中，CSS 和 JS 都有可能对页面的渲染造成影响。
 > body 中尽量不要出现 CSS 和 JS。
 > 为 img 指定宽高，避免图像加载完成后触发重排。
 > 避免使用 table, iframe 等慢元素。原因是 table 会等到它的 dom 树全部生成后再一次性插入页面中；iframe 内资源的下载过程会阻塞父页面静态资源的下载及 css, dom 树的解析。
+
+### CSSOM
+像 <head> 和它的子节点以及任何具有 display: none 样式的结点，例如 script { display: none; }（在 user agent stylesheets 可以看到这个样式）这些标签将不会显示，也就是它们不会出现在 Render 树上。具有 visibility: hidden 的节点会出现在 Render 树上，因为它们会占用空间。由于我们没有给出任何指令来覆盖用户代理的默认值，因此上面代码示例中的 script 节点将不会包含在 Render 树中。
+
+每个可见节点都应用了其 CSSOM 规则。Render 树保存所有具有内容和计算样式的可见节点——将所有相关样式匹配到 DOM 树中的每个可见节点，并根据 CSS 级联确定每个节点的计算样式。
