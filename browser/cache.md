@@ -3,6 +3,7 @@
 
 ![image](https://github.com/yihan12/Blog/assets/44987698/bce57bed-cc89-40ff-aed7-e1267eaeb9ef)
 
+![image](https://github.com/yihan12/Blog/assets/44987698/a0ece8ed-6294-4d91-9111-cbe66c95bde2)
 
 # 缓存分类：
 
