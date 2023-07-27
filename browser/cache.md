@@ -431,7 +431,7 @@ objectStore.add(newItem);
 #### 4、indexedDB数据库的获取
 indexedDB数据库的获取使用Cursor APIs和Key Range APIs。也就是使用“游标API”和“范围API”，具体使用可以去看文档
 
-### localStorage，sessionStorage和cookie的区别
+### 四、localStorage，sessionStorage和cookie的区别
 共同点：都是保存在浏览器端、且同源的  
 
 区别：
@@ -447,3 +447,4 @@ indexedDB数据库的获取使用Cursor APIs和Key Range APIs。也就是使用�
 * web Storage支持事件通知机制，可以将数据更新的通知发送给监听者
 
 * web Storage的api接口使用更方便
+
