@@ -200,4 +200,25 @@ Manifest被移除是技术发展的必然，请拥抱Service Worker吧
 #### 3、不同点
 强缓存不发请求到服务器，协商缓存会发请求到服务器。
 
+### 强缓存
+通过Expires和Cache-Control两种响应头实现
+
+#### 1、Expires
+Expires是http1.0提出的一个表示资源过期时间的header，它描述的是一个绝对时间，由服务器返回。
+Expires 受限于本地时间，如果修改了本地时间，可能会造成缓存失效
+
+Expires: Wed, 11 May 2018 07:20:00 GMT
+#### 2、Cache-Control
+Cache-Control 出现于 HTTP / 1.1，优先级高于 Expires ,表示的是相对时间
+
+- Cache-Control: max-age=315360000
+题外tips
+Cache-Control: no-cache不会缓存数据到本地的说法是错误的，详情《HTTP权威指南》P182
+ ![image](https://github.com/yihan12/Blog/assets/44987698/a36a6bc9-eaa9-409e-af30-5383a057e141)
+
+
+- Cache-Control: no-store才是真正的不缓存数据到本地
+- Cache-Control: public可以被所有用户缓存（多用户共享），包括终端和CDN等中间代理服务器
+- Cache-Control: private只能被终端浏览器缓存（而且是私有缓存），不允许中继缓存服务器进行缓存
+
 
