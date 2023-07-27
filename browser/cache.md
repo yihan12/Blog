@@ -224,3 +224,26 @@ Cache-Control: no-cache不会缓存数据到本地的说法是错误的，详情
 ![image](https://github.com/yihan12/Blog/assets/44987698/a36a6bc9-eaa9-409e-af30-5383a057e141)
 
 
+### 协商缓存
+当浏览器对某个资源的请求没有命中强缓存，就会发一个请求到服务器，验证协商缓存是否命中，如果协商缓存命中，请求响应返回的http状态为304并且会显示一个Not Modified的字符串
+
+协商缓存是利用的是【Last-Modified，If-Modified-Since】和【ETag、If-None-Match】这两对Header来管理的
+
+#### 1、Last-Modified，If-Modified-Since
+Last-Modified 表示本地文件最后修改日期，浏览器会在request header加上If-Modified-Since（上次返回的Last-Modified的值），询问服务器在该日期后资源是否有更新，有更新的话就会将新的资源发送回来
+
+但是如果在本地打开缓存文件，就会造成 Last-Modified 被修改，所以在 HTTP / 1.1 出现了 ETag
+
+#### 2、ETag、If-None-Match
+Etag就像一个指纹，资源变化都会导致ETag变化，跟最后修改时间没有关系，ETag可以保证每一个资源是唯一的
+
+If-None-Match的header会将上次返回的Etag发送给服务器，询问该资源的Etag是否有更新，有变动就会发送新的资源回来
+070b6284-e835-4470-ac6e-7e1892fab369
+
+ETag的优先级比Last-Modified更高
+
+具体为什么要用ETag，主要出于下面几种情况考虑：
+
+一些文件也许会周期性的更改，但是他的内容并不改变(仅仅改变的修改时间)，这个时候我们并不希望客户端认为这个文件被修改了，而重新GET；
+某些文件修改非常频繁，比如在秒以下的时间内进行修改，(比方说1s内修改了N次)，If-Modified-Since能检查到的粒度是s级的，这种修改无法判断(或者说UNIX记录MTIME只能精确到秒)；
+某些服务器不能精确的得到文件的最后修改时间。
