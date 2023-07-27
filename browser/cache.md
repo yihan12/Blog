@@ -257,7 +257,8 @@ ETag的优先级比Last-Modified更高
 - If-None-Match (Etag) —— 请求服务器
 - If-Modified-Since (Last-Modified) —— 请求服务器
 
-**协商缓存需要配合强缓存使用，如果不启用强缓存的话，协商缓存根本没有意义**
+**协商缓存需要配合强缓存使用，如果不启用强缓存的话，协商缓存根本没有意义**  
+**协商缓存本身是有意义的，比如取一个 1G 的大文件，通过协商缓存，下次不一定要重新下载**
 
 大部分web服务器都默认开启协商缓存，而且是同时启用【Last-Modified，If-Modified-Since】和【ETag、If-None-Match】
 
