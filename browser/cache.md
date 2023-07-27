@@ -448,4 +448,17 @@ indexedDB数据库的获取使用Cursor APIs和Key Range APIs。也就是使用�
 
 * web Storage的api接口使用更方便
 
-# 离线应用缓存 App Cache => Manifest &  Service Worker + WebApp Manifest
+# 离线应用缓存 
+> App Cache => Manifest (该特性已经从 Web 标准中删除)
+> Service Worker + WebApp Manifest
+
+Manifest 是 H5提供的一种应用缓存机制, 基于它web应用可以实现离线访问(offline cache)
+浏览器还提供了应用缓存的API：applicationCache
+
+### 一、基础与流程
+manifest是一个后缀名为minifest的文件，在文件中定义那些需要缓存的文件，支持manifest的浏览器将会按照manifest文件的规则，像文件保存在本地，从而在没有网络链接的情况下，也能访问页面。
+
+当第一次正确配置app cache后，再次访问该应用时，浏览器会首先检查manifest文件是否有变动，如果有变动就会把相应的变得更新下来，同时改变浏览器里面的app cache，如果没有变动，就会直接把app cache的资源返回，基本流程如下：
+
+![image](https://github.com/yihan12/Blog/assets/44987698/0097f492-89be-4843-846c-c252a491dc08)
+
