@@ -448,3 +448,4 @@ indexedDB数据库的获取使用Cursor APIs和Key Range APIs。也就是使用�
 
 * web Storage的api接口使用更方便
 
+# 离线应用缓存 App Cache => Manifest &  Service Worker + WebApp Manifest
