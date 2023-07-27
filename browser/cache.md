@@ -214,11 +214,13 @@ Cache-Control 出现于 HTTP / 1.1，优先级高于 Expires ,表示的是相对
 - Cache-Control: max-age=315360000
 题外tips
 Cache-Control: no-cache不会缓存数据到本地的说法是错误的，详情《HTTP权威指南》P182
- ![image](https://github.com/yihan12/Blog/assets/44987698/a36a6bc9-eaa9-409e-af30-5383a057e141)
 
+![image](https://github.com/yihan12/Blog/assets/44987698/ff840908-aba6-45fa-8d3d-542ea8c1387b)
 
 - Cache-Control: no-store才是真正的不缓存数据到本地
 - Cache-Control: public可以被所有用户缓存（多用户共享），包括终端和CDN等中间代理服务器
 - Cache-Control: private只能被终端浏览器缓存（而且是私有缓存），不允许中继缓存服务器进行缓存
+
+![image](https://github.com/yihan12/Blog/assets/44987698/a36a6bc9-eaa9-409e-af30-5383a057e141)
 
 
