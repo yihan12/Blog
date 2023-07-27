@@ -450,7 +450,7 @@ indexedDB数据库的获取使用Cursor APIs和Key Range APIs。也就是使用�
 
 # 离线应用缓存 
 > App Cache => Manifest (该特性已经从 Web 标准中删除)
-> Service Worker + WebApp Manifest
+> PWA(Service Worker)
 
 Manifest 是 H5提供的一种应用缓存机制, 基于它web应用可以实现离线访问(offline cache)
 浏览器还提供了应用缓存的API：applicationCache
