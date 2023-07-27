@@ -249,3 +249,19 @@ ETag的优先级比Last-Modified更高
 某些服务器不能精确的得到文件的最后修改时间。
 
 ![image](https://github.com/yihan12/Blog/assets/44987698/d7c35795-3f4f-4073-a4a0-8ffb1a6212c4)
+
+大致的顺序
+
+- Cache-Control —— 请求服务器之前
+- Expires —— 请求服务器之前
+- If-None-Match (Etag) —— 请求服务器
+- If-Modified-Since (Last-Modified) —— 请求服务器
+
+**协商缓存需要配合强缓存使用，如果不启用强缓存的话，协商缓存根本没有意义**
+
+大部分web服务器都默认开启协商缓存，而且是同时启用【Last-Modified，If-Modified-Since】和【ETag、If-None-Match】
+
+但是下面的场景需要注意：
+
+* 分布式系统里多台机器间文件的Last-Modified必须保持一致，以免负载均衡到不同机器导致比对失败；
+* 分布式系统尽量关闭掉ETag(每台机器生成的ETag都会不一样）；
