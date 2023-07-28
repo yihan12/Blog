@@ -104,6 +104,9 @@
   * - [x] [【浏览器】之渲染机制](https://github.com/yihan12/Blog/blob/main/browser/rendering.md)
   * - [x] [【浏览器】之缓存](https://github.com/yihan12/Blog/blob/main/browser/cache.md)
 
+- [x] **浏览器缓存**
+  * - [x] [【浏览器】之缓存的基本认识]()
+
 - [x] **参考**
 
 | Reference                                                                                                                          | Reference                                                                                                                            |
