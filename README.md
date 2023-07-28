@@ -22,11 +22,10 @@
 
 # 【跟着大佬学 JavaScript】
 
-### 防抖节流
-
-- [x] [【跟着大佬学 JavaScript】之防抖](https://github.com/yihan12/Blog/issues/1)
-- [x] [【跟着大佬学 JavaScript】之节流](https://github.com/yihan12/Blog/issues/2)
-- [x] [【跟着大佬学 JavaScript】之 lodash 防抖节流合并](https://github.com/yihan12/Blog/issues/3)
+- [x] **防抖节流**
+  - [x] [【跟着大佬学 JavaScript】之防抖](https://github.com/yihan12/Blog/issues/1)
+  - [x] [【跟着大佬学 JavaScript】之节流](https://github.com/yihan12/Blog/issues/2)
+  - [x] [【跟着大佬学 JavaScript】之 lodash 防抖节流合并](https://github.com/yihan12/Blog/issues/3)
 
 ### 数据去重
 
