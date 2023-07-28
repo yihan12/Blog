@@ -27,6 +27,19 @@
 
 
 ### Expires
+
+#### 语法:
+```
+Expires: <http-date>
+```
+
+#### 示例：
+```
+Expires: Wed, 21 Oct 2015 07:28:00 GMT
+```
+
+#### 原理：
+
 1）浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在respone的header加上Expires的header，如：
 
 ![image](https://github.com/yihan12/Blog/assets/44987698/517c35d2-aadd-496b-b326-a155c4a6646a)
