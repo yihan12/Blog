@@ -38,3 +38,25 @@
 
 4）如果缓存没有命中，浏览器直接从服务器加载资源时，Expires Header在重新加载的时候会被更新。
 
+### Cache-Control
+> Expires是较老的强缓存管理header，由于它是服务器返回的一个**绝对时间**，在服务器时间与客户端时间相差较大时，缓存管理容易出现问题，比如随意修改下客户端时间，就能影响缓存命中的结果。  
+> 所以在http1.1的时候，提出了一个新的header，就是Cache-Control，这是一个相对时间，在配置缓存的时候，以秒为单位，用数值表示，如：Cache-Control:max-age=315360000.
+
+1）浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在respone的header加上Cache-Control的header，如：
+
+![image](https://github.com/yihan12/Blog/assets/44987698/8b3323b4-3b56-431e-aa61-ad74f7c3b1e5)
+
+
+2）浏览器在接收到这个资源后，会把这个资源连同所有response header一起缓存下来；
+
+3）浏览器再请求这个资源时，先从缓存中寻找，找到这个资源后，根据它第一次的请求时间和Cache-Control设定的有效期，计算出一个资源过期时间，再拿这个过期时间跟当前的请求时间比较，如果请求时间在过期时间之前，就能命中缓存，否则就不行。
+
+4）如果缓存没有命中，浏览器直接从服务器加载资源时，Cache-Control Header在重新加载的时候会被更新。
+
+Cache-Control描述的是一个相对时间，在进行缓存命中的时候，都是利用客户端时间进行判断，所以相比较Expires，Cache-Control的缓存管理更有效，安全一些。
+
+这两个header可以只启用一个，也可以同时启用，当response header中，Expires和Cache-Control同时存在时，Cache-Control优先级高于Expires：
+
+![image](https://github.com/yihan12/Blog/assets/44987698/50340a39-eedd-428a-90d9-92a2307906e4)
+
+
