@@ -28,6 +28,8 @@
 
 ### Expires
 
+> 如果在Cache-Control响应头设置了 "max-age" 或者 "s-max-age" 指令，那么 Expires 头会被忽略。
+
 #### 语法:
 ```
 Expires: <http-date>
