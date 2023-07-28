@@ -68,21 +68,21 @@
 | [Destructuring and parameter handling in ECMAScript 6](https://2ality.com/2015/01/es6-destructuring.html)                          | [ECMAScript 6 Tools](https://github.com/addyosmani/es6-tools)                                                                        |
 | [ECMAScript 6 Learning](https://github.com/ericdouglas/ES6-Learning)                                                               | [JavaScript for impatient programmers](https://exploringjs.com/impatient-js/toc.html)                                                |
 
-# 【echarts 使用】
-
-- [x] [【echarts 使用】之 xy 轴刻度、文字、轴线样式、分隔线](https://github.com/yihan12/Blog/issues/8)
-- [x] [【echarts 使用】之折线图拐点圆的样式（内圆外圆）](https://github.com/yihan12/Blog/issues/9)
-- [x] [【echarts 使用】之基准线 markLine](https://github.com/yihan12/Blog/issues/10)
-- [x] [【echarts 使用】之无数据时连线与否](https://github.com/yihan12/Blog/issues/11)
-- [x] [【echarts 使用】之设置柱子多个颜色（渐进色）](https://github.com/yihan12/Blog/issues/13)
-- [x] [【echarts 使用】之无拐点，折线样式](https://github.com/yihan12/Blog/issues/14)
-- [x] [【echarts 使用】之设置柱子的 borderRadius](https://github.com/yihan12/Blog/issues/15)
-- [x] [【echarts 使用】之选中状态(默认不显示置灰)](https://github.com/yihan12/Blog/issues/16)
-- [x] [【echarts 使用】之上下左右的距离（grid）](https://github.com/yihan12/Blog/issues/17)
-- [x] [【echarts 使用】之设置拐点 hover 样式](https://github.com/yihan12/Blog/issues/18)
-- [x] [【echarts 使用】之设置 x 轴从原点开始](https://github.com/yihan12/Blog/issues/19)
-- [x] [【echarts 使用】之 tooltip 弹窗使用说明](https://github.com/yihan12/Blog/issues/20)
-- [x] [【echarts 使用】之 x 轴时间戳展示 0-24 小时](https://github.com/yihan12/Blog/issues/21)
+# 【echarts】
+- [x] **echarts使用**
+  - [x] [【echarts 使用】之 xy 轴刻度、文字、轴线样式、分隔线](https://github.com/yihan12/Blog/issues/8)
+  - [x] [【echarts 使用】之折线图拐点圆的样式（内圆外圆）](https://github.com/yihan12/Blog/issues/9)
+  - [x] [【echarts 使用】之基准线 markLine](https://github.com/yihan12/Blog/issues/10)
+  - [x] [【echarts 使用】之无数据时连线与否](https://github.com/yihan12/Blog/issues/11)
+  - [x] [【echarts 使用】之设置柱子多个颜色（渐进色）](https://github.com/yihan12/Blog/issues/13)
+  - [x] [【echarts 使用】之无拐点，折线样式](https://github.com/yihan12/Blog/issues/14)
+  - [x] [【echarts 使用】之设置柱子的 borderRadius](https://github.com/yihan12/Blog/issues/15)
+  - [x] [【echarts 使用】之选中状态(默认不显示置灰)](https://github.com/yihan12/Blog/issues/16)
+  - [x] [【echarts 使用】之上下左右的距离（grid）](https://github.com/yihan12/Blog/issues/17)
+  - [x] [【echarts 使用】之设置拐点 hover 样式](https://github.com/yihan12/Blog/issues/18)
+  - [x] [【echarts 使用】之设置 x 轴从原点开始](https://github.com/yihan12/Blog/issues/19)
+  - [x] [【echarts 使用】之 tooltip 弹窗使用说明](https://github.com/yihan12/Blog/issues/20)
+  - [x] [【echarts 使用】之 x 轴时间戳展示 0-24 小时](https://github.com/yihan12/Blog/issues/21)
 
 # 【浏览器】
 
