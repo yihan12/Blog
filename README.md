@@ -40,12 +40,6 @@
 - [x] [【跟着大佬学 JavaScript】之 null 和 undefined 的区别](https://github.com/yihan12/Blog/issues/26)
 - [ ] 【跟着大佬学 JavaScript】之数据类型转换
 
-# 【TypeScript 学习笔记】
-
-### 简介
-
-- [ ] TypeScript 是什么
-
 # 【ES6 学习笔记】
 
 ### 变量
@@ -112,6 +106,12 @@
 # 【HTTP】
 
 - [ ] 【HTTP】之 get 和 post
+
+# 【TypeScript 学习笔记】
+
+### 简介
+
+- [ ] TypeScript 是什么
 
 # 【兼容性】
 
