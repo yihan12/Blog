@@ -32,33 +32,28 @@
   - [x] [【跟着大佬学 JavaScript】之 underscore 数组去重](https://github.com/yihan12/Blog/issues/12)
   - [ ] 【跟着大佬学 JavaScript】之数组去重(速度对比)
 
-- [x]数据类型
+- [x] **数据类型**
   - [x] [【跟着大佬学 JavaScript】之数据类型基础](https://github.com/yihan12/Blog/issues/24)
   - [x] [【跟着大佬学 JavaScript】之 null 和 undefined 的区别](https://github.com/yihan12/Blog/issues/26)
   - [ ] 【跟着大佬学 JavaScript】之数据类型转换
 
 # 【ES6 学习笔记】
 
-### 变量
+- [x] **变量**
+  - [x] [【ES6 学习笔记】之 var/let/const、块级作用域、TDZ、变量提升](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%8F%98%E9%87%8F.md)
+  - [x] [【ES6 学习笔记】之变量的解构赋值](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC.md)
 
-- [x] [【ES6 学习笔记】之 var/let/const、块级作用域、TDZ、变量提升](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%8F%98%E9%87%8F.md)
-- [x] [【ES6 学习笔记】之变量的解构赋值](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC.md)
+- [x] **字符串**
+  - [x] [【ES6 学习笔记】之模板字符串、字符串新特性](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
 
-### 字符串
+- [x] **Set 和 Map 数据结构**
+  - [x] [【ES6 学习笔记】之 Set 和 Map 数据结构](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Set%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
 
-- [x] [【ES6 学习笔记】之模板字符串、字符串新特性](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
+- [x] **异步**
+  - [x] [【ES6 学习笔记】之 async/await 函数](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/async%E5%87%BD%E6%95%B0.md)
 
-### Set 和 Map 数据结构
-
-- [x] [【ES6 学习笔记】之 Set 和 Map 数据结构](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Set%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
-
-### 异步
-
-- [x] [【ES6 学习笔记】之 async/await 函数](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/async%E5%87%BD%E6%95%B0.md)
-
-### Class
-
-- [x] [【ES6 学习笔记】之 Class](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0/Class.md)
+- [x] **Class**
+  - [x] [【ES6 学习笔记】之 Class](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0/Class.md)
 
 **参考：**
 
