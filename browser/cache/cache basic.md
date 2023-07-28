@@ -10,3 +10,16 @@
 - 3）强缓存与协商缓存的共同点是：如果命中，都是从客户端缓存中加载资源，而不是从服务器加载资源数据；区别是：强缓存不发请求到服务器，协商缓存会发请求到服务器。
 
 - 4）当协商缓存也没有命中的时候，浏览器直接从服务器加载资源数据。
+
+# 强缓存
+
+> Expires（HTTP/1.0）
+> Cache-Control（HTTP/1.1）
+> 强缓存是利用Expires或者Cache-Control这两个http response header实现的，它们都用来表示资源在客户端缓存的有效期。
+> 通常有2种方式来设置是否启用强缓存：
+> 1）通过代码的方式，在web服务器返回的响应中添加Expires和Cache-Control Header；
+> 2）通过配置web服务器的方式，让web服务器在响应资源的时候统一添加Expires和Cache-Control Header。
+
+### Expires
+
+
