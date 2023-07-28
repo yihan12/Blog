@@ -55,6 +55,7 @@
 - [x] **Class**
   - [x] [【ES6 学习笔记】之 Class](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0/Class.md)
 
+
 **参考：**
 
 语法以及知识点记录。下面是 ES6 资料各个文集的积累：
@@ -67,6 +68,21 @@
 | [Learn ES2015](https://babeljs.io/docs/en/learn)                                                                                   | [JavaScript for impatient programmers (ES2021 edition)](https://exploringjs.com/impatient-js/ch_destructuring.html)                  |
 | [Destructuring and parameter handling in ECMAScript 6](https://2ality.com/2015/01/es6-destructuring.html)                          | [ECMAScript 6 Tools](https://github.com/addyosmani/es6-tools)                                                                        |
 | [ECMAScript 6 Learning](https://github.com/ericdouglas/ES6-Learning)                                                               | [JavaScript for impatient programmers](https://exploringjs.com/impatient-js/toc.html)                                                |
+
+
+# 【源码剖析】
+
+- [x] **vue2.6**
+  - [x] [【源码剖析】new Vue 发生了什么?](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E3%80%91new%20Vue%20%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88.md)
+  - [x] [【源码剖析】initState 初始化](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E3%80%91initState%20%E5%88%9D%E5%A7%8B%E5%8C%96.md)  
+  - [x] [【源码剖析】$mount 挂载](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91%24mount%E6%8C%82%E8%BD%BD.md)   
+  - [x] [【源码分析】render的实现](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91render%E7%9A%84%E5%AE%9E%E7%8E%B0.md)  
+  - [x] [【源码分析】 Virtual Dom](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91%20Virtual%20Dom.md)   
+
+
+# 【Vue 学习笔记】
+
+# 【React 学习笔记】
 
 # 【echarts】
 - [x] **echarts使用**
@@ -149,19 +165,6 @@
 - [ ] git fetch 和 git pull 的区别
 - [ ] git 简明指南
 
-# 【源码剖析】
-
-> vue2.6
-
-- [x] [【源码剖析】new Vue 发生了什么?](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E3%80%91new%20Vue%20%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88.md)
-- [x] [【源码剖析】initState 初始化](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E3%80%91initState%20%E5%88%9D%E5%A7%8B%E5%8C%96.md)  
-- [x] [【源码剖析】$mount 挂载](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91%24mount%E6%8C%82%E8%BD%BD.md)   
-- [x] [【源码分析】render的实现](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91render%E7%9A%84%E5%AE%9E%E7%8E%B0.md)  
-- [x] [【源码分析】 Virtual Dom](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91%20Virtual%20Dom.md)   
-
-# 【Vue 学习笔记】
-
-# 【React 学习笔记】
 
 # 最后
 
