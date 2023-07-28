@@ -20,6 +20,21 @@
 > 1）通过代码的方式，在web服务器返回的响应中添加Expires和Cache-Control Header；  
 > 2）通过配置web服务器的方式，让web服务器在响应资源的时候统一添加Expires和Cache-Control Header。  
 
-### Expires
+### 原理
+当浏览器对某个资源的请求命中了强缓存时，返回的**http状态为200**，在chrome的开发者工具的network里面size会显示为**from cache**，比如京东的首页里就有很多静态资源配置了强缓存，用chrome打开几次，再用f12查看network，可以看到有不少请求就是从缓存中加载的：
 
+![image](https://github.com/yihan12/Blog/assets/44987698/f79ca7cf-42ef-407b-b9b7-d3ce890c8210)
+
+
+### Expires
+1）浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在respone的header加上Expires的header，如：
+
+![image](https://github.com/yihan12/Blog/assets/44987698/517c35d2-aadd-496b-b326-a155c4a6646a)
+
+
+2）浏览器在接收到这个资源后，会把这个资源连同所有response header一起缓存下来（所以缓存命中的请求返回的header并不是来自服务器，而是来自之前缓存的header）；
+
+3）浏览器再请求这个资源时，先从缓存中寻找，找到这个资源后，拿出它的Expires跟当前的请求时间比较，如果请求时间在Expires指定的时间之前，就能命中缓存，否则就不行。
+
+4）如果缓存没有命中，浏览器直接从服务器加载资源时，Expires Header在重新加载的时候会被更新。
 
