@@ -15,10 +15,12 @@
 
 > Expires（**HTTP/1.0**）  
 > Cache-Control（**HTTP/1.1**）  
-> 强缓存是利用Expires或者Cache-Control这两个http response header实现的，它们都用来表示资源在客户端缓存的有效期。**当response header中，Expires和Cache-Control同时存在时，Cache-Control优先级高于Expires。**    
+> 强缓存是利用Expires或者Cache-Control这两个http response header实现的，它们都用来表示资源在客户端缓存的有效期。   
 > 通常有2种方式来设置是否启用强缓存：  
 > 1）通过代码的方式，在web服务器返回的响应中添加Expires和Cache-Control Header；  
 > 2）通过配置web服务器的方式，让web服务器在响应资源的时候统一添加Expires和Cache-Control Header。  
+
+**当response header中，Expires和Cache-Control同时存在时，Cache-Control优先级高于Expires。** 
 
 ### 原理
 当浏览器对某个资源的请求命中了强缓存时，返回的**http状态为200**，在chrome的开发者工具的network里面size会显示为**from disk cache**，比如京东的首页里就有很多静态资源配置了强缓存，用chrome打开几次，再用f12查看network，可以看到有不少请求就是从缓存中加载的：
