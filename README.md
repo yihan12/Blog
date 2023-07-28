@@ -27,17 +27,15 @@
   - [x] [【跟着大佬学 JavaScript】之节流](https://github.com/yihan12/Blog/issues/2)
   - [x] [【跟着大佬学 JavaScript】之 lodash 防抖节流合并](https://github.com/yihan12/Blog/issues/3)
 
-### 数据去重
+- [x] **数据去重**
+  - [x] [【跟着大佬学 JavaScript】之数组去重(结果对比)](https://github.com/yihan12/Blog/issues/5)
+  - [x] [【跟着大佬学 JavaScript】之 underscore 数组去重](https://github.com/yihan12/Blog/issues/12)
+  - [ ] 【跟着大佬学 JavaScript】之数组去重(速度对比)
 
-- [x] [【跟着大佬学 JavaScript】之数组去重(结果对比)](https://github.com/yihan12/Blog/issues/5)
-- [x] [【跟着大佬学 JavaScript】之 underscore 数组去重](https://github.com/yihan12/Blog/issues/12)
-- [ ] 【跟着大佬学 JavaScript】之数组去重(速度对比)
-
-### 数据类型
-
-- [x] [【跟着大佬学 JavaScript】之数据类型基础](https://github.com/yihan12/Blog/issues/24)
-- [x] [【跟着大佬学 JavaScript】之 null 和 undefined 的区别](https://github.com/yihan12/Blog/issues/26)
-- [ ] 【跟着大佬学 JavaScript】之数据类型转换
+- [x]数据类型
+  - [x] [【跟着大佬学 JavaScript】之数据类型基础](https://github.com/yihan12/Blog/issues/24)
+  - [x] [【跟着大佬学 JavaScript】之 null 和 undefined 的区别](https://github.com/yihan12/Blog/issues/26)
+  - [ ] 【跟着大佬学 JavaScript】之数据类型转换
 
 # 【ES6 学习笔记】
 
