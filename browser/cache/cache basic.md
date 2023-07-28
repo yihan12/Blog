@@ -54,8 +54,61 @@ Expires: Wed, 21 Oct 2023 07:00:00 GMT
 4）如果缓存没有命中，浏览器直接从服务器加载资源时，Expires Header在重新加载的时候会被更新。
 
 ### Cache-Control
+
 > Expires是较老的强缓存管理header，由于它是服务器返回的一个**绝对时间**，在服务器时间与客户端时间相差较大时，缓存管理容易出现问题，比如随意修改下客户端时间，就能影响缓存命中的结果。  
 > 所以在http1.1的时候，提出了一个新的header，就是Cache-Control，这是一个相对时间，在配置缓存的时候，以秒为单位，用数值表示，如：Cache-Control:max-age=315360000.
+> Cache-Control 通用消息头字段，被用于在 http 请求和响应中，通过指定指令来实现缓存机制。缓存指令是单向的，这意味着在请求中设置的指令，不一定被包含在响应中。
+
+#### 指令
+请求指令
+```
+Cache-Control: max-age=<seconds>
+Cache-Control: max-stale[=<seconds>]
+Cache-Control: min-fresh=<seconds>
+Cache-control: no-cache
+Cache-control: no-store
+Cache-control: no-transform
+Cache-control: only-if-cached
+```
+响应指令
+```
+Cache-control: must-revalidate
+Cache-control: no-cache
+Cache-control: no-store
+Cache-control: no-transform
+Cache-control: public
+Cache-control: private
+Cache-control: proxy-revalidate
+Cache-Control: max-age=<seconds>
+Cache-control: s-maxage=<seconds>
+```
+
+#### 示例
+禁止缓存
+发送如下响应头可以关闭缓存。此外，可以参考Expires和Pragma消息头。
+```
+Cache-Control: no-store
+```
+缓存静态资源
+对于应用程序中不会改变的文件，你通常可以在发送响应头前添加积极缓存。这包括例如由应用程序提供的静态文件，例如图像，CSS 文件和 JavaScript 文件。另请参阅 Expires 标题。
+```
+Cache-Control:public, max-age=31536000
+```
+需要重新验证
+指定 no-cache 或 max-age=0, must-revalidate 表示客户端可以缓存资源，每次使用缓存资源前都必须重新验证其有效性。这意味着每次都会发起 HTTP 请求，但当缓存内容仍有效时可以跳过 HTTP 响应体的下载。
+
+```
+Cache-Control: no-cache
+```
+```
+Cache-Control: max-age=0, must-revalidate
+```
+**注意: 如果服务器关闭或失去连接，下面的指令可能会造成使用缓存。**
+
+```
+Cache-Control: max-age=0
+```
+#### 原理：
 
 1）浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在respone的header加上Cache-Control的header，如：
 
