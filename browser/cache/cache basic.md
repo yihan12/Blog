@@ -84,18 +84,18 @@ Cache-control: s-maxage=<seconds>
 ```
 
 #### 示例
-禁止缓存
-发送如下响应头可以关闭缓存。此外，可以参考Expires和Pragma消息头。
+禁止缓存  
+> 发送如下响应头可以关闭缓存。此外，可以参考Expires和Pragma消息头。
 ```
 Cache-Control: no-store
 ```
-缓存静态资源
-对于应用程序中不会改变的文件，你通常可以在发送响应头前添加积极缓存。这包括例如由应用程序提供的静态文件，例如图像，CSS 文件和 JavaScript 文件。另请参阅 Expires 标题。
+缓存静态资源  
+> 对于应用程序中不会改变的文件，你通常可以在发送响应头前添加积极缓存。这包括例如由应用程序提供的静态文件，例如图像，CSS 文件和 JavaScript 文件。另请参阅 Expires 标题。
 ```
 Cache-Control:public, max-age=31536000
 ```
-需要重新验证
-指定 no-cache 或 max-age=0, must-revalidate 表示客户端可以缓存资源，每次使用缓存资源前都必须重新验证其有效性。这意味着每次都会发起 HTTP 请求，但当缓存内容仍有效时可以跳过 HTTP 响应体的下载。
+需要重新验证  
+> 指定 no-cache 或 max-age=0, must-revalidate 表示客户端可以缓存资源，每次使用缓存资源前都必须重新验证其有效性。这意味着每次都会发起 HTTP 请求，但当缓存内容仍有效时可以跳过 HTTP 响应体的下载。
 
 ```
 Cache-Control: no-cache
