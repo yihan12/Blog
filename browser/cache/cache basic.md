@@ -20,9 +20,9 @@
 > 1）通过代码的方式，在web服务器返回的响应中添加Expires和Cache-Control Header；  
 > 2）通过配置web服务器的方式，让web服务器在响应资源的时候统一添加Expires和Cache-Control Header。  
 
-**当response header中，Expires和Cache-Control同时存在时，Cache-Control优先级高于Expires。** 
+**注意：当response header中，Expires和Cache-Control同时存在时，Cache-Control优先级高于Expires。** 
 
-**可以通过 Expires / Cache-Control 控制，命中强缓存时不会发起网络请求，资源直接从本地获取，浏览器显示状态码 200 from cache。**
+**注意：可以通过 Expires / Cache-Control 控制，命中强缓存时不会发起网络请求，资源直接从本地获取，浏览器显示状态码 200 from cache。**
 
 ### 原理
 当浏览器对某个资源的请求命中了强缓存时，返回的**http状态为200**，在chrome的开发者工具的network里面size会显示为**from disk cache**，比如京东的首页里就有很多静态资源配置了强缓存，用chrome打开几次，再用f12查看network，可以看到有不少请求就是从缓存中加载的：
