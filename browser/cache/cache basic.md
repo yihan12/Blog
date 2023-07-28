@@ -13,8 +13,8 @@
 
 # 强缓存
 
-> Expires（HTTP/1.0）  
-> Cache-Control（HTTP/1.1）  
+> Expires（**HTTP/1.0**）  
+> Cache-Control（**HTTP/1.1**）  
 > 强缓存是利用Expires或者Cache-Control这两个http response header实现的，它们都用来表示资源在客户端缓存的有效期。  
 > 通常有2种方式来设置是否启用强缓存：  
 > 1）通过代码的方式，在web服务器返回的响应中添加Expires和Cache-Control Header；  
