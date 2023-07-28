@@ -35,7 +35,7 @@ Expires: <http-date>
 
 #### 示例：
 ```
-Expires: Wed, 21 Oct 2015 07:28:00 GMT
+Expires: Wed, 21 Oct 2023 07:00:00 GMT
 ```
 
 #### 原理：
