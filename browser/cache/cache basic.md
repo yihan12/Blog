@@ -131,4 +131,24 @@ Cache-Control描述的是一个相对时间，在进行缓存命中的时候，�
 
 ![image](https://github.com/yihan12/Blog/assets/44987698/50340a39-eedd-428a-90d9-92a2307906e4)
 
+### 强缓存的管理
+启用强缓存：
 
+1）通过代码的方式，在web服务器返回的响应中添加Expires和Cache-Control Header；
+
+2）通过配置web服务器的方式，让web服务器在响应资源的时候统一添加Expires和Cache-Control Header。
+
+比如在javaweb里面，我们可以使用类似下面的代码设置强缓存：
+
+```java
+java.util.Date date = new java.util.Date();    
+response.setDateHeader("Expires",date.getTime()+20000); //Expires:过时期限值 
+response.setHeader("Cache-Control", "public"); //Cache-Control来控制页面的缓存与否,public:浏览器和缓存服务器都可以缓存页面信息；
+response.setHeader("Pragma", "Pragma"); //Pragma:设置页面是否缓存，为Pragma则缓存，no-cache则不缓存
+```
+还可以通过类似下面的java代码设置不启用强缓存：
+```java
+response.setHeader( "Pragma", "no-cache" );   
+response.setDateHeader("Expires", 0);   
+response.addHeader( "Cache-Control", "no-cache" );//浏览器和缓存服务器都不应该缓存页面信息
+```
