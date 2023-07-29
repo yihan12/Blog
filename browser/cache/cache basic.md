@@ -152,3 +152,31 @@ response.setHeader( "Pragma", "no-cache" );
 response.setDateHeader("Expires", 0);   
 response.addHeader( "Cache-Control", "no-cache" );//浏览器和缓存服务器都不应该缓存页面信息
 ```
+
+由于在开发的时候不会专门去配置强缓存，而浏览器又默认会缓存图片，css和js等静态资源，所以开发环境下经常会因为强缓存导致资源没有及时更新而看不到最新的效果，解决这个问题的方法有很多，常用的有以下几种：
+
+1）直接ctrl+f5，这个办法能解决页面直接引用的资源更新的问题；
+
+2）使用浏览器的隐私模式开发；
+
+3）如果用的是chrome，可以f12在network那里把缓存给禁掉（这是个非常有效的方法）：
+
+![image](https://github.com/yihan12/Blog/assets/44987698/69cb5982-660e-405e-8ec4-d844b6160d8e)
+
+
+4）在开发阶段，给资源加上一个动态的参数，如css/index.css?v=0.0001，由于每次资源的修改都要更新引用的位置，同时修改参数的值，所以操作起来不是很方便，除非你是在动态页面比如jsp里开发就可以用服务器变量来解决（v=${sysRnd}），或者你能用一些前端的构建工具来处理这个参数修改的问题；
+
+5）如果资源引用的页面，被嵌入到了一个iframe里面，可以在iframe的区域右键单击重新加载该页面，以chrome为例：
+
+![image](https://github.com/yihan12/Blog/assets/44987698/b1edcf61-f97c-4af4-a92b-833adf52055e)
+
+
+6）如果缓存问题出现在ajax请求中，最有效的解决办法就是ajax的请求地址追加随机数；
+
+7）还有一种情况就是动态设置iframe的src时，有可能也会因为缓存问题，导致看不到最新的效果，这时候在要设置的src后面添加随机数也能解决问题；
+
+8）如果你用的是grunt和gulp这种前端工具开发，通过它们的插件比如grunt-contrib-connect来启动一个静态服务器，则完全不用担心开发阶段的资源更新问题，因为在这个静态服务器下的所有资源返回的respone header中，cache-control始终被设置为不缓存：
+
+![image](https://github.com/yihan12/Blog/assets/44987698/123d1fb2-0b04-4c65-a44e-e1025a9428d5)
+
+
