@@ -190,7 +190,8 @@ response.addHeader( "Cache-Control", "no-cache" );//浏览器和缓存服务器�
 ### 【Last-Modified，If-Modified-Since]
 
 > Last-Modified 是一个响应首部，其中包含源头服务器认定的资源做出修改的日期及时间。它通常被用作一个验证器来判断接收到的或者存储的资源是否彼此一致。由于精确度比 ETag 要低，所以这是一个备用机制。包含有 If-Modified-Since 或 If-Unmodified-Since 首部的条件请求会使用这个字段。  
-> 给定的日期时间之后对内容进行过修改的情况下才会将资源返回，状态码为 200 。如果请求的资源从那时起未经修改，那么返回一个不带有消息主体的 304 响应，而在 Last-Modified 首部中会带有上次修改时间。不同于 If-Unmodified-Since, If-Modified-Since 只可以用在 GET 或 HEAD 请求中。
+> If-Modified-Since 是一个条件式请求首部，服务器只在所请求的资源在给定的日期时间之后对内容进行过修改的情况下才会将资源返回，状态码为 200 。如果请求的资源从那时起未经修改，那么返回一个不带有消息主体的 304 响应，而在 Last-Modified 首部中会带有上次修改时间。不同于 If-Unmodified-Since, If-Modified-Since 只可以用在 GET 或 HEAD 请求中。
+
 #### 原理：
 1）浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在respone的header加上Last-Modified的header，这个header表示这个资源在服务器上的最后修改时间：
 
