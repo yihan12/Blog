@@ -116,6 +116,22 @@
 
 # 【HTTP】
 
+# 【性能优化】
+
+- [ ] 【性能优化】之 webpack4+vue3项目白屏时间减少
+- [ ] 【性能优化】之 DNS 查询
+- [ ] 【性能优化】之 vite+vue3 性能优化
+
+**参考：**
+
+| Reference                                                                                    | Reference                                                                                     |
+| -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| [网站性能优化实战——从 12.67s 到 1.06s 的故事](https://juejin.cn/post/6844903613790175240)    | [前端性能优化之白屏时间](https://cloud.tencent.com/developer/article/1508941)                 |
+| [网站性能优化实战（二）](https://imweb.io/topic/5b4d417eee0c3b0779df96d9)                    | [网页性能管理详解](http://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html) |
+| [掌握浏览器重绘(repaint)重排(reflow))-前端进阶](https://segmentfault.com/a/1190000017491520) | [嗨，送你一张 Web 性能优化地图](https://github.com/berwin/Blog/issues/23)                     |
+| [页面性能优化办法有哪些](https://github.com/ljianshu/Blog/issues/9)                          | [浏览器工作原理：从输入 URL 到页面加载完成](https://github.com/amandakelake/blog/issues/55)   |
+
+
 # 【Vue 学习笔记】
 
 # 【React 学习笔记】
@@ -133,20 +149,6 @@
 - [x] [【兼容性】之 ios 时间 Date 兼容性问题](https://github.com/yihan12/Blog/issues/4)
 - [x] [【兼容性】之 iPhoneX 安全区域(Safe Area)底部小黑条在微信小程序和 H5 的屏幕适配](https://github.com/yihan12/Blog/issues/7)
 
-# 【性能优化】
-
-- [ ] 【性能优化】之 webpack4+vue3项目白屏时间减少
-- [ ] 【性能优化】之 DNS 查询
-- [ ] 【性能优化】之 vite+vue3 性能优化
-
-**参考：**
-
-| Reference                                                                                    | Reference                                                                                     |
-| -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| [网站性能优化实战——从 12.67s 到 1.06s 的故事](https://juejin.cn/post/6844903613790175240)    | [前端性能优化之白屏时间](https://cloud.tencent.com/developer/article/1508941)                 |
-| [网站性能优化实战（二）](https://imweb.io/topic/5b4d417eee0c3b0779df96d9)                    | [网页性能管理详解](http://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html) |
-| [掌握浏览器重绘(repaint)重排(reflow))-前端进阶](https://segmentfault.com/a/1190000017491520) | [嗨，送你一张 Web 性能优化地图](https://github.com/berwin/Blog/issues/23)                     |
-| [页面性能优化办法有哪些](https://github.com/ljianshu/Blog/issues/9)                          | [浏览器工作原理：从输入 URL 到页面加载完成](https://github.com/amandakelake/blog/issues/55)   |
 
 # 【webpack】
 
