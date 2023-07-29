@@ -179,5 +179,12 @@ response.addHeader( "Cache-Control", "no-cache" );//浏览器和缓存服务器�
 
 ![image](https://github.com/yihan12/Blog/assets/44987698/123d1fb2-0b04-4c65-a44e-e1025a9428d5)
 
+# 协商缓存
 
+**协商缓存是利用的是【Last-Modified，If-Modified-Since】和【ETag、If-None-Match】这两对Header来管理的。**
 
+当浏览器对某个资源的请求没有命中强缓存，就会发一个请求到服务器，验证协商缓存是否命中，如果协商缓存命中，请求响应返回的http状态为**304**并且会显示一个**Not Modified**的字符串，比如你打开京东的首页，按f12打开开发者工具，再按f5刷新页面，查看network，可以看到有不少请求就是命中了协商缓存的：
+
+![image](https://github.com/yihan12/Blog/assets/44987698/ba8614f2-65bd-46bc-8953-7abd9ba01508)
+
+### 【Last-Modified，If-Modified-Since]
