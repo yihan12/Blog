@@ -233,3 +233,24 @@ response.addHeader( "Cache-Control", "no-cache" );//浏览器和缓存服务器�
 ![image](https://github.com/yihan12/Blog/assets/44987698/18a3f0c3-fd12-4569-9feb-032d4048d822)
 
 4）浏览器收到304的响应后，就会从缓存中加载资源。
+
+#### 应用
+协商缓存跟强缓存不一样，强缓存不发请求到服务器，所以有时候资源更新了浏览器还不知道，但是协商缓存会发请求到服务器，所以资源是否更新，服务器肯定知道。大部分web服务器都默认开启协商缓存，而且是同时启用【Last-Modified，If-Modified-Since】和【ETag、If-None-Match】，比如apache:
+
+![image](https://github.com/yihan12/Blog/assets/44987698/565afaac-8825-4409-9c1c-00e68ca81cb4)
+
+
+如果没有协商缓存，每个到服务器的请求，就都得返回资源内容，这样服务器的性能会极差。
+
+【Last-Modified，If-Modified-Since】和【ETag、If-None-Match】一般都是同时启用，这是为了处理Last-Modified不可靠的情况。有一种场景需要注意：
+
+分布式系统里多台机器间文件的Last-Modified必须保持一致，以免负载均衡到不同机器导致比对失败；
+
+分布式系统尽量关闭掉ETag(每台机器生成的ETag都会不一样）；
+
+京东页面的资源请求，返回的repsones header就只有Last-Modified，没有ETag：
+
+![image](https://github.com/yihan12/Blog/assets/44987698/50f7ebb8-5bcf-44e8-8ae9-00d3b2d6a13c)
+
+
+协商缓存需要配合强缓存使用，你看前面这个截图中，除了Last-Modified这个header，还有强缓存的相关header，因为如果不启用强缓存的话，协商缓存根本没有意义。
