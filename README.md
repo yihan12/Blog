@@ -140,34 +140,25 @@
 
 # 【TypeScript 学习笔记】
 
-### 简介
-
-- [ ] TypeScript 是什么
+-[x] **简介**
+  - [ ] TypeScript 是什么
 
 # 【兼容性】
+- [x] **移动端**
+  - [x] [【兼容性】之 ios 时间 Date 兼容性问题](https://github.com/yihan12/Blog/issues/4)
+  - [x] [【兼容性】之 iPhoneX 安全区域(Safe Area)底部小黑条在微信小程序和 H5 的屏幕适配](https://github.com/yihan12/Blog/issues/7)
 
-- [x] [【兼容性】之 ios 时间 Date 兼容性问题](https://github.com/yihan12/Blog/issues/4)
-- [x] [【兼容性】之 iPhoneX 安全区域(Safe Area)底部小黑条在微信小程序和 H5 的屏幕适配](https://github.com/yihan12/Blog/issues/7)
 
+# 【构建工具】
 
-# 【webpack】
+- [x] **Webpack**
+  - [ ] 【webpack】之编译提速
+  - [ ] 【webpack】之打包优化
+  - [ ] 【webpack】之插件
 
-- [ ] 【webpack】之编译提速
-- [ ] 【webpack】之打包优化
-- [ ] 【webpack】之插件
+- [x] **Vue-cli**
 
-# 【vue-cli】
-
-- [ ] 【vue-cli】之 vue.config.js 超全配置
-- [ ] 【vue-cli】之 vue-cli 打包优化
-
-# 【vite】
-
-- [ ] 【vite】之 vite+vue3 性能优化
-
-# 【Bug】
-
-- [x] [【Bug】之 git 出现 fatal: unable to access 问题](https://github.com/yihan12/Blog/issues/25)
+- [x] **Vite**
 
 # 【Git】
 
