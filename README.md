@@ -105,7 +105,7 @@
   * - [x] [【浏览器】之缓存](https://github.com/yihan12/Blog/blob/main/browser/cache.md)
 
 - [x] **浏览器缓存**
-  * - [x] [【浏览器】之缓存的基本认识]()
+  * - [x] [【浏览器】之缓存的基本认识](https://github.com/yihan12/Blog/blob/main/browser/cache/cache%20basic.md)
 
 - [x] **参考**
 
