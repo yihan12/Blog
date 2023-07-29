@@ -208,3 +208,25 @@ response.addHeader( "Cache-Control", "no-cache" );//浏览器和缓存服务器�
 4）浏览器收到304的响应后，就会从缓存中加载资源。
 
 5）如果协商缓存没有命中，浏览器直接从服务器加载资源时，Last-Modified Header在重新加载的时候会被更新，下次请求时，If-Modified-Since会启用上次返回的Last-Modified值。
+
+【Last-Modified，If-Modified-Since】都是根据服务器时间返回的header，一般来说，在没有调整服务器时间和篡改客户端缓存的情况下，这两个header配合起来管理协商缓存是非常可靠的，但是有时候也会服务器上资源其实有变化，但是最后修改时间却没有变化的情况，而这种问题又很不容易被定位出来，而当这种情况出现的时候，就会影响协商缓存的可靠性。所以就有了另外一对header来管理协商缓存，这对header就是【ETag、If-None-Match】。
+
+### 【ETag、If-None-Match】
+
+#### 原理：
+
+1）浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在respone的header加上ETag的header，这个header是服务器根据当前请求的资源生成的一个唯一标识，这个唯一标识是一个字符串，只要资源有变化这个串就不同，跟最后修改时间没有关系，所以能很好的补充Last-Modified的问题：
+
+![image](https://github.com/yihan12/Blog/assets/44987698/22fd09c9-12dc-44a0-9046-47186c0a4fa4)
+
+
+2）浏览器再次跟服务器请求这个资源时，在request的header上加上If-None-Match的header，这个header的值就是上一次请求时返回的ETag的值：
+
+![image](https://github.com/yihan12/Blog/assets/44987698/d6954c1c-aa40-4619-951a-728762e2b7da)
+
+
+3）服务器再次收到资源请求时，根据浏览器传过来If-None-Match和然后再根据资源生成一个新的ETag，如果这两个值相同就说明资源没有变化，否则就是有变化；如果没有变化则返回304 Not Modified，但是不会返回资源内容；如果有变化，就正常返回资源内容。与Last-Modified不一样的是，当服务器返回304 Not Modified的响应时，由于ETag重新生成过，response header中还会把这个ETag返回，即使这个ETag跟之前的没有变化：
+
+![image](https://github.com/yihan12/Blog/assets/44987698/18a3f0c3-fd12-4569-9feb-032d4048d822)
+
+4）浏览器收到304的响应后，就会从缓存中加载资源。
