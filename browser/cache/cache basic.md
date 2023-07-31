@@ -11,6 +11,31 @@
 
 - 4）当协商缓存也没有命中的时候，浏览器直接从服务器加载资源数据。
 
+#### 常见的HTTP 缓存首部字段有：
+
+- Expires：响应头，代表该资源的过期时间
+
+- Cache-Control：请求/响应头，缓存控制字段，精确控制缓存策略
+
+- If-Modified-Since：请求头，资源最近修改时间，由浏览器告诉服务器
+
+- Last-Modified：响应头，资源最近修改时间，由服务器告诉浏览器
+
+- Etag：响应头，资源标识，由服务器告诉浏览器
+
+- If-None-Match：请求头，缓存资源标识，由浏览器告诉服务器
+
+其中， 强缓存 ：
+
+- Expires（HTTP/1.0）
+- Cache-Control（HTTP/1.1）
+
+协商缓存：
+
+- Last-Modified 和 If-Modified-Since（HTTP/1.0）
+- ETag 和 If-None-Match（HTTP/1.1）
+
+
 # 强缓存
 
 > Expires（**HTTP/1.0**）  
