@@ -1,3 +1,10 @@
+# 要点如下：
+
+- 浏览器根据 DNS 服务器得到域名的 IP 地址
+- 向这个 IP 的机器发送 HTTP 请求
+- 服务器收到、处理并返回 HTTP 请求
+- 浏览器得到返回内容
+
 ![image](https://github.com/yihan12/Blog/assets/44987698/d8237b82-84fb-4fd1-a1a7-10aba53d29f3)
 
 
