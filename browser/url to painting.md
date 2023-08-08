@@ -1,9 +1,9 @@
 # 要点如下：
 
-- 浏览器根据 DNS 服务器得到域名的 IP 地址
+- 浏览器根据 DNS 服务器得到域名的 IP 地址（浏览器-本地host文件-本地DNS服务器-根DNS服务器-顶级域名服务器-权威DNS服务器）
 - 向这个 IP 的机器发送 HTTP 请求
 - 服务器收到、处理并返回 HTTP 请求
-- 浏览器得到返回内容
+- 浏览器得到返回内容（Render Tree。计算节点位置等信息，绘制到屏幕上）
 
 ![image](https://github.com/yihan12/Blog/assets/44987698/d8237b82-84fb-4fd1-a1a7-10aba53d29f3)
 
