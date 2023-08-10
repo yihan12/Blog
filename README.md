@@ -17,6 +17,7 @@
 * [《LeetCode训练》](https://github.com/yihan12/LeetCode-exercise)
 * [《ES6 学习笔记》](https://github.com/yihan12/build-up_ES6)
 * 《Node.js学习笔记》
+* 《Go学习笔记》
 * 《TypeScript学习笔记》
 * 《Vue2源码分析》
 
