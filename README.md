@@ -152,9 +152,9 @@
 
 # 【兼容性】
 - [x] **移动端**
-  - [x] [【兼容性】之 ios 时间 Date 兼容性问题](https://github.com/yihan12/Blog/issues/4)
-  - [x] [【兼容性】之 iPhoneX 安全区域(Safe Area)底部小黑条在微信小程序和 H5 的屏幕适配](https://github.com/yihan12/Blog/issues/7)
-
+  - [x] [【兼容性】之 IOS:时间 Date 兼容性问题](https://github.com/yihan12/Blog/issues/4)
+  - [x] [【兼容性】之 IOS:iPhoneX 安全区域(Safe Area)底部小黑条在微信小程序和 H5 的屏幕适配](https://github.com/yihan12/Blog/issues/7)
+  - [x] [【兼容性】之 IOS:不支持audio自动播放问题]()
 
 # 【构建工具】
 
