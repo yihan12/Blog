@@ -24,37 +24,37 @@
 # 【跟着大佬学 JavaScript】
 
 - [x] **防抖节流**
-  - [x] [【跟着大佬学 JavaScript】之防抖](https://github.com/yihan12/Blog/issues/1)
-  - [x] [【跟着大佬学 JavaScript】之节流](https://github.com/yihan12/Blog/issues/2)
-  - [x] [【跟着大佬学 JavaScript】之 lodash 防抖节流合并](https://github.com/yihan12/Blog/issues/3)
+  * - [x] [【跟着大佬学 JavaScript】之防抖](https://github.com/yihan12/Blog/issues/1)
+  * - [x] [【跟着大佬学 JavaScript】之节流](https://github.com/yihan12/Blog/issues/2)
+  * - [x] [【跟着大佬学 JavaScript】之 lodash 防抖节流合并](https://github.com/yihan12/Blog/issues/3)
 
 - [x] **数据去重**
-  - [x] [【跟着大佬学 JavaScript】之数组去重(结果对比)](https://github.com/yihan12/Blog/issues/5)
-  - [x] [【跟着大佬学 JavaScript】之 underscore 数组去重](https://github.com/yihan12/Blog/issues/12)
-  - [ ] 【跟着大佬学 JavaScript】之数组去重(速度对比)
+  * - [x] [【跟着大佬学 JavaScript】之数组去重(结果对比)](https://github.com/yihan12/Blog/issues/5)
+  * - [x] [【跟着大佬学 JavaScript】之 underscore 数组去重](https://github.com/yihan12/Blog/issues/12)
+  * - [ ] 【跟着大佬学 JavaScript】之数组去重(速度对比)
 
 - [x] **数据类型**
-  - [x] [【跟着大佬学 JavaScript】之数据类型基础](https://github.com/yihan12/Blog/issues/24)
-  - [x] [【跟着大佬学 JavaScript】之 null 和 undefined 的区别](https://github.com/yihan12/Blog/issues/26)
-  - [ ] 【跟着大佬学 JavaScript】之数据类型转换
+  * - [x] [【跟着大佬学 JavaScript】之数据类型基础](https://github.com/yihan12/Blog/issues/24)
+  * - [x] [【跟着大佬学 JavaScript】之 null 和 undefined 的区别](https://github.com/yihan12/Blog/issues/26)
+  * - [ ] 【跟着大佬学 JavaScript】之数据类型转换
 
 # 【ES6 学习笔记】
 
 - [x] **变量**
-  - [x] [【ES6 学习笔记】之 var/let/const、块级作用域、TDZ、变量提升](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%8F%98%E9%87%8F.md)
-  - [x] [【ES6 学习笔记】之变量的解构赋值](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC.md)
+  * - [x] [【ES6 学习笔记】之 var/let/const、块级作用域、TDZ、变量提升](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%8F%98%E9%87%8F.md)
+  * - [x] [【ES6 学习笔记】之变量的解构赋值](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B8%89%E7%AB%A0/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC.md)
 
 - [x] **字符串**
-  - [x] [【ES6 学习笔记】之模板字符串、字符串新特性](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
+  * - [x] [【ES6 学习笔记】之模板字符串、字符串新特性](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
 
 - [x] **Set 和 Map 数据结构**
-  - [x] [【ES6 学习笔记】之 Set 和 Map 数据结构](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Set%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
+  * - [x] [【ES6 学习笔记】之 Set 和 Map 数据结构](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E4%B9%9D%E7%AB%A0/Set%E5%92%8CMap%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
 
 - [x] **异步**
-  - [x] [【ES6 学习笔记】之 async/await 函数](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/async%E5%87%BD%E6%95%B0.md)
+  * - [x] [【ES6 学习笔记】之 async/await 函数](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/async%E5%87%BD%E6%95%B0.md)
 
 - [x] **Class**
-  - [x] [【ES6 学习笔记】之 Class](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0/Class.md)
+  * - [x] [【ES6 学习笔记】之 Class](https://github.com/yihan12/build-up_ES6/blob/main/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0/Class.md)
 
 - [x] **参考**
 
@@ -71,28 +71,28 @@
 # 【源码剖析】
 
 - [x] **vue2.6**
-  - [x] [【源码剖析】new Vue 发生了什么?](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E3%80%91new%20Vue%20%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88.md)
-  - [x] [【源码剖析】initState 初始化](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E3%80%91initState%20%E5%88%9D%E5%A7%8B%E5%8C%96.md)  
-  - [x] [【源码剖析】$mount 挂载](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91%24mount%E6%8C%82%E8%BD%BD.md)   
-  - [x] [【源码剖析】render的实现](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91render%E7%9A%84%E5%AE%9E%E7%8E%B0.md)  
-  - [x] [【源码剖析】 Virtual Dom](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91%20Virtual%20Dom.md)   
+  * - [x] [【源码剖析】new Vue 发生了什么?](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E3%80%91new%20Vue%20%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88.md)
+  * - [x] [【源码剖析】initState 初始化](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E3%80%91initState%20%E5%88%9D%E5%A7%8B%E5%8C%96.md)  
+  * - [x] [【源码剖析】$mount 挂载](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91%24mount%E6%8C%82%E8%BD%BD.md)   
+  * - [x] [【源码剖析】render的实现](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91render%E7%9A%84%E5%AE%9E%E7%8E%B0.md)  
+  * - [x] [【源码剖析】 Virtual Dom](https://github.com/yihan12/Blog/blob/main/vue2.6-analysis/%E3%80%90%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E3%80%91%20Virtual%20Dom.md)   
 
 
 # 【echarts】
 - [x] **echarts使用**
-  - [x] [【echarts 使用】之 xy 轴刻度、文字、轴线样式、分隔线](https://github.com/yihan12/Blog/issues/8)
-  - [x] [【echarts 使用】之折线图拐点圆的样式（内圆外圆）](https://github.com/yihan12/Blog/issues/9)
-  - [x] [【echarts 使用】之基准线 markLine](https://github.com/yihan12/Blog/issues/10)
-  - [x] [【echarts 使用】之无数据时连线与否](https://github.com/yihan12/Blog/issues/11)
-  - [x] [【echarts 使用】之设置柱子多个颜色（渐进色）](https://github.com/yihan12/Blog/issues/13)
-  - [x] [【echarts 使用】之无拐点，折线样式](https://github.com/yihan12/Blog/issues/14)
-  - [x] [【echarts 使用】之设置柱子的 borderRadius](https://github.com/yihan12/Blog/issues/15)
-  - [x] [【echarts 使用】之选中状态(默认不显示置灰)](https://github.com/yihan12/Blog/issues/16)
-  - [x] [【echarts 使用】之上下左右的距离（grid）](https://github.com/yihan12/Blog/issues/17)
-  - [x] [【echarts 使用】之设置拐点 hover 样式](https://github.com/yihan12/Blog/issues/18)
-  - [x] [【echarts 使用】之设置 x 轴从原点开始](https://github.com/yihan12/Blog/issues/19)
-  - [x] [【echarts 使用】之 tooltip 弹窗使用说明](https://github.com/yihan12/Blog/issues/20)
-  - [x] [【echarts 使用】之 x 轴时间戳展示 0-24 小时](https://github.com/yihan12/Blog/issues/21)
+  * - [x] [【echarts 使用】之 xy 轴刻度、文字、轴线样式、分隔线](https://github.com/yihan12/Blog/issues/8)
+  * - [x] [【echarts 使用】之折线图拐点圆的样式（内圆外圆）](https://github.com/yihan12/Blog/issues/9)
+  * - [x] [【echarts 使用】之基准线 markLine](https://github.com/yihan12/Blog/issues/10)
+  * - [x] [【echarts 使用】之无数据时连线与否](https://github.com/yihan12/Blog/issues/11)
+  * - [x] [【echarts 使用】之设置柱子多个颜色（渐进色）](https://github.com/yihan12/Blog/issues/13)
+  * - [x] [【echarts 使用】之无拐点，折线样式](https://github.com/yihan12/Blog/issues/14)
+  * - [x] [【echarts 使用】之设置柱子的 borderRadius](https://github.com/yihan12/Blog/issues/15)
+  * - [x] [【echarts 使用】之选中状态(默认不显示置灰)](https://github.com/yihan12/Blog/issues/16)
+  * - [x] [【echarts 使用】之上下左右的距离（grid）](https://github.com/yihan12/Blog/issues/17)
+  * - [x] [【echarts 使用】之设置拐点 hover 样式](https://github.com/yihan12/Blog/issues/18)
+  * - [x] [【echarts 使用】之设置 x 轴从原点开始](https://github.com/yihan12/Blog/issues/19)
+  * - [x] [【echarts 使用】之 tooltip 弹窗使用说明](https://github.com/yihan12/Blog/issues/20)
+  * - [x] [【echarts 使用】之 x 轴时间戳展示 0-24 小时](https://github.com/yihan12/Blog/issues/21)
 
 # 【移动端】
 - [x] **Native App**
@@ -100,7 +100,7 @@
 - [x] **Web App**
 - [x] **自适应**
   * - [x] [移动端自适应常见手段](https://febook.hzfe.org/awesome-interview/book3/css-mobile-adaptive)
-    - [x] [【自适应】之 相关知识汇总](https://github.com/yihan12/Blog/blob/main/Mobile/adaptive/basic%20information.md) 
+  * - [x] [【自适应】之 相关知识汇总](https://github.com/yihan12/Blog/blob/main/Mobile/adaptive/basic%20information.md) 
 - [x] **兼容性**
   * - [x] [【兼容性】之 IOS:时间 Date 兼容性问题](https://github.com/yihan12/Blog/issues/4)
   * - [x] [【兼容性】之 IOS:iPhoneX 安全区域(Safe Area)底部小黑条在微信小程序和 H5 的屏幕适配](https://github.com/yihan12/Blog/issues/7)
