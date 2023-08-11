@@ -94,6 +94,15 @@
   - [x] [【echarts 使用】之 tooltip 弹窗使用说明](https://github.com/yihan12/Blog/issues/20)
   - [x] [【echarts 使用】之 x 轴时间戳展示 0-24 小时](https://github.com/yihan12/Blog/issues/21)
 
+# 【移动端】
+- [x] **Native App**
+- [x] **Hybird App**
+- [x] **Web App**
+- [x] **兼容性**
+  - [x] [【兼容性】之 IOS:时间 Date 兼容性问题](https://github.com/yihan12/Blog/issues/4)
+  - [x] [【兼容性】之 IOS:iPhoneX 安全区域(Safe Area)底部小黑条在微信小程序和 H5 的屏幕适配](https://github.com/yihan12/Blog/issues/7)
+  - [x] [【兼容性】之 IOS:不支持audio自动播放问题](https://github.com/yihan12/Blog/blob/main/Mobile/iOS%3Aaudio.md)
+
 # 【浏览器】
 
 - [x] [【浏览器】之原理和实践](https://github.com/yihan12/Blog/blob/main/browser/README.md)
@@ -146,15 +155,6 @@
 
 -[x] **简介**
   - [ ] TypeScript 是什么
-
-# 【移动端】
-- [x] **Native App**
-- [x] **Hybird App**
-- [x] **Web App**
-- [x] **兼容性**
-  - [x] [【兼容性】之 IOS:时间 Date 兼容性问题](https://github.com/yihan12/Blog/issues/4)
-  - [x] [【兼容性】之 IOS:iPhoneX 安全区域(Safe Area)底部小黑条在微信小程序和 H5 的屏幕适配](https://github.com/yihan12/Blog/issues/7)
-  - [x] [【兼容性】之 IOS:不支持audio自动播放问题](https://github.com/yihan12/Blog/blob/main/Mobile/iOS%3Aaudio.md)
 
 # 【构建工具】
 
