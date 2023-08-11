@@ -100,7 +100,7 @@
 - [x] **Web App**
 - [x] **自适应**
   * - [x] [移动端自适应常见手段](https://febook.hzfe.org/awesome-interview/book3/css-mobile-adaptive)
-    - [x] [【自适应】之 相关知识汇总]() 
+    - [x] [【自适应】之 相关知识汇总](https://github.com/yihan12/Blog/blob/main/Mobile/adaptive/basic%20information.md) 
 - [x] **兼容性**
   * - [x] [【兼容性】之 IOS:时间 Date 兼容性问题](https://github.com/yihan12/Blog/issues/4)
   * - [x] [【兼容性】之 IOS:iPhoneX 安全区域(Safe Area)底部小黑条在微信小程序和 H5 的屏幕适配](https://github.com/yihan12/Blog/issues/7)
