@@ -16,3 +16,5 @@ pending->resolved 或者 pending->rejected
 
 then 正常回调返回 resolved，如果有报错则返回 rejected
 catch 正常回调返回 resolved,如果有报错返回 rejected
+
+#
