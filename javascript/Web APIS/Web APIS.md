@@ -1,0 +1,11 @@
+- BOM 操作相关的面试题
+- 事件绑定和事件冒泡
+- 什么是事件代理（面试必考）
+- DOM 事件相关的面试题
+- ajax 的核心 API-XMLHttpRequest
+- 什么是浏览器的同源策略
+- 实现跨域的常见方式-jsonp 和 CORS
+- ajax 相关的面试题实际项目中
+- ajax 的常用插件
+- 如何理解 cookie localStorage
+- SessionStorage 和 cookie 的区别
