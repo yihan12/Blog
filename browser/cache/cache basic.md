@@ -230,8 +230,9 @@ response.addHeader( "Cache-Control", "no-cache" );//浏览器和缓存服务器�
 # 协商缓存
 
 - 服务端缓存策略。
-- 服务端判断客户端资源，是否和服务端资源一致。
-- 一致则返回 304 not Modified.否则返回 200 和最新的资源
+- 浏览器初次请求，服务器会返回资源和资源标识。
+- 当浏览器再次请求，带着资源标识。服务器会判断资源客户端资源，是否和服务端资源一致。
+- 一致则返回 304 not Modified.否则返回 200 和最新的资源。
 
 **协商缓存是利用的是【Last-Modified，If-Modified-Since】和【ETag、If-None-Match】这两对 Header 来管理的。**
 
@@ -246,19 +247,19 @@ response.addHeader( "Cache-Control", "no-cache" );//浏览器和缓存服务器�
 
 #### 原理：
 
-1）浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在 respone 的 header 加上 Last-Modified 的 header，这个 header 表示这个资源在服务器上的最后修改时间：
+1）**浏览器初次请求，服务器返回资源+Last-Modified**：浏览器初次跟服务器请求一个资源，服务器在返回这个资源的同时，在 respone 的 header 加上 Last-Modified 的 header，这个 header 表示这个资源在服务器上的最后修改时间：
 
 ![image](https://github.com/yihan12/Blog/assets/44987698/97d2dbd9-3d4d-47d5-a7f2-5dd71a44750b)
 
-2）浏览器再次跟服务器请求这个资源时，在 request 的 header 上加上 If-Modified-Since 的 header，这个 header 的值就是上一次请求时返回的 Last-Modified 的值：
+2）**浏览器再次请求+If-Modified-Since(上次 Last-Modified 的值)**：浏览器再次跟服务器请求这个资源时，在 request 的 header 上加上 If-Modified-Since 的 header，这个 header 的值就是上一次请求时返回的 Last-Modified 的值：
 
 ![image](https://github.com/yihan12/Blog/assets/44987698/6e22c453-8b72-4ef2-9b9b-72899d370adb)
 
-3）服务器再次收到资源请求时，根据浏览器传过来 If-Modified-Since 和资源在服务器上的最后修改时间判断资源是否有变化，如果没有变化则返回 304 Not Modified，但是不会返回资源内容；如果有变化，就正常返回资源内容。当服务器返回 304 Not Modified 的响应时，response header 中不会再添加 Last-Modified 的 header，因为既然资源没有变化，那么 Last-Modified 也就不会改变，这是服务器返回 304 时的 response header：
+3）**服务器返回 304（一致）或者资源+新的 Last-Modified(不一致)**：服务器再次收到资源请求时，根据浏览器传过来 If-Modified-Since 和资源在服务器上的最后修改时间判断资源是否有变化，如果没有变化则返回 304 Not Modified，但是不会返回资源内容；如果有变化，就正常返回资源内容。当服务器返回 304 Not Modified 的响应时，response header 中不会再添加 Last-Modified 的 header，因为既然资源没有变化，那么 Last-Modified 也就不会改变，这是服务器返回 304 时的 response header：
 
 ![image](https://github.com/yihan12/Blog/assets/44987698/88eebce5-2bbb-4e60-a325-aa4283215588)
 
-4）浏览器收到 304 的响应后，就会从缓存中加载资源。
+4）**浏览器收到 304 的响应后，就会从缓存中加载资源。**
 
 5）如果协商缓存没有命中，浏览器直接从服务器加载资源时，Last-Modified Header 在重新加载的时候会被更新，下次请求时，If-Modified-Since 会启用上次返回的 Last-Modified 值。
 
@@ -268,15 +269,15 @@ response.addHeader( "Cache-Control", "no-cache" );//浏览器和缓存服务器�
 
 #### 原理：
 
-1）浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在 respone 的 header 加上 ETag 的 header，这个 header 是服务器根据当前请求的资源生成的一个唯一标识，这个唯一标识是一个字符串，只要资源有变化这个串就不同，跟最后修改时间没有关系，所以能很好的补充 Last-Modified 的问题：
+1）**浏览器初次请求，服务器返回资源+Etag**浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在 respone 的 header 加上 ETag 的 header，这个 header 是服务器根据当前请求的资源生成的一个唯一标识，这个唯一标识是一个字符串，只要资源有变化这个串就不同，跟最后修改时间没有关系，所以能很好的补充 Last-Modified 的问题：
 
 ![image](https://github.com/yihan12/Blog/assets/44987698/22fd09c9-12dc-44a0-9046-47186c0a4fa4)
 
-2）浏览器再次跟服务器请求这个资源时，在 request 的 header 上加上 If-None-Match 的 header，这个 header 的值就是上一次请求时返回的 ETag 的值：
+2）**浏览器再次请求+If-None-Match**浏览器再次跟服务器请求这个资源时，在 request 的 header 上加上 If-None-Match 的 header，这个 header 的值就是上一次请求时返回的 ETag 的值：
 
 ![image](https://github.com/yihan12/Blog/assets/44987698/d6954c1c-aa40-4619-951a-728762e2b7da)
 
-3）服务器再次收到资源请求时，根据浏览器传过来 If-None-Match 和然后再根据资源生成一个新的 ETag，如果这两个值相同就说明资源没有变化，否则就是有变化；如果没有变化则返回 304 Not Modified，但是不会返回资源内容；如果有变化，就正常返回资源内容。与 Last-Modified 不一样的是，当服务器返回 304 Not Modified 的响应时，由于 ETag 重新生成过，response header 中还会把这个 ETag 返回，即使这个 ETag 跟之前的没有变化：
+3）**服务器返回 304（一致）或者资源+新的 Etag(不一致)**：服务器再次收到资源请求时，根据浏览器传过来 If-None-Match 和然后再根据资源生成一个新的 ETag，如果这两个值相同就说明资源没有变化，否则就是有变化；如果没有变化则返回 304 Not Modified，但是不会返回资源内容；如果有变化，就正常返回资源内容。与 Last-Modified 不一样的是，当服务器返回 304 Not Modified 的响应时，由于 ETag 重新生成过，response header 中还会把这个 ETag 返回，即使这个 ETag 跟之前的没有变化：
 
 ![image](https://github.com/yihan12/Blog/assets/44987698/18a3f0c3-fd12-4569-9feb-032d4048d822)
 
@@ -307,3 +308,11 @@ response.addHeader( "Cache-Control", "no-cache" );//浏览器和缓存服务器�
 - 1）当 ctrl+f5 强制刷新网页时，直接从服务器加载，跳过强缓存和协商缓存；
 
 - 2）当 f5 刷新网页时，跳过强缓存，但是会检查协商缓存；
+
+- 3）正常操作：地址栏输入 url，跳转链接，前进后退等。
+
+### Last-Modified 和 Etag
+
+- 会优先使用 Etag
+- Last-Modified 只能精确到秒级。
+- 如果资源被重复生成，而内容不变，则 Etag（根据内容） 更精确。
