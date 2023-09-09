@@ -16,6 +16,7 @@ const idToTemplate = cached(id => {
 
 // 最开始通过mount获取并缓存了Vue原型上的$mount方法，然后又重新定义了Vue.prototype.$mount
 // 执行到到最后，通过return mount.call(this, el, hydrating) 重新调用mount缓存下来的原型方法。
+// Vue定义原型$mount方法
 const mount = Vue.prototype.$mount
 Vue.prototype.$mount = function (
   el?: string | Element,
@@ -102,7 +103,7 @@ Vue.prototype.$mount = function (
  * Get outerHTML of elements, taking care
  * of SVG elements in IE as well.
  */
-function getOuterHTML (el: Element): string {
+function getOuterHTML(el: Element): string {
   if (el.outerHTML) {
     return el.outerHTML
   } else {
