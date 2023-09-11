@@ -73,6 +73,7 @@ Vue.prototype.$mount = function (
       //
       template = getOuterHTML(el)
     }
+    // 前面代码对template进行了处理。后续直接调用compileToFunctions，render和staticRenderFns,然后再调用mount.call
     if (template) {
       /* istanbul ignore if */
       if (process.env.NODE_ENV !== 'production' && config.performance && mark) {

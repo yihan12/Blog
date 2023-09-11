@@ -43,6 +43,7 @@ Vue.prototype.$mount = function (
   // 如果没有render，则需要调用compileToFunctions生成render再调用mount方法
   if (!options.render) {
     /*template存在的时候取template，不存在的时候取el的outerHTML*/
+    // 目的是取innerHTML
     let template = options.template
     if (template) {
       if (typeof template === 'string') {
@@ -68,6 +69,8 @@ Vue.prototype.$mount = function (
     } else if (el) {
       template = getOuterHTML(el)
     }
+    // 前面代码对template进行了处理。后续直接调用compileToFunctions，render和staticRenderFns,然后再调用mount.call
+
     if (template) {
       /* istanbul ignore if */
       if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
