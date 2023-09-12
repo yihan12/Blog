@@ -21,22 +21,30 @@
 
 ### 代码一(根据原理)
 
-定义函数 debounce  
-根据表述，我们可以知道需要传入参数：func、wait  
+定义函数 debounce
+
+根据表述，我们可以知道需要传入参数：func、wait。我们可以自定义 wait 为 500，未传入时间，就用默认的时间。定时器处理就用 setTimeout 函数。
+
+此外，我们需要做以下几件事：
+
+1. 定义函数 debounce ，传参 func 和 wait
+2. 设置个 wait 豪秒的定时器，时间执行到 wait 毫秒内又触发函数，则重新计时
+3. 时间执行到 wait 毫秒未触发则执行 func,并清除计时器
+
 实现代码：
 
-```
+```javascript
 function debounce(func, wait = 500) {
-    let timeout; // 定义定时器，wait秒后需要清除定时器
-    return function () {
-      // 如果再次触发函数时，已有timeout，则清空销毁当前timeout，再以新的事件重新设置定时器
-      if (timeout) clearTimeout(timeout);
+  let timeout // 定义定时器，wait秒后需要清除定时器
+  return function () {
+    // 如果再次触发函数时，已有timeout，则清空销毁当前timeout，再以新的事件重新设置定时器
+    if (timeout) clearTimeout(timeout)
 
-      timeout = setTimeout(function () {
-        func();
-        clearTimeout(timeout)
-      }, wait);
-    };
+    timeout = setTimeout(function () {
+      func()
+      clearTimeout(timeout)
+    }, wait)
+  }
 }
 ```
 
@@ -44,19 +52,19 @@ function debounce(func, wait = 500) {
 
 我们之前的原函数指向哪，如果使用我们的 debounce 函数包裹后，也要将 this 指向正确的对象。
 
-```
+```javascript
 function debounce(func, wait = 500) {
-    let timeout, context;
-    return function () {
-          context = this;
-          // 如果再次触发函数时，已有timeout，则清空销毁timeout，在往下执行
-          if (timeout) clearTimeout(timeout);
+  let timeout, context
+  return function () {
+    context = this
+    // 如果再次触发函数时，已有timeout，则清空销毁timeout，在往下执行
+    if (timeout) clearTimeout(timeout)
 
-          timeout = setTimeout(function () {
-                func.apply(context);
-                clearTimeout(timeout);
-          }, wait);
-    };
+    timeout = setTimeout(function () {
+      func.apply(context)
+      clearTimeout(timeout)
+    }, wait)
+  }
 }
 ```
 
@@ -67,38 +75,38 @@ JavaScript 在事件处理函数中会提供事件对象 event；
 
 式一：
 
-```
+```javascript
 function debounce(func, wait = 500) {
-    let timeout, context, args;
-    return function () {
-          context = this;
-          args = arguments;
-          // 如果再次触发函数时，已有timeout，则清空销毁timeout，在往下执行
-          if (timeout) clearTimeout(timeout);
+  let timeout, context, args
+  return function () {
+    context = this
+    args = arguments
+    // 如果再次触发函数时，已有timeout，则清空销毁timeout，在往下执行
+    if (timeout) clearTimeout(timeout)
 
-          timeout = setTimeout(function () {
-                func.apply(context, args);
-                clearTimeout(timeout);
-          }, wait);
-    };
+    timeout = setTimeout(function () {
+      func.apply(context, args)
+      clearTimeout(timeout)
+    }, wait)
+  }
 }
 ```
 
 式二：
 
-```
+```javascript
 function debounce(func, wait = 500) {
-    let timeout, context;
-    return function (...args) {
-          context = this;
-          // 如果再次触发函数时，已有timeout，则清空销毁timeout，在往下执行
-          if (timeout) clearTimeout(timeout);
+  let timeout, context
+  return function (...args) {
+    context = this
+    // 如果再次触发函数时，已有timeout，则清空销毁timeout，在往下执行
+    if (timeout) clearTimeout(timeout)
 
-          timeout = setTimeout(function () {
-                func.apply(context, args);
-                clearTimeout(timeout);
-          }, wait);
-    };
+    timeout = setTimeout(function () {
+      func.apply(context, args)
+      clearTimeout(timeout)
+    }, wait)
+  }
 }
 ```
 
@@ -108,27 +116,27 @@ function debounce(func, wait = 500) {
 
 这里做出的处理，是将`func.apply(context, args)`单独拿出来，输出原函数的`result`。
 
-```
+```javascript
 function debounce(func, wait = 500) {
-    let timeout, context, result;
+  let timeout, context, result
 
-    function showResult(e1, e2) {
-        result = func.apply(e1, e2); // 绑定e1,e2的同时，输出result
-        return result;
-    }
+  function showResult(e1, e2) {
+    result = func.apply(e1, e2) // 绑定e1,e2的同时，输出result
+    return result
+  }
 
-    return function (...args) {
-        context = this;
-        // 如果再次触发函数时，已有timeout，则清空销毁timeout，在往下执行
-        if (timeout) clearTimeout(timeout);
+  return function (...args) {
+    context = this
+    // 如果再次触发函数时，已有timeout，则清空销毁timeout，在往下执行
+    if (timeout) clearTimeout(timeout)
 
-        // 这里是不立即执行的原代码
-        timeout = setTimeout(function () {
-            clearTimeout(timeout);
-            return showResult(context, args); // 将this，arguments代入函数
-        }, wait);
-        return result;
-    };
+    // 这里是不立即执行的原代码
+    timeout = setTimeout(function () {
+      clearTimeout(timeout)
+      return showResult(context, args) // 将this，arguments代入函数
+    }, wait)
+    return result
+  }
 }
 ```
 
@@ -137,35 +145,35 @@ function debounce(func, wait = 500) {
 因为原理中，每次触发完后还需要等待 wait 秒执行。  
 但是某些场景，比如按钮点击后调用接口，会使整个时间变长，这时候就需要定义 immediate，点击按钮，立即执行调用接口，还要达到 wait 秒内防抖的效果。
 
-```
+```javascript
 function debounce(func, wait = 500, immediate = false) {
-    let timeout, context, result, callNow;
+  let timeout, context, result, callNow
 
-    function showResult(e1, e2) {
-        result = func.apply(e1, e2); // 绑定e1,e2的同时，输出result
-        return result;
+  function showResult(e1, e2) {
+    result = func.apply(e1, e2) // 绑定e1,e2的同时，输出result
+    return result
+  }
+
+  return function (...args) {
+    context = this
+    // 如果再次触发函数时，已有timeout，则清空销毁timeout，在往下执行
+    if (timeout) clearTimeout(timeout)
+    if (immediate) {
+      // 这里是立即执行的判断代码
+      callNow = !timeout // timeout最开始定义为undefined，如果未设置定时器，则!timeout返回true;否则返回false
+      timeout = setTimeout(function () {
+        timeout = null // 这里时定时器走完，让timeout为null，则上一步!timeout依然返回true;
+      }, wait)
+      if (callNow) return showResult(context, args) //刚进入timeout=undefined以及，wait时间走完timeout = null，两种情况都会立即执行函数
+    } else {
+      // 这里是不立即执行的原代码
+      timeout = setTimeout(function () {
+        clearTimeout(timeout)
+        return showResult(context, args) // 将this，arguments代入函数
+      }, wait)
     }
-
-    return function (...args) {
-        context = this;
-        // 如果再次触发函数时，已有timeout，则清空销毁timeout，在往下执行
-        if (timeout) clearTimeout(timeout);
-        if (immediate) {
-            // 这里是立即执行的判断代码
-            callNow = !timeout; // timeout最开始定义为undefined，如果未设置定时器，则!timeout返回true;否则返回false
-            timeout = setTimeout(function () {
-                timeout = null; // 这里时定时器走完，让timeout为null，则上一步!timeout依然返回true;
-            }, wait);
-            if (callNow) return showResult(context, args); //刚进入timeout=undefined以及，wait时间走完timeout = null，两种情况都会立即执行函数
-        } else {
-        // 这里是不立即执行的原代码
-            timeout = setTimeout(function () {
-                clearTimeout(timeout);
-                return showResult(context, args); // 将this，arguments代入函数
-            }, wait);
-        }
-        return result
-    };
+    return result
+  }
 }
 ```
 
@@ -173,45 +181,45 @@ function debounce(func, wait = 500, immediate = false) {
 
 增加取消防抖的方法：只需要定义 cancel 方法，去除定时器，将初始变量全部设置为 undefined。
 
-```
+```javascript
 function debounce(func, wait = 500, immediate = false) {
-    let timeout, context, result, callNow;
+  let timeout, context, result, callNow
 
-    function showResult(e1, e2) {
-        result = func.apply(e1, e2); // 绑定e1,e2的同时，输出result
-        return result;
+  function showResult(e1, e2) {
+    result = func.apply(e1, e2) // 绑定e1,e2的同时，输出result
+    return result
+  }
+
+  const debounced = function (...args) {
+    context = this
+    // 如果再次触发函数时，已有timeout，则清空销毁timeout，在往下执行
+    if (timeout) clearTimeout(timeout)
+    if (immediate) {
+      // 这里是立即执行的判断代码
+      callNow = !timeout // timeout最开始定义为undefined，如果未设置定时器，则!timeout返回true;否则返回false
+      timeout = setTimeout(function () {
+        timeout = null // 这里时定时器走完，让timeout为null，则上一步!timeout依然返回true;
+      }, wait)
+      if (callNow) return showResult(context, args) //刚进入timeout=undefined以及，wait时间走完timeout = null，两种情况都会立即执行函数
+    } else {
+      // 这里是不立即执行的原代码
+      timeout = setTimeout(function () {
+        clearTimeout(timeout)
+        return showResult(context, args) // 将this，arguments代入函数
+      }, wait)
     }
+    return result
+  }
 
-    const debounced = function (...args) {
-        context = this;
-        // 如果再次触发函数时，已有timeout，则清空销毁timeout，在往下执行
-        if (timeout) clearTimeout(timeout);
-        if (immediate) {
-            // 这里是立即执行的判断代码
-            callNow = !timeout; // timeout最开始定义为undefined，如果未设置定时器，则!timeout返回true;否则返回false
-            timeout = setTimeout(function () {
-                timeout = null; // 这里时定时器走完，让timeout为null，则上一步!timeout依然返回true;
-            }, wait);
-            if (callNow) return showResult(context, args); //刚进入timeout=undefined以及，wait时间走完timeout = null，两种情况都会立即执行函数
-        } else {
-            // 这里是不立即执行的原代码
-                timeout = setTimeout(function () {
-                    clearTimeout(timeout);
-                    return showResult(context, args); // 将this，arguments代入函数
-                }, wait);
-        }
-        return result
-    };
-
-    debounced.cancel = function () {
-        // 去除定时器，
-        if (timeout !== undefined) {
-            clearTimeout(timeout);
-        }
-        // 将初始变量全部设置为undefined
-        timeout = context = result = callNow = undefined;
-    };
-    return debounced;
+  debounced.cancel = function () {
+    // 去除定时器，
+    if (timeout !== undefined) {
+      clearTimeout(timeout)
+    }
+    // 将初始变量全部设置为undefined
+    timeout = context = result = callNow = undefined
+  }
+  return debounced
 }
 ```
 
