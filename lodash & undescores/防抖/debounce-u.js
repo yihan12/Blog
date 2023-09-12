@@ -1,4 +1,6 @@
+// 处理传入函数的this指向以及arguments参数
 import restArguments from './restArguments.js';
+// 当前时间戳
 import now from './now.js';
 
 // When a sequence of calls of the returned function ends, the argument
@@ -6,6 +8,12 @@ import now from './now.js';
 // parameter. If `immediate` is passed, the argument function will be
 // triggered at the beginning of the sequence instead of at the end.
 export default function debounce(func, wait, immediate) {
+    // 初始化这些数据
+    // timeout 定时器初始变量
+    // previous 出发前时间戳
+    // result返回值
+    // args 参数
+    // context this
     var timeout, previous, args, result, context;
 
     var later = function () {
@@ -31,6 +39,7 @@ export default function debounce(func, wait, immediate) {
         return result;
     });
 
+    // 取消
     debounced.cancel = function () {
         clearTimeout(timeout);
         timeout = args = context = null;
