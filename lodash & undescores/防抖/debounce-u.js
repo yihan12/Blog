@@ -17,7 +17,7 @@ export default function debounce(func, wait, immediate) {
     var timeout, previous, args, result, context;
 
     var later = function () {
-        var passed = now() - previous;
+        var passed = now() - previous; // 当前触发时间减去前面设置timeout的时间
         if (wait > passed) {
             timeout = setTimeout(later, wait - passed);
         } else {
@@ -31,10 +31,10 @@ export default function debounce(func, wait, immediate) {
     var debounced = restArguments(function (_args) {
         context = this;
         args = _args;
-        previous = now();
+        previous = now(); // 重新触发debounced会重新定义previous
         if (!timeout) {
             timeout = setTimeout(later, wait);
-            if (immediate) result = func.apply(context, args);
+            if (immediate) result = func.apply(context, args);  //如果需要立即执行，则直接执行当前函数
         }
         return result;
     });
