@@ -17,8 +17,10 @@ let total = price1 + price2;
 ```
 
 ## let、var、const的区别
-|--|--|--|
-|var|let|const|
+
+|区别|var|let|const|
+|----|----|----|----|
+| 能发被重复声明 | 能 | 否 | 否 |
  
 # Hoisting（变量提升）
 
