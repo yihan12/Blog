@@ -28,6 +28,7 @@ let total = price1 + price2;
  
 # Hoisting（变量提升）
 
+> 变量提升（Hoisting）被认为是，Javascript 中执行上下文（特别是创建和执行阶段）工作方式的一种认识。
 
 
 # 命名变量：规则和最佳实践
