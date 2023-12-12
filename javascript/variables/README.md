@@ -29,6 +29,67 @@ let total = price1 + price2;
 # Hoisting（变量提升）
 
 > 变量提升（Hoisting）被认为是，Javascript 中执行上下文（特别是创建和执行阶段）工作方式的一种认识。
+> JavaScript只提升声明，而不是初始化。
+
+```javascript
+function codeHoist() {
+  a = 10;
+  let b = 50;
+}
+codeHoist();
+ 
+console.log(a); // 10
+console.log(b); // ReferenceError : b is not defined
+```
+
+在上面的代码中，我们创建了一个名为codeHoist（）的函数，其中我们有一个变量，我们没有使用let/var/const和一个let变量b声明。未声明的变量由javascript分配全局范围，因此我们可以将其打印在函数之外，但在变量b的情况下，范围受到限制，它在外部不可用，我们得到一个引用错误。
+
+让我们在看看下面几个例子：
+```
+console.log(name); // undefined
+```
+```javascript
+console.log(name); // Uncaught ReferenceError: name is not defined
+let name = 'yihan12'
+```
+```javascript
+function fun() {
+  console.log(name);
+  var name = 'Mukul Latiyan';
+}
+fun(); // undefined
+```
+```javascript
+function fun() {
+  let name;
+  console.log(name,1);
+  name = 'Mukul Latiyan';
+  console.log(name,2);
+}
+fun();
+// undefined 1
+// Mukul Latiyan 2
+```
+我们知道用let关键字声明的变量是块范围的，而不是函数范围的，因此在提升时没有问题。
+
+下面是let声明函数变量的例子
+```javascript
+fun() // Uncaught ReferenceError: fun is not defined
+ 
+let fun = () =>{ // Declaring
+    let name = 'Mukul Latiyan';
+    console.log(name);
+}
+```
+
+```javascript
+fun(); // "Function is hoisted"
+ 
+function fun() { // Declaring
+  console.log("Function is hoisted");
+}
+
+```
 
 
 # 命名变量：规则和最佳实践
