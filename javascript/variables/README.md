@@ -15,6 +15,10 @@ const price1 = 5;
 const price2 = 6;
 let total = price1 + price2;
 ```
+
+## let、var、const的区别
+|--|--|--|
+|var|let|const|
  
 # Hoisting（变量提升）
 
