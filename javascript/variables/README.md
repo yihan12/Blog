@@ -121,4 +121,28 @@ ES6引入了两个重要的新JavaScript关键字：let和const。
 }
 ```
 
-### 
+### 函数作用域
+
+JavaScript具有函数作用域：每个函数都会创建一个新作用域。  
+函数内部定义的变量不能从函数外部访问（可见）。  
+在函数内部声明时，使用var、let和const声明的变量非常相似。  
+它们都有函数作用域： 
+```javascript
+function myFunction() {
+  var carName = "Volvo";   // Function Scope
+}
+```
+
+```javascript
+function myFunction() {
+  let carName = "Volvo";   // Function Scope
+}
+```
+
+```javascript
+function myFunction() {
+  const carName = "Volvo";   // Function Scope
+}
+```
+
+
