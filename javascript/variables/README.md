@@ -145,4 +145,15 @@ function myFunction() {
 }
 ```
 
+### 全局作用域
+
+全局声明的变量（在任何函数之外）具有全局范围。  
+可以从JavaScript程序中的任何位置访问全局变量。  
+使用var、let和const声明的变量在块之外声明时非常相似。  
+它们都有全局范围：
+```javascript
+var x = 2;       // Global scope
+let y = 2;       // Global scope
+const z = 2;       // Global scope
+```
 
