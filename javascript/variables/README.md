@@ -109,3 +109,16 @@ JavaScript有3种类型：
 - 块级作用域
 - 函数作用域
 - 全局作用域
+
+### 块级作用域
+在ES6（2015）之前，JavaScript只有全局范围和函数范围。  
+ES6引入了两个重要的新JavaScript关键字：let和const。  
+这两个关键字在JavaScript中提供了块级作用域。  
+在{}块内声明的变量不能从块外访问：
+```javascript
+{
+  let x = 2;
+}
+```
+
+### 
