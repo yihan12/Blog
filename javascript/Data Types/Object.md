@@ -72,6 +72,7 @@ me.printIntroduction(); // My name is Mukul. Am I studying?: true
 ```
 
 #### 使用ES6 Class
+```javascript
 class Vehicle {
   constructor(name, maker, engine) {
     this.name = name;
@@ -149,3 +150,43 @@ for (let key in person1) {
 }    
 console.log(person1, person) // person1的原型上会继承person的gender属性
 ```
+
+### 对象的setter和getter
+
+```javascript
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+console.log(person.fullName()) // 'John Doe'
+const person2 = {
+  firstName: "John",
+  lastName: "Doe",
+  get fullName() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+console.log(person2.fullName) // 'John Doe'
+```
+
+```javascript
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  language: "",
+  set lang(lang) {
+    this.language = lang;
+  }
+};
+
+person.lang = "en";
+
+console.log(person.language) // 'en'
+```
+
+
