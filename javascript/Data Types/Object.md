@@ -64,3 +64,22 @@ console.log(delete obj1.propfirst);
 console.log(obj2.propfirst);  
 ```
 对比例1和例2不难发现，delete能删除本身的属性，但是不能删除继承的属性。删除调obj1的propfirst属性后，会影响到obj2的继承属性。
+
+### 遍历对象
+
+```javascript
+let person = { 
+    gender : "male"
+} 
+  
+let person1 = Object.create(person); 
+person1.name = "Adam"; 
+person1.age = 45; 
+person1.nationality = "Australian"; 
+  
+for (let key in person1) { 
+// Output : name, age, nationality, gender
+    console.log(key);  
+}    
+console.log(person1, person) // person1的原型上会继承person的gender属性
+```
