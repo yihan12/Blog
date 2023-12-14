@@ -46,6 +46,47 @@ console.log(o);
 // { foo: 42 } 
 ```
 
+#### 使用对象字面量
+```javascript
+let car = {
+    name : 'GT',
+    maker : 'BMW',
+    engine : '1998cc'
+};
+console.log(car.name); //dot notation
+console.log(car['maker']); //bracket notation
+```
+
+#### 使用Object.create() 
+```javascript
+const coder = {
+    isStudying : false,
+    printIntroduction : function(){
+        console.log(`My name is ${this.name}. Am I studying?: ${this.isStudying}`);
+    }
+};
+const me = Object.create(coder);
+me.name = 'Mukul';
+me.isStudying = true;
+me.printIntroduction(); // My name is Mukul. Am I studying?: true
+```
+
+#### 使用ES6 Class
+
+```javascript
+class Vehicle {
+  constructor(name, maker, engine) {
+    this.name = name;
+    this.maker =  maker;
+    this.engine = engine;
+  }
+}
+ 
+let car1 = new Vehicle('GT', 'BMW', '1998cc');
+ 
+console.log(car1.name);  //GT
+```
+
 ### 对象删除
 对象只能删除本身属性，不能删除继承的属性。
 
