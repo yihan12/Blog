@@ -66,7 +66,7 @@ console.log(obj2.propfirst);
 对比例1和例2不难发现，delete能删除本身的属性，但是不能删除继承的属性。删除调obj1的propfirst属性后，会影响到obj2的继承属性。
 
 ### 遍历对象
-
+遍历对象的所有键：要遍历对象的所有现有可枚举键，我们可以在构造中使用for…in。值得注意的是，这允许我们只访问对象的可枚举属性（回想一下，可枚举是数据属性的四个属性之一）。例如，从Object.prototype继承的属性是不可枚举的。但是，从某处继承的可枚举属性也可以使用for… in构造来访问
 ```javascript
 let person = { 
     gender : "male"
