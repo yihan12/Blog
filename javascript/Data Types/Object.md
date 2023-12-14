@@ -72,8 +72,6 @@ me.printIntroduction(); // My name is Mukul. Am I studying?: true
 ```
 
 #### 使用ES6 Class
-
-```javascript
 class Vehicle {
   constructor(name, maker, engine) {
     this.name = name;
@@ -84,7 +82,10 @@ class Vehicle {
  
 let car1 = new Vehicle('GT', 'BMW', '1998cc');
  
-console.log(car1.name);  //GT
+console.log(car1.name);  // 'GT'
+car1.name = '123'
+console.log(car1); // Vehicle {name: '123', maker: 'BMW', engine: '1998cc'}
+console.log(car1.name);  // '123'
 ```
 
 ### 对象删除
