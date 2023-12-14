@@ -137,6 +137,7 @@ console.log(obj2.propfirst);
 - for...in 循环 该方法依次访问一个对象及其原型链中所有可枚举的属性。
 - Object.keys(o) 该方法返回对象 o 自身包含（不包括原型中）的所有可枚举属性的名称的数组。
 - Object.getOwnPropertyNames(o) 该方法返回对象 o 自身包含（不包括原型中）的所有属性 (无论是否可枚举) 的名称的数组。
+- Reflect.ownKeys(target) 方法返回一个由目标对象自身的属性键组成的数组。它的返回值等同于 Object.getOwnPropertyNames(target).concat(Object.getOwnPropertySymbols(target))。
 
 遍历对象的所有键：要遍历对象的所有现有可枚举键，我们可以在构造中使用for…in。值得注意的是，这允许我们只访问对象的可枚举属性（回想一下，可枚举是数据属性的四个属性之一）。例如，从Object.prototype继承的属性是不可枚举的。但是，从某处继承的可枚举属性也可以使用for… in构造来访问
 
@@ -145,16 +146,35 @@ let person = {
     gender : "male"
 } 
   
-let person1 = Object.create(person); 
+let person1 = Object.create(person,
+{
+  getFooENUM: {
+    value() {
+      return this.foo;
+    },
+    enumerable: true,
+  },
+  getFoo: {
+    value() {
+      return this.foo;
+    },
+    enumerable: false,
+  },
+},); 
 person1.name = "Adam"; 
 person1.age = 45; 
-person1.nationality = "Australian"; 
+person1.nationality = "Australian";
+
   
 for (let key in person1) { 
-// Output : name, age, nationality, gender
+// Output : name, age, nationality, gender, getFooENUM
     console.log(key);  
 }    
-console.log(person1, person) // person1的原型上会继承person的gender属性
+
+console.log(Object.keys(person1)) // ['getFooENUM', 'name', 'age', 'nationality']
+console.log(Object.getOwnPropertyNames(person1)) //  ['getFooENUM', 'getFoo', 'name', 'age', 'nationality']
+console.log(Object.getOwnPropertySymbols(person1)) //  []
+console.log(Reflect.ownKeys(person1)) //  ['getFooENUM', 'getFoo', 'name', 'age', 'nationality']
 ```
 
 ### 对象的setter和getter
