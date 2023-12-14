@@ -37,5 +37,26 @@ console.log(obj1.propfirst);
 
 例2：
 ```javascript
+let obj1 = { 
+    propfirst : "Name"
+}  
+// Output : Name 
+console.log(obj1.propfirst)  
+let obj2 = Object.create(obj1); 
 
+// Output : Name 
+console.log(obj2.propfirst); 
+
+// Output : true. 
+console.log(delete obj2.propfirst);  
+
+// Output : Name     
+console.log(obj2.propfirst);  
+
+// Output : true     
+console.log(delete obj1.propfirst);  
+
+// Output : undefined   
+console.log(obj2.propfirst);  
 ```
+对比例1和例2不难发现，delete能删除本身的属性，但是不能删除继承的属性。删除调obj1的propfirst属性后，会影响到obj2的继承属性。
