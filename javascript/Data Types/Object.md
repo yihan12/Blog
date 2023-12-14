@@ -13,7 +13,31 @@
 - Functions
 - Objects  
 
-### 创建对象
+### 创建对象四种方法
+- 使用构造函数
+- 使用对象字面量
+- 使用Object.create()方法创建对象
+- 使用es6 Class
+
+#### 使用构造函数
+```javascript
+function vehicle(name,maker,engine){
+    this.name = name;
+    this.maker = maker;
+    this.engine = engine;
+}
+
+let car  = new vehicle('GT','BMW','1998cc');
+// OUTPUT: vehicle {name: 'GT', maker: 'BMW', engine: '1998cc'}
+// GT
+// BMW
+// 1998cc
+console.log(car); 
+console.log(car.name);
+console.log(car.maker);
+console.log(car['engine']);
+```
+
 ```javascript
 const o = new Object(); 
 o.foo = 42; 
