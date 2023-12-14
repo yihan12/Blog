@@ -178,6 +178,9 @@ console.log(Reflect.ownKeys(person1)) //  ['getFooENUM', 'getFoo', 'name', 'age
 ```
 
 ### 对象的setter和getter
+> getter 是一个获取某个特定属性的值的方法。
+> setter 是一个设定某个属性的值的方法。
+> 你可以为预定义的或用户定义的对象定义 getter 和 setter 以支持新增的属性。
 
 ```javascript
 const person = {
