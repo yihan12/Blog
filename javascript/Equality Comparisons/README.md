@@ -73,3 +73,29 @@ console.log('c,d' , c === d) // {} true
 
 # Object.is()
 
+```javascript
+const num = 0;
+const big = 0n;
+const str = "0";
+const obj = new String("0");
+
+console.log(Object.is(num , str)); // false
+console.log(Object.is(big , num)); // false
+console.log(Object.is(str, big)); // false
+
+console.log(Object.is(num , obj)); // false
+console.log(Object.is(big , obj)); // false
+console.log(Object.is(str , obj)); // false
+
+// 对比NaN，+0，-0，{}
+console.log('NaN' , Object.is(NaN , NaN)) // NaN true
+console.log('+0,-0' , Object.is(+0 , -0)) // +0,-0 false
+let a = {},b={},c=d={}
+console.log('a,b' , Object.is(a , b)) // {} false
+console.log('c,d' , Object.is(c ,d)) // {} true
+```
+
+- Object.is()处理不同类型相同值时，返回false,例如（0,'0',0n,new String("0")）;
+- Object.is()认为 +0等于-0
+- Object.is()认为 NaN等于NaN
+- Object.is()认为{}不等于{}
