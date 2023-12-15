@@ -44,4 +44,32 @@ console.log('c,d' , c == d) // {} true
 
 # 三等号（===）
 
+```javascript
+const num = 0;
+const big = 0n;
+const str = "0";
+const obj = new String("0");
+
+console.log(num === str); // false
+console.log(big === num); // false
+console.log(str === big); // false
+
+console.log(num === obj); // false
+console.log(big === obj); // false
+console.log(str === obj); // false
+
+// 对比NaN，+0，-0，{}
+console.log('NaN' , NaN === NaN) // NaN false
+console.log('+0,-0' , +0 === -0) // +0,-0 true
+let a = {},b={},c=d={}
+console.log('a,b' , a === b) // {} false
+console.log('c,d' , c === d) // {} true
+```
+
+- 三等号（===）处理不同类型相同值时，返回false,例如（0,'0',0n,new String("0")）;
+- 三等号（===）认为 +0等于-0
+- 三等号（===）认为 NaN不等于NaN
+- 三等号（===）认为{}不等于{}
+
 # Object.is()
+
