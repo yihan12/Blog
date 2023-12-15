@@ -99,3 +99,39 @@ console.log('c,d' , Object.is(c ,d)) // {} true
 - Object.is()认为 +0等于-0
 - Object.is()认为 NaN等于NaN
 - Object.is()认为{}不等于{}
+
+# sameValueZero
+
+```javascript
+function sameValueZero(x, y) {
+  if (typeof x === "number" && typeof y === "number") {
+    // x 和 y 相等（可能是 -0 和 0）或它们都是 NaN
+    return x === y || (x !== x && y !== y);
+  }
+  return x === y;
+}
+const num = 0;
+const big = 0n;
+const str = "0";
+const obj = new String("0");
+
+console.log(sameValueZero(num , str)); // false
+console.log(sameValueZero(big , num)); // false
+console.log(sameValueZero(str, big)); // false
+
+console.log(sameValueZero(num , obj)); // false
+console.log(sameValueZero(big , obj)); // false
+console.log(sameValueZero(str , obj)); // false
+
+// 对比NaN，+0，-0，{}
+console.log('NaN' , sameValueZero(NaN , NaN)) // NaN true
+console.log('+0,-0' , sameValueZero(+0 , -0)) // +0,-0 true
+let a = {},b={},c=d={}
+console.log('a,b' , sameValueZero(a , b)) // {} false
+console.log('c,d' , sameValueZero(c ,d)) // {} true
+```
+
+- sameValueZero处理不同类型相同值时，返回false,例如（0,'0',0n,new String("0")）;
+- sameValueZero认为 +0等于-0
+- sameValueZero认为 NaN等于NaN
+- sameValueZero认为 {}不等于{}
