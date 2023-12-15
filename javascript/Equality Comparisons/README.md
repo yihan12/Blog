@@ -5,6 +5,8 @@ JavaScript 提供三种不同的值比较运算：
 - ==——宽松相等（两个等号）
 - Object.is()
 
+对应的四个相等算法：
+
 - IsLooselyEqual：==
 - IsStrictlyEqual：===
 - SameValue：Object.is()
@@ -26,7 +28,19 @@ console.log(str == big); // true
 console.log(num == obj); // true
 console.log(big == obj); // true
 console.log(str == obj); // true
+
+// 对比NaN，+0，-0，{}
+console.log('NaN' , NaN == NaN) // NaN false
+console.log('+0,-0' , +0 == -0) // +0,-0 true
+let a = {},b={},c=d={}
+console.log('a,b' , a == b) // {} false
+console.log('c,d' , c == d) // {} true
 ```
+
+- 双等号（==）处理不同类型相同值时，返回true,例如（0,'0',0n,new String("0")）;
+- 双等号（==）认为 +0等于-0
+- 双等号（==）认为 NaN不等于NaN
+- 双等号（==）认为{}不等于{}
 
 # 三等号（===）
 
