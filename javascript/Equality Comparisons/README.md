@@ -96,7 +96,7 @@ console.log('c,d' , Object.is(c ,d)) // {} true
 ```
 
 - Object.is()处理不同类型相同值时，返回false,例如（0,'0',0n,new String("0")）;
-- Object.is()认为 +0等于-0
+- Object.is()认为 +0不等于-0
 - Object.is()认为 NaN等于NaN
 - Object.is()认为{}不等于{}
 
