@@ -37,6 +37,7 @@
   * - [x] [【跟着大佬学 JavaScript】之数据类型基础](https://github.com/yihan12/Blog/issues/24)
   * - [x] [【跟着大佬学 JavaScript】之 null 和 undefined 的区别](https://github.com/yihan12/Blog/issues/26)
   * - [x] [【跟着大佬学 JavaScript】之数据类型检测](https://github.com/yihan12/Blog/issues/29)
+  * - [x] 【跟着大佬学 JavaScript】之数据
 
 # 【ES6 学习笔记】
 
