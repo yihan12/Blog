@@ -181,7 +181,7 @@
 
 # 【Utils公共方法整理】
 - [x] **图片处理**
-- [x] [JavaScript图片格式转化]()
+  * - [x] [JavaScript图片格式转化](https://github.com/yihan12/Blog/issues/30)
 
 # 最后
 
