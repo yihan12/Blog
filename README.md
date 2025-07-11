@@ -180,8 +180,11 @@
 - [ ] flex布局
 
 # 【Utils公共方法整理】
-- [x] **图片处理**
+- [x] **图片相关**
   * - [x] [JavaScript图片格式转化](https://github.com/yihan12/Blog/issues/30)
+
+- [x] **视频相关**
+  * - [ ] 视频格式处理ffmpeg
 
 # 最后
 
