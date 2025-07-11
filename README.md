@@ -184,7 +184,7 @@
   * - [x] [JavaScript图片格式转化](https://github.com/yihan12/Blog/issues/30)
 
 - [x] **视频相关**
-  * - [x] [](https://github.com/yihan12/Blog/issues/31)
+  * - [x] [H5的Video在IOS上播放不了视频](https://github.com/yihan12/Blog/issues/31)
 
 # 最后
 
