@@ -1,25 +1,24 @@
 # Blog
 
-易函 123 博客  
-总结、归纳、笔记、跟着学、业务积累  
-初衷：学习和分享
+以下是优化后的博客介绍文案，更加简洁清晰，同时保留了原有的核心信息：
 
-> 吾生也有涯，而知也无涯
+**易函123 | 技术探索与成长笔记**
 
-对一些常见的bug，做了相关归纳[《Bug归纳》](https://github.com/yihan12/day-to-day)。  
-算法自我练习使用，仅供参考。记录了自己学习算法的点滴[《LeetCode训练》](https://github.com/yihan12/LeetCode-exercise)。  
-跟着大佬学系列的[《跟着大佬学 JavaScript》](https://github.com/yihan12/Blog/blob/main/README.md#%E8%B7%9F%E7%9D%80%E5%A4%A7%E4%BD%AC%E5%AD%A6-javascript)，ES6的学习笔记[《ES6 学习笔记》](https://github.com/yihan12/build-up_ES6)，[《浏览器相关》](https://github.com/yihan12/Blog/blob/main/README.md#%E6%B5%8F%E8%A7%88%E5%99%A8)TypeScript的学习笔记《TypeScript学习笔记》。  
-对于前端框架而已，不仅要知其用，还要了解整个框架的结果以及整体的逻辑《Vue2源码分析》。  
-对于前端而言，虽然不是人人都要拿NodeJS写一个服务器程序，但简单可至使用命令交互模式调试JS代码片段，复杂可至编写工具提升工作效率《Node.js学习笔记》
+**博客定位**  
+✍️ 知识沉淀 | 📚 系统学习 | 💡 经验分享  
+「以记录驱动思考，用输出倒逼成长」
 
-# 个人笔记
-* [《Bug归纳》](https://github.com/yihan12/day-to-day)
-* [《LeetCode训练》](https://github.com/yihan12/LeetCode-exercise)
-* [《ES6 学习笔记》](https://github.com/yihan12/build-up_ES6)
-* 《Node.js学习笔记》
-* 《Go学习笔记》
-* 《TypeScript学习笔记》
-* 《Vue2源码分析》
+**内容方向**  
+- 🐞[《Bug全收录》](https://github.com/yihan12/day-to-day)：高频问题解决方案库  
+- ⚙️[《LeetCode训练》](https://github.com/yihan12/LeetCode-exercise)：算法解题手记  
+- �[《JavaScript进阶之路》](https://github.com/yihan12/Blog/blob/main/README.md#%E8%B7%9F%E7%9D%80%E5%A4%A7%E4%BD%AC%E5%AD%A6-javascript)：JavaScript深度解析
+- ✍️[《ES6 学习笔记》](https://github.com/yihan12/build-up_ES6)：ES6新增用法介绍
+- 💡[《浏览器原理》](https://github.com/yihan12/Blog/blob/main/README.md#%E6%B5%8F%E8%A7%88%E5%99%A8)：浏览器原理专题
+- 🔍《框架深挖》：Vue2源码解析与实践  
+- 🛠️《Node.js工坊》：从CLI调试到效率工具开发  
+
+**核心理念**  
+"吾生也有涯，而知也无涯"——在有限的技术生涯中，构建可复用的知识体系  
 
 # 【跟着大佬学 JavaScript】
 
