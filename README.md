@@ -12,7 +12,7 @@
 - 🐞[《Bug全收录》](https://github.com/yihan12/day-to-day)：高频问题解决方案库  
 - ⚙️[《LeetCode训练》](https://github.com/yihan12/LeetCode-exercise)：算法解题手记  
 - � [《JavaScript进阶之路》](https://github.com/yihan12/Blog/blob/main/README.md#%E8%B7%9F%E7%9D%80%E5%A4%A7%E4%BD%AC%E5%AD%A6-javascript)：JavaScript深度解析
-- ✍️ [《ES6 学习笔记》](https://github.com/yihan12/build-up_ES6)：ES6新增用法介绍
+- ✍️[《ES6 学习笔记》](https://github.com/yihan12/build-up_ES6)：ES6新增用法介绍
 - 💡 [《浏览器原理》](https://github.com/yihan12/Blog/blob/main/README.md#%E6%B5%8F%E8%A7%88%E5%99%A8)：浏览器原理专题
 - 🔍《框架深挖》：Vue2源码解析与实践  
 - 🛠️《Node.js工坊》：从CLI调试到效率工具开发  
