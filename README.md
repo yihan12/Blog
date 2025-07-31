@@ -178,8 +178,8 @@
 # 【CSS】
 - [x] **flex布局**
       
-- [x] **boxShaow**
-      * - [x] [](https://github.com/yihan12/Blog/issues/37)
+- [x] **box-shadow**
+  * - [x] [深入理解CSS box-shadow：从外发光到内发光的艺术](https://github.com/yihan12/Blog/issues/37)
 
 # 【Utils公共方法整理】
 - [x] **图片相关**
