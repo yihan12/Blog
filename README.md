@@ -177,7 +177,8 @@
 
 # 【HTML】
 - [x] **Canvas**
-      * - [x] [五芒星绘制](https://github.com/yihan12/Blog/issues/38) 
+
+  * - [x] [五芒星绘制](https://github.com/yihan12/Blog/issues/38) 
 
 # 【CSS】
 - [x] **flex布局**
