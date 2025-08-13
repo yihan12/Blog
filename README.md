@@ -175,6 +175,10 @@
 - [ ] git fetch 和 git pull 的区别
 - [ ] git 简明指南
 
+# 【HTML】
+- [x] **Canvas**
+      * - [x] [五芒星绘制](https://github.com/yihan12/Blog/issues/38) 
+
 # 【CSS】
 - [x] **flex布局**
       
@@ -193,6 +197,7 @@
 - [x] **其他**
   * - [x] [判断并解析JSON字符串的完整解决方案](https://github.com/yihan12/Blog/issues/35)
   * - [x] [优化 uni-app 网络检测混入方案](https://github.com/yihan12/Blog/issues/36)
+
 
 # 最后
 
