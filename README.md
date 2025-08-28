@@ -198,7 +198,8 @@
   * - [x] [H5的Video在IOS上播放不了视频](https://github.com/yihan12/Blog/issues/31)
 
 - [x] **时间相关**
-  * - [x] [计算今日往前14年的时间戳](https://github.com/yihan12/Blog/issues/40) 
+  * - [x] [计算今日往前14年的时间戳](https://github.com/yihan12/Blog/issues/40)
+  * - [x] [js获取日期秒级时间戳](https://github.com/yihan12/Blog/issues/41) 
 
 - [x] **其他**
   * - [x] [判断并解析JSON字符串的完整解决方案](https://github.com/yihan12/Blog/issues/35)
