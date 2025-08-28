@@ -159,7 +159,7 @@
      
 # 【Uni-App】
 - [x] **修饰符**
- * - [x] [](https://github.com/yihan12/Blog/issues/42)
+ * - [x] [Uni-App 子组件阻止父组件事件冒泡的解决方案](https://github.com/yihan12/Blog/issues/42)
 
 # 【构建工具】
 
