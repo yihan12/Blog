@@ -156,6 +156,10 @@
 
 - [x] **简介**
   - [ ] TypeScript 是什么
+     
+# 【Uni-App】
+- [x] **修饰符**
+ * - [x] [](https://github.com/yihan12/Blog/issues/42)
 
 # 【构建工具】
 
