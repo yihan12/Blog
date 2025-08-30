@@ -160,6 +160,9 @@
 # 【Uni-App】
 - [x] **修饰符**
  * - [x] [Uni-App 子组件阻止父组件事件冒泡的解决方案](https://github.com/yihan12/Blog/issues/42)
+         
+- [x] **mainfest.json**
+ * - [x] [uni-app 中的AsyncError中组件具有获取router的能力吗](https://github.com/yihan12/Blog/issues/43) 
 
 # 【构建工具】
 
