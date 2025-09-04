@@ -213,6 +213,10 @@
   * - [x] [判断并解析JSON字符串的完整解决方案](https://github.com/yihan12/Blog/issues/35)
   * - [x] [优化 uni-app 网络检测混入方案](https://github.com/yihan12/Blog/issues/36)
   
+# 【其他】
+
+- [x] **Mac**
+ * - [x] [](https://github.com/yihan12/Blog/issues/47)
 
 
 # 最后
