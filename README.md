@@ -216,7 +216,7 @@
 # 【其他】
 
 - [x] **Mac**
- * - [x] [](https://github.com/yihan12/Blog/issues/47)
+ * - [x] [解决 Mac M 系列芯片 Vue 项目 node-sass 兼容问题的完整方案](https://github.com/yihan12/Blog/issues/47)
 
 
 # 最后
