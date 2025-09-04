@@ -215,8 +215,9 @@
   
 # 【其他】
 
-- [x] **Mac**
+- [x] **MacOS**
  * - [x] [解决 Mac M 系列芯片 Vue 项目 node-sass 兼容问题的完整方案](https://github.com/yihan12/Blog/issues/47)
+ * - [x] [2025年MacOS Homebrew国内镜像加速完整指南：解决安装慢、下载卡顿问题](https://github.com/yihan12/Blog/issues/48)
 
 
 # 最后
