@@ -181,7 +181,8 @@
 
 - [ ] git fetch 和 git pull 的区别
 - [ ] git 简明指南
-- [x] [Git本地合并撤回方法总结](https://github.com/yihan12/Blog/issues/44) 
+- [x] [Git本地合并撤回方法总结](https://github.com/yihan12/Blog/issues/44)
+- [x] [Git commit vi编辑器报错解决方法](https://github.com/yihan12/Blog/issues/49)
 
 # 【HTML】
 - [x] **Canvas**
