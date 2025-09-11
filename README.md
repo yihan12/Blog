@@ -221,7 +221,7 @@
  * - [x] [2025年MacOS Homebrew国内镜像加速完整指南：解决安装慢、下载卡顿问题](https://github.com/yihan12/Blog/issues/48)
 
 - [x] **Tinymce**
- * - [x] [](https://github.com/yihan12/Blog/issues/50)
+ * - [x] [TinyMCE富文本编辑器：菜单与工具栏配置实战指南](https://github.com/yihan12/Blog/issues/50)
 
 # 最后
 
